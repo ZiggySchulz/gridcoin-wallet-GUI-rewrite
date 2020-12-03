@@ -1,24 +1,26 @@
 import QtQuick 2.0
 
 MouseArea {
-    id: questionMarkMouseOver
-    property alias size: questionMarkImg.maxSize
+    id: helpHoverMouseArea
+    property alias iconSize: helpIcon.maxSize
     property alias text: popup.infoText
-    width: questionMarkImg.implicitWidth
-    height: questionMarkImg.implicitHeight
+    property alias imageSource: helpIcon.source
+    property alias popupWidth: popup.width
+    implicitWidth: helpIcon.implicitWidth
+    implicitHeight: helpIcon.implicitHeight
     hoverEnabled: true
 
     Svg {
-        id: questionMarkImg
+        id: helpIcon
         source: "Icons/Generic/ic_help.svg"
         maxSize: 15
     }
 
     InfoPopup {
         id: popup
-        visible: questionMarkMouseOver.containsMouse
-        y: questionMarkImg.height+ 5
-        x: -width/2
+        visible: helpHoverMouseArea.containsMouse
+        y: helpIcon.height + 5
+        x: -width/2+helpIcon.width/2
     }
 
 }

@@ -212,17 +212,19 @@ Rectangle {
 
             HelpHover{
                 id: questionMarkMouseOver
+                popupWidth: 300
                 text:
                     "
                         <html>
+                        <br>
                         <font color='#3A465D'><b>" + qsTr("Status") + ":</b></font> " +
                         qsTr("Current wallet status") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Projects")+ ":</b></font> " +
                         qsTr("Your current projects") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Est. RR/day")+ ":</b></font> " +
                         qsTr("Estimated research earnings per day") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Est. TTS")+ ":</b></font> " +
-                        qsTr("Estimated time to stake") + "<br><br>
+                        <font color='#3A465D'><b>" + qsTr("Est. Staking Frequency")+ ":</b></font> " +
+                        qsTr("Estimated frequency of staking") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Available") + ":</b></font> " +
                         qsTr("Balance available for spending") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Stake") + ":</b></font> " +
@@ -230,7 +232,7 @@ Rectangle {
                         <font color='#3A465D'><b>" + qsTr("Unconfirmed") + ":</b></font> " +
                         qsTr("Coins that have been received but not yet confirmed") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Total") + ":</b></font> " +
-                        qsTr("Your total coins") + "<br><br>
+                        qsTr("Your total coins") + "<br>
                         </html>
                     "
 
@@ -270,7 +272,7 @@ Rectangle {
             Text {
                 id: estTTSLabel
                 color: "#3A465D"
-                text: qsTr("Est. TTS")+":"
+                text: qsTr("Est. Staking Frequency")+":"
             }
         }
         Column {
@@ -445,9 +447,11 @@ Rectangle {
 
             HelpHover{
                 id: networkStateQuestionMarkMouseOver
+                popupWidth: 300
                 text:
                     "
                         <html>
+                        <br>
                         <font color='#3A465D'><b>" + qsTr("Blocks") + ":</b></font> " +
                         qsTr("The number of blocks your client currently has on the chain") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Difficulty")+ ":</b></font> " +
@@ -457,7 +461,7 @@ Rectangle {
                         <font color='#3A465D'><b>" + qsTr("Coin Weight")+ ":</b></font> " +
                         qsTr("Number of your coins which are actively trying to stake") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Magnitude") + ":</b></font> " +
-                        qsTr("Relative measure of your mining contributions") + "<br><br>
+                        qsTr("Relative measure of your mining contributions") + "<br>
                         </html>
                     "
 

@@ -43,4 +43,10 @@ ListModel {
         transactionTimestamp: "Tue 2013-09-17 07:56:06"
         transactionAccount: "SBPvphumk9BmzdLqCBy4b7U62tj39iynLo"
     }
+    ListElement {
+        transactionType: "beaconAdvertisement"
+        transactionAmount: -0.5
+        transactionTimestamp: "Tue 2013-09-17 02:56:06"
+        transactionAccount: "SBPvphumk9BmzdLqCBy4b7U62tj39iynLo"
+    }
 }

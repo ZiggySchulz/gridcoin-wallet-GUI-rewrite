@@ -5,8 +5,10 @@ import QtGraphicalEffects 1.15
 ToolTip {
     id: main
     delay: 200
-    width: 300
-    height: infoTextItem.implicitHeight
+    contentWidth: infoTextItem.implicitWidth
+    contentHeight: infoTextItem.implicitHeight
+    padding: 1
+
     property alias infoText: infoTextItem.text
     background: Item {
         id: background
@@ -46,13 +48,7 @@ ToolTip {
     contentItem:
         Text {
             id: infoTextItem
-            width: parent.width-20
             font.pointSize: 11
-            anchors {
-                top: parent.top
-                horizontalCenter: parent.horizontalCenter
-                topMargin: 10
-            }
             wrapMode: Text.WordWrap
             textFormat: Text.RichText
             color: "#5c5f65"

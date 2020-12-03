@@ -6,7 +6,7 @@ Item {
     property real amount: 2.0
     property date transactionDate: new Date()
     property string account
-    height: 40
+    height: 42  //Chosen to have a fit of 7 transactions on the page
     width: parent.width
     states: [
         State {
@@ -76,7 +76,12 @@ Item {
             name: "beaconAdvertisement"
             PropertyChanges {
                 target: transactionIcon
-                source: "Icons/Events/beacon.svg"
+                source: "Icons/Events/beacon_grey.svg"
+                //source: "Icons/Status Bar/Beacon/ic_beacon_online_light.svg" //Generic beacon icon, doesn't seem designed for large scale
+            }
+            PropertyChanges {
+                target: amountLabel
+                color: "#9ca2af"
             }
         },
         State {
@@ -105,6 +110,8 @@ Item {
     Svg {
         id: transactionIcon
         maxSize: 30
+        height: 30
+        width: 30
         source: "Icons/Events/ic_event_purple.svg"
         anchors {
             verticalCenter: parent.verticalCenter
@@ -133,7 +140,6 @@ Item {
                 text: amount.toLocaleString(Qt.locale(), 'f', 8)
                 clip: true
                 color: amount >= 0 ? "#2AC940" : "#ED5144"
-
                 anchors {
                     left: parent.left
                     right: dateLabel.left

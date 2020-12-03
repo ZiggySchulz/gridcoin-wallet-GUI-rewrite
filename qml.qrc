@@ -192,5 +192,6 @@
         <file>Circle.qml</file>
         <file>RecentTransactionItem.qml</file>
         <file>RecentTransactionModel.qml</file>
+        <file>Icons/Events/beacon_grey.svg</file>
     </qresource>
 </RCC>

@@ -7,6 +7,7 @@ ApplicationWindow {
     width: 750
     height: minimumHeight
     minimumHeight: 640
+    minimumWidth: 650
 
     visible: true
     title: qsTr("Gridcoin Wallet")

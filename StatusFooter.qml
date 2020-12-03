@@ -26,30 +26,35 @@ StatusBar {
             verticalCenter: parent.verticalCenter
         }
 
-        Svg {
+        HelpHover {
             id: lockIcon
-            source: "Icons/Status Bar/Lock/ic_unlocked_staking_light.svg"
-            maxSize: iconsRow.iconSize
+            imageSource: "Icons/Status Bar/Lock/ic_unlocked_staking_light.svg"
+            iconSize: iconsRow.iconSize
+            text: "The wallet is unlocked for staking"
         }
-        Svg {
+        HelpHover {
             id: connectionStrengthIcon
-            source: "Icons/Status Bar/Connection/ic_connection_normal_light.svg"
-            maxSize: iconsRow.iconSize
+            imageSource: "Icons/Status Bar/Connection/ic_connection_normal_light.svg"
+            iconSize: iconsRow.iconSize
+            text: "Connection is strong"
         }
-        Svg {
+        HelpHover {
             id: stakingIcon
-            source: "Icons/Status Bar/Staking/ic_staking_yes_light.svg"
-            maxSize: iconsRow.iconSize
+            imageSource: "Icons/Status Bar/Staking/ic_staking_yes_light.svg"
+            iconSize: iconsRow.iconSize
+            text: "Currently staking"
         }
-        Svg {
+        HelpHover {
             id: networkIcon
-            source: "Icons/Status Bar/Network/ic_syncing_uptodate.svg"
-            maxSize: iconsRow.iconSize
+            imageSource: "Icons/Status Bar/Network/ic_syncing_uptodate.svg"
+            iconSize: iconsRow.iconSize
+            text: "Network is connected"
         }
-        Svg {
+        HelpHover {
             id: beaconIcon
-            source: "Icons/Status Bar/Beacon/ic_beacon_online_light.svg"
-            maxSize: iconsRow.iconSize
+            imageSource: "Icons/Status Bar/Beacon/ic_beacon_online_light.svg"
+            iconSize: iconsRow.iconSize
+            text: "Beacon is lit"
         }
     }
 }
