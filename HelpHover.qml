@@ -12,7 +12,7 @@ MouseArea {
 
     Svg {
         id: helpIcon
-        source: "Icons/Generic/ic_help.svg"
+        source: "resources/Icons/Generic/ic_help.svg"
         maxSize: 15
     }
 
