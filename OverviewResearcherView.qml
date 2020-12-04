@@ -630,11 +630,8 @@ Rectangle {
             }
         }
 
-        ListView {
+        RecentPollPanel {
             id: recentPollList
-            clip: true
-            spacing: 5
-            interactive: false
             anchors {
                 top: latestPollTitle.bottom
                 left: parent.left
@@ -646,32 +643,6 @@ Rectangle {
                 bottomMargin: bottomBodyMargin
             }
 
-            model: PollModel{}
-            currentIndex: 0
-            preferredHighlightBegin: 0
-            highlightRangeMode: ListView.ApplyRange
-            delegate: Item {
-                id: pollWrapper
-                height: pollItemTitle.height
-                Circle {
-                    id: pollItemCircle
-                    radius: 2
-                    color: pollWrapper.ListView.isCurrentItem ? "#3A465D" : "transparent"
-                    border.color: pollWrapper.ListView.isCurrentItem ? "#3A465D" : "#5c5f65"
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                Text {
-                    id: pollItemTitle
-                    text: title
-                    color: pollWrapper.ListView.isCurrentItem ? "#3A465D" : "#8b8d91"
-                    font.weight: pollWrapper.ListView.isCurrentItem ? Font.Medium : Font.Normal
-                    font.pointSize: 12
-                    anchors.left: pollItemCircle.right
-                    anchors.verticalCenter: pollItemCircle.verticalCenter
-                    anchors.leftMargin: 4
-                }
-            }
         }
     }
 }

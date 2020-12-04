@@ -206,5 +206,6 @@
         <file>resources/Icons/Transaction Levels/ic_tran_lv4.svg</file>
         <file>resources/Icons/Transaction Levels/ic_tran_lv5.svg</file>
         <file>resources/Icons/Transaction Levels/ic_tran_lv6.svg</file>
+        <file>RecentPollPanel.qml</file>
     </qresource>
 </RCC>

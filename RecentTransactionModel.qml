@@ -4,7 +4,7 @@ ListModel {
     ListElement {
         transactionType: "incomingTransaction"
         transactionAmount: 17.0214
-        transactionTimestamp: "Tue 2013-09-17 10:56:06"
+        transactionTimestamp: "Tue 2013-09-17 15:56:06"
         transactionAccount: "Main Wallet"
     }
     ListElement {
