@@ -2,11 +2,17 @@
 #include <QQmlApplicationEngine>
 #include <QFont>
 #include <QClipboard>
+#include <QDir>
+#include <QFontDatabase>
+#include <iostream>
+#include <QDebug>
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+
     app.setFont(QFont("SF Pro Text"));
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -16,10 +22,12 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
+    //Load SF Pro Text
+    QDir dir{":/resources/fonts/SF Pro Text/"};
+    for (auto file : dir.entryList(QDir::Files))
+    {
+        QFontDatabase::addApplicationFont(":/resources/fonts/SF Pro Text/" + file);
+    }
     return app.exec();
 }
 
-void copyToClipboard(QString toCopy, QGuiApplication app){
-    QClipboard *clipboard = app.clipboard();
-    clipboard->setText(toCopy);
-}
