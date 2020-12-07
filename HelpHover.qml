@@ -6,6 +6,10 @@ MouseArea {
     property alias text: popup.infoText
     property alias imageSource: helpIcon.source
     property alias popupWidth: popup.width
+    property alias verticalPadding: popup.verticalPadding
+    property alias horiontalPadding: popup.horizontalPadding
+    property alias topPadding: popup.topPadding
+    property alias bottomPadding: popup.bottomPadding
     implicitWidth: helpIcon.implicitWidth
     implicitHeight: helpIcon.implicitHeight
     hoverEnabled: true

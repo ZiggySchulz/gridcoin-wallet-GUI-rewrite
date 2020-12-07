@@ -49,7 +49,7 @@ Rectangle {
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("Send")
-            onClicked: backgroundRect.menuButtonClicked("MenuButton.qml")
+            onClicked: backgroundRect.menuButtonClicked("SendView.qml")
             imagePath: "resources/Icons/Menu/ic_menu_send_white.svg"
         }
         MenuButton{

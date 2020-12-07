@@ -19,7 +19,7 @@ Rectangle {
             id: titleText
             text: qsTr("Account Overview")
             font.weight: Font.DemiBold
-            font.pointSize: 22
+            font.pixelSize: 22
             color: "#3A465D"
             anchors {
                 top: parent.top
@@ -91,7 +91,7 @@ Rectangle {
                 color: "#3A465D"
                 text: "8fbacfac0e9ed5531a31644db4d3d992"
                 clip: true
-                font.pointSize: 10
+                font.pixelSize: 10
                 font.weight: Font.Light
                 anchors {
                     left: cpidBorder.right
@@ -126,7 +126,7 @@ Rectangle {
                     id: balanceValue
                     text: bal.balValue.toLocaleString(Qt.locale(), 'f', 2)
                     color: Material.theme === Material.Light ? "#9013FE" : "white"
-                    font.pointSize: 18
+                    font.pixelSize: 18
                     font.weight: Font.Medium
                     horizontalAlignment: Text.AllignHCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -136,7 +136,7 @@ Rectangle {
                     text: qsTr("Your Balance")
                     color: "#3A465D"
                     horizontalAlignment: Text.AllignHCenter
-                    font.pointSize: 10
+                    font.pixelSize: 10
                     font.weight: Font.Light
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -156,7 +156,7 @@ Rectangle {
                     id: magValue
                     text: magnitude.mag.toLocaleString(Qt.locale(), 'f', 2)
                     color: "#9013FE"
-                    font.pointSize: 18
+                    font.pixelSize: 18
                     font.weight: Font.Medium
                     horizontalAlignment: Text.AllignHCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -166,7 +166,7 @@ Rectangle {
                     text: qsTr("Magnitude")
                     color: "#3A465D"
                     horizontalAlignment: Text.AllignHCenter
-                    font.pointSize: 10
+                    font.pixelSize: 10
                     font.weight: Font.Light
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -213,10 +213,11 @@ Rectangle {
             HelpHover{
                 id: questionMarkMouseOver
                 popupWidth: 300
+                verticalPadding: 20
+                horiontalPadding: sideBodyMargin
                 text:
                     "
                         <html>
-                        <br>
                         <font color='#3A465D'><b>" + qsTr("Status") + ":</b></font> " +
                         qsTr("Current wallet status") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Projects")+ ":</b></font> " +
@@ -232,7 +233,7 @@ Rectangle {
                         <font color='#3A465D'><b>" + qsTr("Unconfirmed") + ":</b></font> " +
                         qsTr("Coins that have been received but not yet confirmed") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Total") + ":</b></font> " +
-                        qsTr("Your total coins") + "<br>
+                        qsTr("Your total coins") + "
                         </html>
                     "
 
@@ -448,10 +449,11 @@ Rectangle {
             HelpHover{
                 id: networkStateQuestionMarkMouseOver
                 popupWidth: 300
+                verticalPadding: 20
+                horiontalPadding: sideBodyMargin
                 text:
                     "
                         <html>
-                        <br>
                         <font color='#3A465D'><b>" + qsTr("Blocks") + ":</b></font> " +
                         qsTr("The number of blocks your client currently has on the chain") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Difficulty")+ ":</b></font> " +
@@ -461,7 +463,7 @@ Rectangle {
                         <font color='#3A465D'><b>" + qsTr("Coin Weight")+ ":</b></font> " +
                         qsTr("Number of your coins which are actively trying to stake") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Magnitude") + ":</b></font> " +
-                        qsTr("Relative measure of your mining contributions") + "<br>
+                        qsTr("Relative measure of your mining contributions") + "
                         </html>
                     "
 
@@ -603,9 +605,8 @@ Rectangle {
             }
         }
     }
-    Rectangle {
+    RecentPollPanel {
         id: latestPollsPanel
-        color: "white"
         radius: panelRadius
         anchors {
             left: parent.left
@@ -617,32 +618,6 @@ Rectangle {
             bottomMargin: panelSpacing
             topMargin: panelSpacing
         }
-        PanelTitle {
-            id: latestPollTitle
-            text: "Latest Polls"
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-                topMargin: topBodyMargin
-                leftMargin: sideBodyMargin
-                rightMargin: sideBodyMargin
-            }
-        }
 
-        RecentPollPanel {
-            id: recentPollList
-            anchors {
-                top: latestPollTitle.bottom
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-                topMargin: topBodyMargin
-                leftMargin: sideBodyMargin
-                rightMargin: sideBodyMargin
-                bottomMargin: bottomBodyMargin
-            }
-
-        }
     }
 }

@@ -6,7 +6,7 @@ StatusBar {
         id: clientMessage
         text: qsTr("Client Message: Stake Weight 3982689")
         color: "#55585e"
-        font.pointSize: 11
+        font.pixelSize: 10
         clip: true
         anchors {
             left: parent.left

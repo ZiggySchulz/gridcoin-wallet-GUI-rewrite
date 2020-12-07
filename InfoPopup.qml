@@ -17,22 +17,22 @@ ToolTip {
             anchors.fill: backgroundRect
             horizontalOffset: 2
             verticalOffset: 2
-            radius: 3
+            radius: 5
             samples: 2*radius+1
             cached: true
             source: backgroundRect
-            color: "#22000000"
+            color: "#44000000"
         }
         DropShadow {
             id: leftShadow
             anchors.fill: backgroundRect
             horizontalOffset: -2
             verticalOffset: 2
-            radius: 3
+            radius: 5
             samples: 2*radius+1
             cached: true
             source: backgroundRect
-            color: "#22000000"
+            color: "#44000000"
         }
         Rectangle {
             id: backgroundRect
@@ -48,7 +48,7 @@ ToolTip {
     contentItem:
         Text {
             id: infoTextItem
-            font.pointSize: 11
+            font.pixelSize: 11
             wrapMode: Text.WordWrap
             textFormat: Text.RichText
             color: "#5c5f65"
