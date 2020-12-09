@@ -30,7 +30,7 @@ Rectangle {
 
             Svg {
                 id: gridcoinLogo
-                source: "resources/Icons/Logos/ic_logo_app_gradient_white.svg"
+                source: "resources/icons/logos/ic_logo_app_gradient_white.svg"
                 anchors.centerIn: parent
                 width: parent.width - 20
                 height: parent.height - 20
@@ -43,50 +43,50 @@ Rectangle {
             height: column.buttonHeight
             labelText: qsTr("Overview")
             onClicked: backgroundRect.menuButtonClicked("OverviewResearcherView.qml")
-            imagePath: "resources/Icons/Menu/ic_menu_overview_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_overview_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("Send")
             onClicked: backgroundRect.menuButtonClicked("SendView.qml")
-            imagePath: "resources/Icons/Menu/ic_menu_send_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_send_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("Receive")
-            imagePath: "resources/Icons/Menu/ic_menu_receive_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_receive_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("History")
-            imagePath: "resources/Icons/Menu/ic_menu_history_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_history_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("Favourites")
-            imagePath: "resources/Icons/Menu/ic_menu_favorites_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_favorites_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("Polls")
-            imagePath: "resources/Icons/Menu/ic_menu_polls_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_polls_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("News")
-            imagePath: "resources/Icons/Menu/ic_menu_news_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_news_white.svg"
         }
         MenuButton{
             width: parent.width
             height: column.buttonHeight
             labelText: qsTr("Settings")
-            imagePath: "resources/Icons/Menu/ic_menu_settings_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_settings_white.svg"
         }
         Control {
             topPadding: 10
@@ -105,7 +105,7 @@ Rectangle {
             width: parent.width
             height: column.buttonHeight + 18
             labelText: qsTr("Lock \nWallet")
-            imagePath: "resources/Icons/Menu/ic_menu_lock_white.svg"
+            imagePath: "resources/icons/menu/ic_menu_lock_white.svg"
         }
     }
     Item {
@@ -119,7 +119,7 @@ Rectangle {
     }
     Image {
         id: boinc
-        source: "resources/Icons/Logos/ic_logo_boinc_color.svg"
+        source: "resources/icons/logos/ic_logo_boinc_color.svg"
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: boincBottomPad.top

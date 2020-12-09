@@ -26,187 +26,199 @@
         <file>resources/fonts/SF Pro Text/SF-Pro-Text-RegularItalic.otf</file>
         <file>resources/fonts/SF Pro Text/SF-Pro-Text-Semibold.otf</file>
         <file>resources/fonts/SF Pro Text/SF-Pro-Text-SemiboldItalic.otf</file>
-        <file>resources/Icons/Buttons/ic_btn_add_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_add_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_archive_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_archive_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_attach_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_attach_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_clear_all_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_clear_all_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_create_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_create_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_detach_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_detach_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_details_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_details_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_discard_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_discard_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_enter_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_enter_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_load_more_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_load_more_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_log_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_log_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_open_menu_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_open_menu_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_paste_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_paste_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_qr_code_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_qr_code_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_refresh_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_refresh_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_remove_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_remove_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_save_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_save_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_save_qr_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_save_qr_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_save_to_file_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_save_to_file_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_send_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_send_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_show_key_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_show_key_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_sign_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_sign_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_unarchive_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_unarchive_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_unlock_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_unlock_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_update_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_update_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_verify_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_verify_light.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_vote_dark.svg</file>
-        <file>resources/Icons/Buttons/ic_btn_vote_light.svg</file>
-        <file>resources/Icons/Events/beacon_green.svg</file>
-        <file>resources/Icons/Events/beacon_grey.svg</file>
-        <file>resources/Icons/Events/ic_event_green.svg</file>
-        <file>resources/Icons/Events/ic_event_green_purple.svg</file>
-        <file>resources/Icons/Events/ic_event_green_red.svg</file>
-        <file>resources/Icons/Events/ic_event_purple.svg</file>
-        <file>resources/Icons/Events/ic_event_purple_white.svg</file>
-        <file>resources/Icons/Events/ic_event_red.svg</file>
-        <file>resources/Icons/Events/ic_event_yellow.svg</file>
-        <file>resources/Icons/Events/ic_event_yellow_purple.svg</file>
-        <file>resources/Icons/Generic/ic_add_dark.svg</file>
-        <file>resources/Icons/Generic/ic_add_light.svg</file>
-        <file>resources/Icons/Generic/ic_alert.svg</file>
-        <file>resources/Icons/Generic/ic_arrow_down_dark.svg</file>
-        <file>resources/Icons/Generic/ic_arrow_down_light.svg</file>
-        <file>resources/Icons/Generic/ic_arrow_up_dark.svg</file>
-        <file>resources/Icons/Generic/ic_arrow_up_light.svg</file>
-        <file>resources/Icons/Generic/ic_checkbox_tick.svg</file>
-        <file>resources/Icons/Generic/ic_chevron_down_dark.svg</file>
-        <file>resources/Icons/Generic/ic_chevron_down_light.svg</file>
-        <file>resources/Icons/Generic/ic_chevron_up_dark.svg</file>
-        <file>resources/Icons/Generic/ic_chevron_up_light.svg</file>
-        <file>resources/Icons/Generic/ic_close_dark.svg</file>
-        <file>resources/Icons/Generic/ic_close_light.svg</file>
-        <file>resources/Icons/Generic/ic_copy_dark.svg</file>
-        <file>resources/Icons/Generic/ic_copy_light.svg</file>
-        <file>resources/Icons/Generic/ic_date_dark.svg</file>
-        <file>resources/Icons/Generic/ic_date_light.svg</file>
-        <file>resources/Icons/Generic/ic_help.svg</file>
-        <file>resources/Icons/Generic/ic_info_dark.svg</file>
-        <file>resources/Icons/Generic/ic_info_light.svg</file>
-        <file>resources/Icons/Generic/ic_negative.svg</file>
-        <file>resources/Icons/Generic/ic_open_link.svg</file>
-        <file>resources/Icons/Generic/ic_positive.svg</file>
-        <file>resources/Icons/Generic/ic_remove_dark.svg</file>
-        <file>resources/Icons/Generic/ic_remove_light.svg</file>
-        <file>resources/Icons/Generic/ic_search_dark.svg</file>
-        <file>resources/Icons/Generic/ic_search_light.svg</file>
-        <file>resources/Icons/Logos/ic_logo_app_gradient_white.svg</file>
-        <file>resources/Icons/Logos/ic_logo_boinc_color.svg</file>
-        <file>resources/Icons/Menu/ic_menu_favorites_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_favorites_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_history_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_history_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_lock_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_lock_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_news_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_news_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_overview_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_overview_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_polls_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_polls_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_receive_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_receive_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_send_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_send_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_settings_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_settings_white.svg</file>
-        <file>resources/Icons/Menu/ic_menu_unlock_blue.svg</file>
-        <file>resources/Icons/Menu/ic_menu_unlock_white.svg</file>
-        <file>resources/Icons/Status Bar/Beacon/ic_beacon_offline_dark.svg</file>
-        <file>resources/Icons/Status Bar/Beacon/ic_beacon_offline_light.svg</file>
-        <file>resources/Icons/Status Bar/Beacon/ic_beacon_online_dark.svg</file>
-        <file>resources/Icons/Status Bar/Beacon/ic_beacon_online_light.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_average_dark.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_average_light.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_good_dark.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_good_light.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_na_dark.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_na_light.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_normal_dark.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_normal_light.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_poor_dark.svg</file>
-        <file>resources/Icons/Status Bar/Connection/ic_connection_poor_light.svg</file>
-        <file>resources/Icons/Status Bar/Lock/ic_locked_dark.svg</file>
-        <file>resources/Icons/Status Bar/Lock/ic_locked_light.svg</file>
-        <file>resources/Icons/Status Bar/Lock/ic_unlocked.svg</file>
-        <file>resources/Icons/Status Bar/Lock/ic_unlocked_staking_dark.svg</file>
-        <file>resources/Icons/Status Bar/Lock/ic_unlocked_staking_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_25_dark.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_25_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_50_dark.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_50_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_75_dark.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_75_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_90_dark.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_90_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_stuck_dark.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_stuck_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_unsynced_dark.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_unsynced_light.svg</file>
-        <file>resources/Icons/Status Bar/Network/ic_syncing_uptodate.svg</file>
-        <file>resources/Icons/Status Bar/Staking/ic_staking_no_dark.svg</file>
-        <file>resources/Icons/Status Bar/Staking/ic_staking_no_light.svg</file>
-        <file>resources/Icons/Status Bar/Staking/ic_staking_yes_dark.svg</file>
-        <file>resources/Icons/Status Bar/Staking/ic_staking_yes_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_about_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_about_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_beacon_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_beacon_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_cmd_line_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_cmd_line_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_console_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_console_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_display_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_display_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_general_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_general_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_info_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_info_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_more_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_more_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_net_traffic_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_net_traffic_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_network_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_network_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_nodes_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_nodes_light.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_window_dark.svg</file>
-        <file>resources/Icons/Tabs/ic_tab_window_light.svg</file>
-        <file>resources/Icons/Transaction Levels/ic_tran_lv1.svg</file>
-        <file>resources/Icons/Transaction Levels/ic_tran_lv2.svg</file>
-        <file>resources/Icons/Transaction Levels/ic_tran_lv3.svg</file>
-        <file>resources/Icons/Transaction Levels/ic_tran_lv4.svg</file>
-        <file>resources/Icons/Transaction Levels/ic_tran_lv5.svg</file>
-        <file>resources/Icons/Transaction Levels/ic_tran_lv6.svg</file>
         <file>RecentPollPanel.qml</file>
+        <file>MMPControls/CheckBox.qml</file>
+        <file>MMPControls/ComboBox.qml</file>
+        <file>MMPControls/GroupBox.qml</file>
+        <file>MMPControls/RadioButton.qml</file>
+        <file>MMPControls/SpinBox.qml</file>
+        <file>MMPControls/TextArea.qml</file>
+        <file>MMPControls/TextField.qml</file>
+        <file>plugins/MMPTheme/MMPTheme.qml</file>
+        <file>plugins/MMPTheme/MMPTheme.qmltypes</file>
+        <file>plugins/MMPTheme/qmldir</file>
+        <file>resources/icons/buttons/ic_btn_add_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_add_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_archive_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_archive_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_attach_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_attach_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_clear_all_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_clear_all_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_create_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_create_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_detach_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_detach_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_details_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_details_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_discard_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_discard_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_enter_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_enter_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_load_more_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_load_more_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_log_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_log_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_open_menu_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_open_menu_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_paste_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_paste_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_qr_code_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_qr_code_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_refresh_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_refresh_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_remove_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_remove_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_save_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_save_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_save_qr_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_save_qr_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_save_to_file_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_save_to_file_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_send_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_send_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_show_key_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_show_key_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_sign_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_sign_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_unarchive_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_unarchive_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_unlock_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_unlock_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_update_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_update_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_verify_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_verify_light.svg</file>
+        <file>resources/icons/buttons/ic_btn_vote_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_vote_light.svg</file>
+        <file>resources/icons/events/beacon_green.svg</file>
+        <file>resources/icons/events/beacon_grey.svg</file>
+        <file>resources/icons/events/ic_event_green.svg</file>
+        <file>resources/icons/events/ic_event_green_purple.svg</file>
+        <file>resources/icons/events/ic_event_green_red.svg</file>
+        <file>resources/icons/events/ic_event_purple.svg</file>
+        <file>resources/icons/events/ic_event_purple_white.svg</file>
+        <file>resources/icons/events/ic_event_red.svg</file>
+        <file>resources/icons/events/ic_event_yellow.svg</file>
+        <file>resources/icons/events/ic_event_yellow_purple.svg</file>
+        <file>resources/icons/generic/ic_add_dark.svg</file>
+        <file>resources/icons/generic/ic_add_light.svg</file>
+        <file>resources/icons/generic/ic_alert.svg</file>
+        <file>resources/icons/generic/ic_arrow_down_dark.svg</file>
+        <file>resources/icons/generic/ic_arrow_down_light.svg</file>
+        <file>resources/icons/generic/ic_arrow_up_dark.svg</file>
+        <file>resources/icons/generic/ic_arrow_up_light.svg</file>
+        <file>resources/icons/generic/ic_checkbox_tick.svg</file>
+        <file>resources/icons/generic/ic_chevron_down_dark.svg</file>
+        <file>resources/icons/generic/ic_chevron_down_light.svg</file>
+        <file>resources/icons/generic/ic_chevron_up_dark.svg</file>
+        <file>resources/icons/generic/ic_chevron_up_light.svg</file>
+        <file>resources/icons/generic/ic_close_dark.svg</file>
+        <file>resources/icons/generic/ic_close_light.svg</file>
+        <file>resources/icons/generic/ic_copy_dark.svg</file>
+        <file>resources/icons/generic/ic_copy_light.svg</file>
+        <file>resources/icons/generic/ic_date_dark.svg</file>
+        <file>resources/icons/generic/ic_date_light.svg</file>
+        <file>resources/icons/generic/ic_help.svg</file>
+        <file>resources/icons/generic/ic_info_dark.svg</file>
+        <file>resources/icons/generic/ic_info_light.svg</file>
+        <file>resources/icons/generic/ic_negative.svg</file>
+        <file>resources/icons/generic/ic_open_link.svg</file>
+        <file>resources/icons/generic/ic_positive.svg</file>
+        <file>resources/icons/generic/ic_remove_dark.svg</file>
+        <file>resources/icons/generic/ic_remove_light.svg</file>
+        <file>resources/icons/generic/ic_search_dark.svg</file>
+        <file>resources/icons/generic/ic_search_light.svg</file>
+        <file>resources/icons/logos/ic_logo_app_gradient_white.svg</file>
+        <file>resources/icons/logos/ic_logo_boinc_color.svg</file>
+        <file>resources/icons/menu/ic_menu_favorites_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_favorites_white.svg</file>
+        <file>resources/icons/menu/ic_menu_history_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_history_white.svg</file>
+        <file>resources/icons/menu/ic_menu_lock_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_lock_white.svg</file>
+        <file>resources/icons/menu/ic_menu_news_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_news_white.svg</file>
+        <file>resources/icons/menu/ic_menu_overview_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_overview_white.svg</file>
+        <file>resources/icons/menu/ic_menu_polls_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_polls_white.svg</file>
+        <file>resources/icons/menu/ic_menu_receive_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_receive_white.svg</file>
+        <file>resources/icons/menu/ic_menu_send_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_send_white.svg</file>
+        <file>resources/icons/menu/ic_menu_settings_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_settings_white.svg</file>
+        <file>resources/icons/menu/ic_menu_unlock_blue.svg</file>
+        <file>resources/icons/menu/ic_menu_unlock_white.svg</file>
+        <file>resources/icons/tabs/ic_tab_about_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_about_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_beacon_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_beacon_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_cmd_line_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_cmd_line_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_console_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_console_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_display_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_display_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_general_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_general_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_info_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_info_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_more_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_more_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_net_traffic_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_net_traffic_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_network_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_network_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_nodes_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_nodes_light.svg</file>
+        <file>resources/icons/tabs/ic_tab_window_dark.svg</file>
+        <file>resources/icons/tabs/ic_tab_window_light.svg</file>
+        <file>resources/icons/transactionlevels/ic_tran_lv1.svg</file>
+        <file>resources/icons/transactionlevels/ic_tran_lv2.svg</file>
+        <file>resources/icons/transactionlevels/ic_tran_lv3.svg</file>
+        <file>resources/icons/transactionlevels/ic_tran_lv4.svg</file>
+        <file>resources/icons/transactionlevels/ic_tran_lv5.svg</file>
+        <file>resources/icons/transactionlevels/ic_tran_lv6.svg</file>
+        <file>MMPControls/Button.qml</file>
+        <file>MMPControls/SendView.qml</file>
         <file>SendView.qml</file>
+        <file>resources/icons/statusbar/beacon/ic_beacon_offline_dark.svg</file>
+        <file>resources/icons/statusbar/beacon/ic_beacon_offline_light.svg</file>
+        <file>resources/icons/statusbar/beacon/ic_beacon_online_dark.svg</file>
+        <file>resources/icons/statusbar/beacon/ic_beacon_online_light.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_average_dark.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_average_light.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_good_dark.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_good_light.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_na_dark.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_na_light.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_normal_dark.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_normal_light.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_poor_dark.svg</file>
+        <file>resources/icons/statusbar/connection/ic_connection_poor_light.svg</file>
+        <file>resources/icons/statusbar/lock/ic_locked_dark.svg</file>
+        <file>resources/icons/statusbar/lock/ic_locked_light.svg</file>
+        <file>resources/icons/statusbar/lock/ic_unlocked.svg</file>
+        <file>resources/icons/statusbar/lock/ic_unlocked_staking_dark.svg</file>
+        <file>resources/icons/statusbar/lock/ic_unlocked_staking_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_25_dark.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_25_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_50_dark.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_50_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_75_dark.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_75_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_90_dark.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_90_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_stuck_dark.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_stuck_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_unsynced_dark.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_unsynced_light.svg</file>
+        <file>resources/icons/statusbar/network/ic_syncing_uptodate.svg</file>
+        <file>resources/icons/statusbar/staking/ic_staking_no_dark.svg</file>
+        <file>resources/icons/statusbar/staking/ic_staking_no_light.svg</file>
+        <file>resources/icons/statusbar/staking/ic_staking_yes_dark.svg</file>
+        <file>resources/icons/statusbar/staking/ic_staking_yes_light.svg</file>
     </qresource>
 </RCC>

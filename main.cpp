@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     app.setFont(QFont("SF Pro Text"));
 
     QQmlApplicationEngine engine;
+    engine.addImportPath(":/plugins/");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

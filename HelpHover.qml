@@ -1,5 +1,5 @@
 import QtQuick 2.0
-
+import MMPTheme 1.0
 MouseArea {
     id: helpHoverMouseArea
     property alias iconSize: helpIcon.maxSize
@@ -16,7 +16,7 @@ MouseArea {
 
     Svg {
         id: helpIcon
-        source: "resources/Icons/Generic/ic_help.svg"
+        source: "resources/icons/generic/ic_help.svg"
         maxSize: 15
     }
 

@@ -13,70 +13,70 @@ Item {
             name: "incomingTransaction"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_green.svg"
+                source: "resources/icons/events/ic_event_green.svg"
             }
         },
         State {
             name: "sentTransaction"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_red.svg"
+                source: "resources/icons/events/ic_event_red.svg"
             }
         },
         State {
             name: "proofOfResearch"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_purple.svg"
+                source: "resources/icons/events/ic_event_purple.svg"
             }
         },
         State {
             name: "proofOfResearchSideStakeReceive"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_purple.svg"
+                source: "resources/icons/events/ic_event_purple.svg"
             }
         },
         State {
             name: "proofOfResearchSideStakeSend"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_red.svg"
+                source: "resources/icons/events/ic_event_red.svg"
             }
         },
         State {
             name: "proofOfStake"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_yellow.svg"
+                source: "resources/icons/events/ic_event_yellow.svg"
             }
         },
         State {
             name: "proofOfStakeSideStakeReceive"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_yellow_purple.svg"
+                source: "resources/icons/events/ic_event_yellow_purple.svg"
             }
         },
         State {
             name: "orphaned"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Generic/ic_negative.svg"
+                source: "resources/icons/generic/ic_negative.svg"
             }
         },
         State {
             name: "superblock"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/superblock.svg"
+                source: "resources/icons/events/superblock.svg"
             }
         },
         State {
             name: "beaconAdvertisement"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/beacon_grey.svg"
+                source: "resources/icons/events/beacon_grey.svg"
                 //source: "resources/Icons/Status Bar/Beacon/ic_beacon_online_light.svg" //Generic beacon icon, doesn't seem designed for large scale
             }
             PropertyChanges {
@@ -88,21 +88,21 @@ Item {
             name: "vote"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/voting.svg"
+                source: "resources/icons/events/voting.svg"
             }
         },
         State {
             name: "message"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/message.svg"
+                source: "resources/icons/events/message.svg"
             }
         },
         State {
             name: "inOut"
             PropertyChanges {
                 target: transactionIcon
-                source: "resources/Icons/Events/ic_event_green_red.svg"
+                source: "resources/icons/events/ic_event_green_red.svg"
             }
         }
     ]
@@ -112,7 +112,7 @@ Item {
         maxSize: 30
         height: 30
         width: 30
-        source: "resources/Icons/Events/ic_event_purple.svg"
+        source: "resources/icons/events/ic_event_purple.svg"
         anchors {
             verticalCenter: parent.verticalCenter
             left: parent.left

@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.15
 import QtQuick.Shapes 1.15
 import QtGraphicalEffects 1.15
+import MMPTheme 1.0
 ToolTip {
     id: main
     delay: 200

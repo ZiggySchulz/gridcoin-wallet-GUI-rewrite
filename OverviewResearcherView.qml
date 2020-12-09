@@ -1,8 +1,8 @@
 import QtQuick 2.0
-import QtCharts 2.15
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import MMPTheme 1.0
 Rectangle {
     id: main
     color: "#EAEDED"
@@ -125,7 +125,7 @@ Rectangle {
                 Text {
                     id: balanceValue
                     text: bal.balValue.toLocaleString(Qt.locale(), 'f', 2)
-                    color: Material.theme === Material.Light ? "#9013FE" : "white"
+                    color: MMPTheme.themeSelect("#9013FE", "white")
                     font.pixelSize: 18
                     font.weight: Font.Medium
                     horizontalAlignment: Text.AllignHCenter
@@ -258,6 +258,7 @@ Rectangle {
             Text {
                 id: statusLabel
                 color: "#3A465D"
+                font.pixelSize: 12
                 text: qsTr("Status")+":"
             }
             Text {

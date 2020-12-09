@@ -7,16 +7,9 @@ CONFIG += sdk_no_version_check #Temporary for testing
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-HEADERS += \
-#        mmpthemeplugin.h \
-#        mmptheme.h \
-#        mmpthemeattachedtype.h
 
 SOURCES += \
-        main.cpp \
-#        mmpthemeplugin.cpp \
-#        mmptheme.cpp \
-#        mmpthemeattachedtype.cpp
+        main.cpp
 
 RESOURCES += \
     qml.qrc
@@ -25,10 +18,10 @@ TRANSLATIONS += \
     GridcoinWalletGUI_en_AU.ts
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+QML_IMPORT_PATH = $$PWD/plugins/
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
+QML_DESIGNER_IMPORT_PATH = $$PWD/
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

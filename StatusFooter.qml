@@ -28,31 +28,31 @@ StatusBar {
 
         HelpHover {
             id: lockIcon
-            imageSource: "resources/Icons/Status Bar/Lock/ic_unlocked_staking_light.svg"
+            imageSource: "resources/icons/statusbar/lock/ic_unlocked_staking_light.svg"
             iconSize: iconsRow.iconSize
             text: "The wallet is unlocked for staking"
         }
         HelpHover {
             id: connectionStrengthIcon
-            imageSource: "resources/Icons/Status Bar/Connection/ic_connection_normal_light.svg"
+            imageSource: "resources/icons/statusbar/connection/ic_connection_normal_light.svg"
             iconSize: iconsRow.iconSize
             text: "Connection is strong"
         }
         HelpHover {
             id: stakingIcon
-            imageSource: "resources/Icons/Status Bar/Staking/ic_staking_yes_light.svg"
+            imageSource: "resources/icons/statusbar/staking/ic_staking_yes_light.svg"
             iconSize: iconsRow.iconSize
             text: "Currently staking"
         }
         HelpHover {
             id: networkIcon
-            imageSource: "resources/Icons/Status Bar/Network/ic_syncing_uptodate.svg"
+            imageSource: "resources/icons/statusbar/network/ic_syncing_uptodate.svg"
             iconSize: iconsRow.iconSize
             text: "Network is connected"
         }
         HelpHover {
             id: beaconIcon
-            imageSource: "resources/Icons/Status Bar/Beacon/ic_beacon_online_light.svg"
+            imageSource: "resources/icons/statusbar/beacon/ic_beacon_online_light.svg"
             iconSize: iconsRow.iconSize
             text: "Beacon is lit"
         }
