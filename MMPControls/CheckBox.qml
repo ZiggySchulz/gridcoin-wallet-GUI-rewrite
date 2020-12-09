@@ -18,7 +18,6 @@ T.CheckBox {
 
     property bool active: visualFocus || hovered
 
-    // keep in sync with CheckDelegate.qml (shared CheckIndicator.qml was removed for performance reasons)
     indicator: Rectangle {
         implicitWidth: 16
         implicitHeight: 16
@@ -26,10 +25,16 @@ T.CheckBox {
         x: control.text ? (control.mirrored ? control.width - width - control.rightPadding : control.leftPadding) : control.leftPadding + (control.availableWidth - width) / 2
         y: control.topPadding + (control.availableHeight - height) / 2
 
-        color: control.checked ? MMPTheme.themeSelect(MMPTheme.translucent(MMPTheme.cBluePurple, 0.7), MMPTheme.cHavelockBlue) : "magenta"
+        color: MMPTheme.themeSelect(MMPTheme.translucent(MMPTheme.cBluePurple, 0.7), MMPTheme.cHavelockBlue)
 
         border.width: 1
-        border.color: MMPTheme.translucent(control.checked ? MMPTheme.themeSelect(MMPTheme.cViolentViolet,MMPTheme.cOxfordBlue) : MMPTheme.cOxfordBlue, control.active ? 0.7 : 0.3)//MMPTheme.combine(MMPTheme.translucent(MMPTheme.cOxfordBlue, control.active ? 0.7 : 0.3), control.checked ? MMPTheme.sw(MMPTheme.cBluePurple, MMPTheme.cHavelockBlue) : MMPTheme.cWhite)
+        border.color: MMPTheme.translucent(
+                          control.checked ? MMPTheme.themeSelect(MMPTheme.cBluePurple, MMPTheme.cOxfordBlue): MMPTheme.cOxfordBlue,
+                          //control.active ? MMPTheme.themeSelect(0.7 , 1.0) : control.checked ? 0.7 : 0.3)
+                          control.checked ? control.active ? 1.0 : 0.8 : control.active ? 0.7 : 0.3)
+                                           /*MMPTheme.translucent(
+                          control.checked ? MMPTheme.themeSelect("green" , MMPTheme.cOxfordBlue) : MMPTheme.cOxfordBlue,
+                          control.active ? MMPTheme.themeSelect(0.7 , 1.0) : 0.3)*/
         radius: 4
 
         Image {
@@ -38,12 +43,6 @@ T.CheckBox {
             source: "qrc:/resources/icons/generic/ic_checkbox_tick.svg"
             visible: control.checked
             sourceSize: Qt.size(15, 15)
-            Image {
-                id: hiddenImg
-                source: parent.source
-                width: 0
-                height: 0
-            }
         }
 
         property Gradient backgroundGradient: Gradient {
