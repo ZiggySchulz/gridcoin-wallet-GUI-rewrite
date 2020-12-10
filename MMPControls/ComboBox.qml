@@ -115,7 +115,6 @@ T.ComboBox {
     popup: T.Popup {
         y: control.height + 1
         width: control.width
-//        //height: Math.min(contentItem.implicitHeight, control.Window.height - topMargin - bottomMargin)
         implicitHeight: contentItem.implicitHeight
         topMargin: 6
         bottomMargin: 6
@@ -123,25 +122,13 @@ T.ComboBox {
         contentItem: ListView {
             clip: true
             implicitHeight: contentHeight
-            //model: control.model
             model: control.delegateModel
             currentIndex: control.highlightedIndex
             highlightMoveDuration: 0
-            delegate: Item {
-                height: 24
-                Text {
-                    text: name
-                    color: MMPTheme.textColor
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        left: parent.left
-                        leftMargin: 5
-                    }
-                }
-            }
+
         }
 
-           // T.ScrollIndicator.vertical: ScrollIndicator { }
+        //T.ScrollIndicator.vertical: ScrollIndicator { }
 
 
 
