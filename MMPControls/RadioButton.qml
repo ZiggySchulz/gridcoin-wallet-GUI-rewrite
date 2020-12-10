@@ -29,7 +29,7 @@ T.RadioButton {
         radius: width / 2
         border.width: 1
         // TODO Opacity should be 1 when checked in dark mode
-        border.color: MMPTheme.translucent(control.checked ? MMPTheme.themeSelect(MMPTheme.cBluePurple, MMPTheme.cHavelockBlue) : MMPTheme.cOxfordBlue, control.checked || control.active ? 0.7 : 0.3)
+        border.color: MMPTheme.translucent(control.checked ? MMPTheme.themeSelect(MMPTheme.cBluePurple, MMPTheme.cHavelockBlue) : MMPTheme.cOxfordBlue, control.checked || control.active ? MMPTheme.themeSelect(0.7, 1) : 0.3)
 
         gradient: Gradient {
               orientation: Gradient.Vertical

@@ -39,7 +39,9 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.impl 2.12
 import QtQuick.Templates 2.12 as T
+import QtGraphicalEffects 1.0
 import MMPTheme 1.0
+
 
 T.ComboBox {
     id: control
@@ -56,11 +58,24 @@ T.ComboBox {
     delegate: ItemDelegate {
         width: parent.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
-        palette.text: control.palette.text
-        palette.highlightedText: control.palette.highlightedText
-        font.weight: control.currentIndex === index ? Font.DemiBold : Font.Normal
+        height: 24
+        font.pixelSize: MMPTheme.font.pixelSize
+        font.weight: control.currentIndex === index ? Font.Medium : Font.Normal
         highlighted: control.highlightedIndex === index
         hoverEnabled: control.hoverEnabled
+        contentItem: Text {
+            y: (parent.height-height)/2
+            text: parent.text
+            color: MMPTheme.textColor
+            verticalAlignment: Text.AlignVCenter
+
+        }
+        background: Rectangle {
+            x: 1
+            width: parent.width-2
+            radius: 4
+            color: highlighted ? MMPTheme.translucent(MMPTheme.cOxfordBlue, 0.3) : "transparent"
+        }
     }
 
     indicator: Image {
@@ -68,6 +83,7 @@ T.ComboBox {
         y: parent.height / 2 - height / 2
         source: MMPTheme.themeSelect("qrc:/resources/icons/generic/ic_chevron_down_light.svg", "qrc:/resources/icons/generic/ic_chevron_down_dark.svg")
         opacity: !control.enabled ? 0.3 : (control.activeFocus ? 1 : 0.7)
+        sourceSize: Qt.size(15, 15)
     }
 
     contentItem: T.TextField {
@@ -97,32 +113,43 @@ T.ComboBox {
     }
 
     popup: T.Popup {
-        y: control.height
+        y: control.height + 1
         width: control.width
-        height: Math.min(contentItem.implicitHeight, control.Window.height - topMargin - bottomMargin)
+//        //height: Math.min(contentItem.implicitHeight, control.Window.height - topMargin - bottomMargin)
+        implicitHeight: contentItem.implicitHeight
         topMargin: 6
         bottomMargin: 6
 
         contentItem: ListView {
             clip: true
             implicitHeight: contentHeight
+            //model: control.model
             model: control.delegateModel
             currentIndex: control.highlightedIndex
             highlightMoveDuration: 0
-
-            Rectangle {
-                z: 10
-                width: parent.width
-                height: parent.height
-                color: "transparent"
-                border.color: control.palette.mid
+            delegate: Item {
+                height: 24
+                Text {
+                    text: name
+                    color: MMPTheme.textColor
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        left: parent.left
+                        leftMargin: 5
+                    }
+                }
             }
-
-            T.ScrollIndicator.vertical: ScrollIndicator { }
         }
 
+           // T.ScrollIndicator.vertical: ScrollIndicator { }
+
+
+
         background: Rectangle {
-            color: control.palette.window
+            color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cOxfordOffBlue)
+            radius: 4
+            border.color: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cOxfordBlue, MMPTheme.cWhite), 0.7)
+            border.width: 1
         }
     }
 }

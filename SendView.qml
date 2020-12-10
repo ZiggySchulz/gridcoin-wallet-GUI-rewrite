@@ -103,13 +103,27 @@ ScrollView {
         GroupBox {
             width: scrollView.width - 2*parent.padding
             title: qsTr("ComboBox")
+            ListModel {
+                id: comboModel
+                ListElement {
+                    name: "Focused"
+                }
+                ListElement {
+                    name: "Default"
+                }
+                ListElement
+                {
+                    name: "TEst"
+                }
+            }
+
             Column {
                 spacing: 5
                 padding: 5
                 anchors.fill: parent
 
                 ComboBox {
-                    model: [qsTr("Focused"), qsTr("Default")]
+                    model: comboModel
                 }
 
                 ComboBox {
@@ -129,6 +143,7 @@ ScrollView {
 
                 SpinBox {
                     value: 50
+                    editable: true
                 }
 
                 SpinBox {

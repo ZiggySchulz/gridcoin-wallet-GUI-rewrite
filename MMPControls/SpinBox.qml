@@ -38,6 +38,7 @@ T.SpinBox {
             y: parent.height / 2 - height / 2
             source: MMPTheme.themeSelect("qrc:/resources/icons/generic/ic_chevron_up_light.svg", "qrc:/resources/icons/generic/ic_chevron_up_dark.svg")
             opacity: !control.enabled ? 0.3 : (control.activeFocus ? 1 : 0.7)
+            sourceSize: Qt.size(10,10)
         }
     }
 
@@ -54,6 +55,7 @@ T.SpinBox {
             y: parent.height / 2 - height / 2
             source: MMPTheme.themeSelect("qrc:/resources/icons/generic/ic_chevron_down_light.svg", "qrc:/resources/icons/generic/ic_chevron_down_dark.svg")
             opacity: !control.enabled ? 0.3 : (control.activeFocus ? 1 : 0.7)
+            sourceSize: Qt.size(10,10)
         }
     }
 

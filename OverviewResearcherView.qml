@@ -604,6 +604,13 @@ Rectangle {
                 account: transactionAccount
                 transactionDate: Date.fromLocaleString(Qt.locale(),  transactionTimestamp, "ddd yyyy-MM-dd hh:mm:ss")
             }
+            ScrollIndicator.vertical: ScrollIndicator {
+                anchors {
+                    right: parent.right
+                    rightMargin: -10
+                }
+            }
+
         }
     }
     RecentPollPanel {

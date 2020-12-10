@@ -38,8 +38,8 @@ Rectangle {
         model: PollModel{}
         delegate: Item {
             id: pollWrapper
-            height: pollItemTitle.height
             property bool current: new Date(expires*1000) > new Date()
+            height: pollItemTitle.height
             Circle {
                 id: pollItemCircle
                 radius: 2
