@@ -1,9 +1,9 @@
 import QtQuick 2.0
-
+import MMPTheme 1.0
 Rectangle {
     id: latestPollsPanel
     property int sideBodyMargin: 20
-    color: "white"
+    color: MMPTheme.bodyColor
     radius: 4
 
     PanelTitle {
@@ -38,20 +38,20 @@ Rectangle {
         model: PollModel{}
         delegate: Item {
             id: pollWrapper
-            property bool current: new Date(expires*1000) > new Date()
+            property bool current: new Date(expires*1000) > MMPTheme.currentTime
             height: pollItemTitle.height
             Circle {
                 id: pollItemCircle
                 radius: 2
-                color: current ? "#3A465D" : "transparent"
-                border.color: current ? "#3A465D" : "#5c5f65"
+                color: current ? MMPTheme.textColor : "transparent"
+                border.color: current ? MMPTheme.textColor : MMPTheme.lightTextColor
                 anchors.verticalCenter: parent.verticalCenter
             }
 
             Text {
                 id: pollItemTitle
                 text: title
-                color: current ? "#3A465D" : "#8b8d91"
+                color: pollItemCircle.border.color
                 font.weight: current ? Font.Medium : Font.Normal
                 font.pointSize: 12
                 anchors.left: pollItemCircle.right

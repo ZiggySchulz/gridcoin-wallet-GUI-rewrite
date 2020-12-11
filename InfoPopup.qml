@@ -37,9 +37,9 @@ ToolTip {
         }
         Rectangle {
             id: backgroundRect
-            color: "#FBFBFB"
+            color: MMPTheme.bodyColor
             radius: 4
-            border.color: "#BFBFBF"
+            border.color: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cLilyWhite,MMPTheme.cOxfordOffBlue), 1)
             border.width: 1
             anchors.fill: parent
         }
@@ -52,7 +52,7 @@ ToolTip {
             font.pixelSize: 11
             wrapMode: Text.WordWrap
             textFormat: Text.RichText
-            color: "#5c5f65"
+            color: MMPTheme.lightTextColor
 
         }
 }

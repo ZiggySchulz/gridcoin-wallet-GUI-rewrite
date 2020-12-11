@@ -5,22 +5,33 @@ import QtQuick.Controls.Material 2.15
 import MMPTheme 1.0
 Rectangle {
     id: main
-    color: "#EAEDED"
+    color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cSpaceBlack)
     Rectangle {
         id: header
-        color: "white"
+        color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cSpaceBlack)
         height: 70
         anchors {
             left: parent.left
             right: parent.right
             top: parent.top
         }
+        Rectangle {
+            id: bottomBorder
+            height: 1
+            color: MMPTheme.themeSelect("transparent", MMPTheme.cBlack)
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+        }
+
         Text {
             id: titleText
             text: qsTr("Account Overview")
             font.weight: Font.DemiBold
             font.pixelSize: 22
-            color: "#3A465D"
+            color: MMPTheme.textColor
             anchors {
                 top: parent.top
                 left: parent.left
@@ -47,7 +58,7 @@ Rectangle {
 
             Rectangle {
                 id: cpidBorder
-                border.color: "#3A465D"
+                border.color: MMPTheme.textColor
                 radius: 10
                 color: "transparent"
                 width: cpidTitleText.implicitWidth + 20
@@ -59,6 +70,7 @@ Rectangle {
                 Text {
                     id: cpidTitleText
                     text: qsTr("CPID")
+                    color: MMPTheme.textColor
                     font.weight: Font.Light
                     anchors.centerIn: parent
                 }
@@ -71,16 +83,16 @@ Rectangle {
                 contentItem: Text {
                     id: cpidCopiedText
                     text: qsTr("CPID copied")
-                    color: "#3A465D"
+                    color: MMPTheme.textColor
                     font.weight: Font.Light
                 }
                 background: Rectangle {
                     id: cpidCopiedBackground
-                    color: "white"
-                    radius: 4
+                    color: MMPTheme.bodyColor
+                    radius: 8
                     height: cpidCopiedText.implicitHeight+10
                     width: cpidCopiedText.implicitWidth+10
-                    border.color: "#BFBFBF"
+                    border.color: MMPTheme.borderColor
                     anchors.verticalCenter: cpidCopiedText.verticalCenter
                     anchors.horizontalCenter: cpidCopiedText.horizontalCenter
                 }
@@ -88,7 +100,7 @@ Rectangle {
 
             Text {
                 id: cpidText
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: "8fbacfac0e9ed5531a31644db4d3d992"
                 clip: true
                 font.pixelSize: 10
@@ -125,7 +137,7 @@ Rectangle {
                 Text {
                     id: balanceValue
                     text: bal.balValue.toLocaleString(Qt.locale(), 'f', 2)
-                    color: MMPTheme.themeSelect("#9013FE", "white")
+                    color: MMPTheme.highlightColor
                     font.pixelSize: 18
                     font.weight: Font.Medium
                     horizontalAlignment: Text.AllignHCenter
@@ -134,7 +146,7 @@ Rectangle {
                 Text {
                     id: balanceLabel
                     text: qsTr("Your Balance")
-                    color: "#3A465D"
+                    color: MMPTheme.textColor
                     horizontalAlignment: Text.AllignHCenter
                     font.pixelSize: 10
                     font.weight: Font.Light
@@ -143,7 +155,7 @@ Rectangle {
             }
             Rectangle {
                 id: separator
-                color: "#EAEDED"
+                color: MMPTheme.separatorColor
                 width: 1
                 height: headerStats.separatorHeight
                 Layout.alignment: Qt.AlignVCenter
@@ -155,7 +167,7 @@ Rectangle {
                 Text {
                     id: magValue
                     text: magnitude.mag.toLocaleString(Qt.locale(), 'f', 2)
-                    color: "#9013FE"
+                    color: MMPTheme.highlightColor
                     font.pixelSize: 18
                     font.weight: Font.Medium
                     horizontalAlignment: Text.AllignHCenter
@@ -164,7 +176,7 @@ Rectangle {
                 Text {
                     id: magLabel
                     text: qsTr("Magnitude")
-                    color: "#3A465D"
+                    color: MMPTheme.textColor
                     horizontalAlignment: Text.AllignHCenter
                     font.pixelSize: 10
                     font.weight: Font.Light
@@ -182,13 +194,13 @@ Rectangle {
 
     Rectangle {
         id: walletDetailsPanel
-        color: "white"
+        color: MMPTheme.bodyColor
         radius: panelRadius
         height: walletDetailsTitle.height+walletDetailsTitle.anchors.topMargin+
                 dataTitlesColumn.height+dataTitlesColumn.anchors.topMargin+
                 balanceTitlesColumn.height+balanceTitlesColumn.anchors.topMargin+
                 walletDetailsSeparator.height+walletDetailsSeparator.anchors.topMargin+
-                bottomBodyMargin+topBodyMargin  //topBodyMargin included twice, first from walletDetailsTitle
+                bottomBodyMargin+topBodyMargin  //Technically wrong but works. topBodyMargin included twice, first from walletDetailsTitle.topMargin
 
         anchors {
             top: header.bottom
@@ -218,7 +230,7 @@ Rectangle {
                 text:
                     "
                         <html>
-                        <font color='#3A465D'><b>" + qsTr("Status") + ":</b></font> " +
+                        <font color='"+"#3A465D"+"'><b>" + qsTr("Status") + ":</b></font> " +
                         qsTr("Current wallet status") + "<br><br>
                         <font color='#3A465D'><b>" + qsTr("Projects")+ ":</b></font> " +
                         qsTr("Your current projects") + "<br><br>
@@ -257,23 +269,23 @@ Rectangle {
             }
             Text {
                 id: statusLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 font.pixelSize: 12
                 text: qsTr("Status")+":"
             }
             Text {
                 id: projectLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Projects")+":"
             }
             Text {
                 id: estRRLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Est. RR/day")+":"
             }
             Text {
                 id: estTTSLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Est. Staking Frequency")+":"
             }
         }
@@ -295,28 +307,28 @@ Rectangle {
             Text {
                 id: statusValue
                 text: dataValuesColumn.status
-                color: "#9013FE"  //Blue Purple
+                color: MMPTheme.highlightColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
             Text {
                 id: projectValue
                 text: dataValuesColumn.projects
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
             Text {
                 id: estRRValue
                 text: dataValuesColumn.rr.toLocaleString(Qt.locale(), 'f', 2)
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
             Text {
                 id: estTTSValue
                 text: dataValuesColumn.tts.toLocaleString(Qt.locale(), 'f', 1) + qsTr(" days")
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -325,7 +337,7 @@ Rectangle {
             id: walletDetailsSeparator
             height: 1
             width: parent.width-40
-            color: "#EAEDED"
+            color: MMPTheme.separatorColor
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 top: dataTitlesColumn.bottom
@@ -345,22 +357,22 @@ Rectangle {
             }
             Text {
                 id: availableLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Available")+":"
             }
             Text {
                 id: stakeLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Stake")+":"
             }
             Text {
                 id: unconfirmedLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Unconfirmed")+":"
             }
             Text {
                 id: totalLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 font.weight: Font.DemiBold
                 text: qsTr("Total")+":"
             }
@@ -384,7 +396,7 @@ Rectangle {
             Text {
                 id: availableValue
                 text: balanceValuesColumn.available.toLocaleString(Qt.locale(), 'f', 8) + qsTr(" GRC")
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -394,7 +406,7 @@ Rectangle {
             Text {
                 id: stakeValue
                 text: balanceValuesColumn.stake.toLocaleString(Qt.locale(), 'f', 8) + qsTr(" GRC")
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -403,7 +415,7 @@ Rectangle {
             Text {
                 id: unconfirmedValue
                 text: balanceValuesColumn.unconfirmed.toLocaleString(Qt.locale(), 'f', 8) + qsTr(" GRC")
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -411,7 +423,7 @@ Rectangle {
             Text {
                 id: totalValue
                 text: balanceValuesColumn.total.toLocaleString(Qt.locale(), 'f', 8) + qsTr(" GRC")
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 font.weight: Font.DemiBold
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
@@ -421,7 +433,7 @@ Rectangle {
 
     Rectangle {
         id:networkStatePanel
-        color: "white"
+        color: MMPTheme.bodyColor
         radius: panelRadius
         height: networkStateTitle.implicitHeight+networkStateTitle.anchors.topMargin+
                 networkTitlesColumn.height+networkTitlesColumn.anchors.topMargin+
@@ -488,22 +500,22 @@ Rectangle {
             }
             Text {
                 id: blocksLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Blocks")+":"
             }
             Text {
                 id: difficultyLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Difficulty")+":"
             }
             Text {
                 id: netWeightLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Net Weight")+":"
             }
             Text {
                 id: coinWeightLabel
-                color: "#3A465D"
+                color: MMPTheme.textColor
                 text: qsTr("Coin Weight")+":"
             }
         }
@@ -526,7 +538,7 @@ Rectangle {
             Text {
                 id: blockValue
                 text: networkValuesColumn.blocks
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -534,7 +546,7 @@ Rectangle {
             Text {
                 id: difficultyValue
                 text: networkValuesColumn.difficulty.toLocaleString(Qt.locale(), 'f', 3)
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -542,7 +554,7 @@ Rectangle {
             Text {
                 id: netWeightValue
                 text: networkValuesColumn.netWeight.toLocaleString(Qt.locale(), 'f', 8)
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -550,7 +562,7 @@ Rectangle {
             Text {
                 id: coinWeightValue
                 text: networkValuesColumn.coinWeight.toLocaleString(Qt.locale(), 'f', 3)
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 horizontalAlignment: Text.AlignRight
                 anchors.right: parent.right
             }
@@ -559,7 +571,7 @@ Rectangle {
 
     Rectangle {
         id: recentTransactionsPanel
-        color: "white"
+        color: MMPTheme.bodyColor
         radius: panelRadius
         height: networkStatePanel.height+walletDetailsPanel.height+panelSpacing
         anchors {
@@ -602,7 +614,7 @@ Rectangle {
                 amount: transactionAmount
                 state: transactionType
                 account: transactionAccount
-                transactionDate: Date.fromLocaleString(Qt.locale(),  transactionTimestamp, "ddd yyyy-MM-dd hh:mm:ss")
+                transactionDate: Date.fromLocaleString(Qt.locale(),  transactionTimestamp, "yyyy-MM-dd hh:mm:ss")
             }
             ScrollIndicator.vertical: ScrollIndicator {
                 anchors {

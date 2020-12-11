@@ -1,5 +1,5 @@
 import QtQuick 2.0
-
+import MMPTheme 1.0
 Item {
     id: titleRow
     property alias text: title.text
@@ -7,8 +7,7 @@ Item {
 
     Text {
         id: title
-        color: "#3A465D"    //Oxford Blue
-        text: ""
+        color: MMPTheme.textColor
         font.weight: Font.DemiBold
         font.pointSize: 13
         anchors {
@@ -21,7 +20,7 @@ Item {
         id: separator
         height: 1
         width: parent.width
-        color: "#EAEDED"
+        color: MMPTheme.separatorColor
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: titleRow.bottom

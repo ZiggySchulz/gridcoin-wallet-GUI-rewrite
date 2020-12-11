@@ -11,6 +11,7 @@ Button {
     property int botPad: 5
     property int svgScale: 50
     property string windowIdentifier: ""
+    property bool current: false
     implicitWidth: col.implicitWidth
     implicitHeight: col.implicitHeight
     onClicked: menuButtonClicked(windowIdentifier)
@@ -32,7 +33,13 @@ Button {
             Text {
                 id: label
                 text: ""
-                color: "white"
+                color: {
+                    if (current){
+                        return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
+                    } else {
+                        return MMPTheme.translucent(MMPTheme.cWhite, 0.7)
+                    }
+                }
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 Layout.alignment: Qt.AlignHCenter

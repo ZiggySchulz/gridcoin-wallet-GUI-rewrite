@@ -1,6 +1,7 @@
 pragma Singleton
 
 import QtQuick 2.12
+import QtQml 2.15
 
 QtObject {
     readonly property color cBlack: "#000000"
@@ -18,19 +19,34 @@ QtObject {
     readonly property color cHavelockBlue: "#4A90E2"
     readonly property color cDullLime: "#2AC940"
     readonly property color cCarminePink: "#ED5144"
+    readonly property color cTextLightGrey: "#5c5f65"
+    readonly property color cTextDarkGrey: "#b9bbbe"
 
-    readonly property color background: isLightTheme ? cLilyWhite : cSpaceBlack
+    readonly property color backgroundColor: isLightTheme ? cLilyWhite : cSpaceBlack
+    readonly property color textColor: isLightTheme ? cOxfordBlue : cWhite
+    readonly property color lightTextColor: isLightTheme ? cTextLightGrey : cTextDarkGrey
+    readonly property color borderColor: translucent(isLightTheme ? cOxfordBlue : cWhite, 0.7)
+    readonly property color highlightColor: isLightTheme ? cBluePurple : cHavelockBlue
+    readonly property color bodyColor: isLightTheme ? cWhite : cOxfordOffBlue
+    readonly property color separatorColor: isLightTheme ? cLilyWhite : translucent(cLightSlateGray, 0.4)
     //Theme enumeration
     readonly property int lightTheme: 0
     readonly property int darkTheme: 1
     readonly property bool isLightTheme: theme === lightTheme
     property int theme: darkTheme
 
-    readonly property color textColor: isLightTheme ? cOxfordBlue : cWhite
     property font font
     font.family: "SF Pro Text"
     font.pixelSize: 12
 
+    property date currentTime: new Date()
+
+    property Timer timer: Timer {
+        interval: 60 * 1000
+        repeat: true
+        running: true
+        onTriggered: currentTime = new Date()
+    }
 
     function themeSelect (lightObj, darkObj ){
         return isLightTheme ? lightObj : darkObj

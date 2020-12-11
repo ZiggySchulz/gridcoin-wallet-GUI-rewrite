@@ -8,7 +8,7 @@ ScrollView {
     width: parent.width
     background: Rectangle {
         anchors.fill: parent
-        color: MMPTheme.background
+        color: MMPTheme.backgroundColor
     }
 
     Column {

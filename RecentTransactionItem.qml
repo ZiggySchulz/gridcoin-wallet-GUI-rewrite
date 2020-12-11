@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQml 2.15
-
+import MMPTheme 1.0
 Item {
     id: main
     property real amount: 2.0
@@ -151,7 +151,7 @@ Item {
                 text: transactionDate.toLocaleDateString(Qt.locale(), Locale.ShortFormat) +" "+ transactionDate.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
                 font.weight: Font.Light
                 font.pointSize: 10
-                color: "#5c5f65"
+                color: MMPTheme.lightTextColor
                 anchors {
                     top: parent.top
                     bottom: parent.bottom
@@ -163,7 +163,7 @@ Item {
             id: addressLabel
             text: account
             font.pointSize: 11
-            color: "#5c5f65"
+            color: MMPTheme.lightTextColor
         }
     }
 
