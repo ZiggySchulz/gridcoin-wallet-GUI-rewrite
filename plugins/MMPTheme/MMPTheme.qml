@@ -39,8 +39,8 @@ QtObject {
     font.family: "SF Pro Text"
     font.pixelSize: 12
 
+    //Should probably be moved at some point
     property date currentTime: new Date()
-
     property Timer timer: Timer {
         interval: 60 * 1000
         repeat: true

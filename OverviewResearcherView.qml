@@ -230,21 +230,21 @@ Rectangle {
                 text:
                     "
                         <html>
-                        <font color='"+"#3A465D"+"'><b>" + qsTr("Status") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Status") + ":</b></font> " +
                         qsTr("Current wallet status") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Projects")+ ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Projects")+ ":</b></font> " +
                         qsTr("Your current projects") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Est. RR/day")+ ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Est. RR/day")+ ":</b></font> " +
                         qsTr("Estimated research earnings per day") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Est. Staking Frequency")+ ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Est. Staking Frequency")+ ":</b></font> " +
                         qsTr("Estimated frequency of staking") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Available") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Available") + ":</b></font> " +
                         qsTr("Balance available for spending") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Stake") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Stake") + ":</b></font> " +
                         qsTr("Balance that is currently staked") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Unconfirmed") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Unconfirmed") + ":</b></font> " +
                         qsTr("Coins that have been received but not yet confirmed") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Total") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Total") + ":</b></font> " +
                         qsTr("Your total coins") + "
                         </html>
                     "
@@ -467,15 +467,15 @@ Rectangle {
                 text:
                     "
                         <html>
-                        <font color='#3A465D'><b>" + qsTr("Blocks") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Blocks") + ":</b></font> " +
                         qsTr("The number of blocks your client currently has on the chain") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Difficulty")+ ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Difficulty")+ ":</b></font> " +
                         qsTr("Current network difficulty. A larger value corresponds to smaller odds of staking") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Net Weight")+ ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Net Weight")+ ":</b></font> " +
                         qsTr("Total number of coins on the entire network which are actively trying to stake") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Coin Weight")+ ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Coin Weight")+ ":</b></font> " +
                         qsTr("Number of your coins which are actively trying to stake") + "<br><br>
-                        <font color='#3A465D'><b>" + qsTr("Magnitude") + ":</b></font> " +
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Magnitude") + ":</b></font> " +
                         qsTr("Relative measure of your mining contributions") + "
                         </html>
                     "

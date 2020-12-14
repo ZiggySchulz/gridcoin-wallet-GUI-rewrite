@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.15
 
 ApplicationWindow {
     id: window
@@ -12,10 +12,11 @@ ApplicationWindow {
     visible: true
     title: qsTr("Gridcoin Wallet")
 
-    property int statusBarSize: 24
+
 
     TabMenu{
         id: menu
+        width: 90
         onMenuButtonClicked: loader.source=identification
         anchors{
             top: parent.top
@@ -36,7 +37,7 @@ ApplicationWindow {
     }
     StatusFooter {
         id: statusBar
-        height: statusBarSize
+        height: 24
         anchors {
             left: parent.left
             right: parent.right

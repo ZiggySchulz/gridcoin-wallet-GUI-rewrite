@@ -1,50 +1,75 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.12
 import MMPTheme 1.0
 Button {
     id: buttonMain
     property alias imagePath: img.source
     property alias labelText: label.text
-    property int topPad: 12
-    property int midPad: 0
-    property int botPad: 5
     property int svgScale: 50
-    property string windowIdentifier: ""
     property bool current: false
     implicitWidth: col.implicitWidth
     implicitHeight: col.implicitHeight
-    onClicked: menuButtonClicked(windowIdentifier)
-    background:
-        ColumnLayout {
-            anchors.fill: parent
-            id: col
-
+    background: Column {
+        id: col
+        property int topPad: 10
+        property int midPad: 5
+        property int botPad: 3
+        //anchors.fill: parent
+        height: parent.height
+        width: parent.width
+        anchors.centerIn: parent
+        Item {
+            height: parent.topPad
+            width: parent.width
+        }
+        Item {
+            //id: buttonIcon
+            width: parent.width
+            height: parent.height-label.height-col.topPad-col.midPad-col.botPad
             Svg {
                 id: img
                 fillMode: Image.PreserveAspectFit
-                smooth: true
-                Layout.preferredWidth: parent.width
-                Layout.preferredHeight: parent.height-label.height-topPad-midPad-botPad
-                Layout.topMargin: topPad
-                Layout.bottomMargin: midPad
+                width: parent.width
+                height: parent.height
             }
-
-            Text {
-                id: label
-                text: ""
+            ColorOverlay {
+                anchors.fill: img
+                source: img
                 color: {
-                    if (current){
+                    if (current) {
                         return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
                     } else {
-                        return MMPTheme.translucent(MMPTheme.cWhite, 0.7)
+                        return MMPTheme.themeSelect("#c3b2d2", MMPTheme.translucent(MMPTheme.cWhite, 0.7))
                     }
                 }
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: Text.WordWrap
-                Layout.alignment: Qt.AlignHCenter
-                Layout.bottomMargin: botPad
-                font: MMPTheme.font
             }
         }
+
+        Item {
+            height: parent.midPad
+            width: parent.width
+        }
+        Text {
+            id: label
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            font: MMPTheme.font
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+
+            color: {
+                if (current) {
+                    return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
+                } else {
+                    return MMPTheme.translucent(MMPTheme.cWhite, 0.7)
+                }
+            }
+        }
+        Item {
+            height: parent.botPad
+            width: parent.width
+        }
+    }
 }

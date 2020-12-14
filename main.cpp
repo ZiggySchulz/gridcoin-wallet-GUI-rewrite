@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    //QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 
     QGuiApplication app(argc, argv);
@@ -18,7 +18,10 @@ int main(int argc, char *argv[])
     {
         QFontDatabase::addApplicationFont(":/resources/fonts/SF Pro Text/" + file);
     }
-    app.setFont(QFont("SF Pro Text"));
+    QFont font = QFont("SF Pro Text");
+    font.setPixelSize(12);
+    app.setFont(font);
+
 
     QQmlApplicationEngine engine;
     engine.addImportPath(":/plugins/");
