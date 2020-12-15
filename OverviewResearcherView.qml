@@ -5,7 +5,7 @@ import QtQuick.Controls.Material 2.15
 import MMPTheme 1.0
 Rectangle {
     id: main
-    color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cSpaceBlack)
+    color: MMPTheme.backgroundColor
     Rectangle {
         id: header
         color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cSpaceBlack)
@@ -118,9 +118,8 @@ Rectangle {
                 }
             }
         }
-        RowLayout {
+        Row {
             id: headerStats
-            property int separatorHeight: height - 30
             spacing: 10
             layoutDirection: Qt.RightToLeft
             anchors {
@@ -133,7 +132,7 @@ Rectangle {
             Column {
                 id: bal
                 property real balValue: 54069.27
-                Layout.alignment: Qt.AlignVCenter
+                anchors.verticalCenter: parent.verticalCenter
                 Text {
                     id: balanceValue
                     text: bal.balValue.toLocaleString(Qt.locale(), 'f', 2)
@@ -157,13 +156,13 @@ Rectangle {
                 id: separator
                 color: MMPTheme.separatorColor
                 width: 1
-                height: headerStats.separatorHeight
-                Layout.alignment: Qt.AlignVCenter
+                height: parent.height-30
+                anchors.verticalCenter: parent.verticalCenter
             }
             Column {
                 id: magnitude
                 property real mag: 610.00
-                Layout.alignment: Qt.AlignVCenter
+                anchors.verticalCenter: parent.verticalCenter
                 Text {
                     id: magValue
                     text: magnitude.mag.toLocaleString(Qt.locale(), 'f', 2)
