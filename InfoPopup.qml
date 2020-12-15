@@ -8,8 +8,8 @@ ToolTip {
     delay: 200
     contentWidth: infoTextItem.implicitWidth
     contentHeight: infoTextItem.implicitHeight
-    padding: 1
-
+    verticalPadding: 1
+    horizontalPadding: 3
     property alias infoText: infoTextItem.text
     background: Item {
         id: background
@@ -53,6 +53,8 @@ ToolTip {
             wrapMode: Text.WordWrap
             textFormat: Text.RichText
             color: MMPTheme.lightTextColor
+            //horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
 
         }
 }
