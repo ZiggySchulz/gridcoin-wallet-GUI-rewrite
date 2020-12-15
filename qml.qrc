@@ -220,5 +220,6 @@
         <file>resources/icons/statusbar/staking/ic_staking_no_light.svg</file>
         <file>resources/icons/statusbar/staking/ic_staking_yes_dark.svg</file>
         <file>resources/icons/statusbar/staking/ic_staking_yes_light.svg</file>
+        <file>TestView.qml</file>
     </qresource>
 </RCC>

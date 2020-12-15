@@ -53,6 +53,7 @@ Rectangle {
             label: qsTr("Settings")
             lightImageSource: "resources/icons/menu/ic_menu_settings_white.svg"
             darkImageSource: "resources/icons/menu/ic_menu_settings_blue.svg"
+            path: "TestView.qml"
         }
     }
 

@@ -33,7 +33,7 @@ QtObject {
     readonly property int lightTheme: 0
     readonly property int darkTheme: 1
     readonly property bool isLightTheme: theme === lightTheme
-    property int theme: darkTheme
+    property int theme: lightTheme
 
     property font font
     font.family: "SF Pro Text"
