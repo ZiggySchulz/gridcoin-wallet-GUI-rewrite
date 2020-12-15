@@ -130,7 +130,7 @@ Rectangle {
                 height: 1
                 anchors.centerIn: parent
                 width: parent.width - 50
-                color: MMPTheme.separatorColor
+                color: MMPTheme.translucent(MMPTheme.cWhite, 0.7)
 
             }
         }
