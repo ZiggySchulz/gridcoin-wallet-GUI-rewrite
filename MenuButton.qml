@@ -14,13 +14,14 @@ Button {
     background: Column {
         id: col
         property int topPad: 10
-        property int midPad: 5
+        property int midPad: 3
         property int botPad: 3
         //anchors.fill: parent
         height: parent.height
         width: parent.width
         anchors.centerIn: parent
         Item {
+            //id: topPadding
             height: parent.topPad
             width: parent.width
         }
@@ -41,13 +42,14 @@ Button {
                     if (current) {
                         return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
                     } else {
-                        return MMPTheme.themeSelect("#c3b2d2", MMPTheme.translucent(MMPTheme.cWhite, 0.7))
+                        return MMPTheme.themeSelect("#c3b2d2", "#babec1")
                     }
                 }
             }
         }
 
         Item {
+            //id: midPadding
             height: parent.midPad
             width: parent.width
         }
@@ -68,6 +70,7 @@ Button {
             }
         }
         Item {
+            //id: bottomPadding
             height: parent.botPad
             width: parent.width
         }
