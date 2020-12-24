@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import MMPTheme 1.0
@@ -616,9 +615,12 @@ Rectangle {
                 transactionDate: Date.fromLocaleString(Qt.locale(),  transactionTimestamp, "yyyy-MM-dd hh:mm:ss")
             }
             ScrollIndicator.vertical: ScrollIndicator {
+                parent: recentTransactionList.parent
                 anchors {
-                    right: parent.right
-                    rightMargin: -10
+                    left: recentTransactionList.right
+                    leftMargin: 5
+                    top: recentTransactionList.top
+                    bottom: recentTransactionList.bottom
                 }
             }
 
