@@ -221,5 +221,8 @@
         <file>resources/icons/statusbar/staking/ic_staking_yes_dark.svg</file>
         <file>resources/icons/statusbar/staking/ic_staking_yes_light.svg</file>
         <file>TestView.qml</file>
+        <file>MMPControls/ScrollIndicator.qml</file>
+        <file>MMPControls/ScrollBar.qml</file>
+        <file>ReceiveView.qml</file>
     </qresource>
 </RCC>

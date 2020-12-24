@@ -53,7 +53,7 @@ Rectangle {
                 text: title
                 color: pollItemCircle.border.color
                 font.weight: current ? Font.Medium : Font.Normal
-                font.pointSize: 12
+                font.pixelSize: 12
                 anchors.left: pollItemCircle.right
                 anchors.verticalCenter: pollItemCircle.verticalCenter
                 anchors.leftMargin: 4

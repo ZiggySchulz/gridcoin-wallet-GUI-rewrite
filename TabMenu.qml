@@ -151,9 +151,11 @@ Rectangle {
             }
         }
     }
-    Image {
+    Svg {
         id: boinc
         source: "resources/icons/logos/ic_logo_boinc_color.svg"
+        fillMode: Image.PreserveAspectFit
+        maxSize: 20
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
