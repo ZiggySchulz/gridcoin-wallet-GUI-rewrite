@@ -27,7 +27,7 @@ QtObject {
     readonly property color lightTextColor: isLightTheme ? cTextLightGrey : cTextDarkGrey
     readonly property color borderColor: translucent(isLightTheme ? cOxfordBlue : cWhite, 0.7)
     readonly property color highlightColor: isLightTheme ? cBluePurple : cHavelockBlue
-    readonly property color bodyColor: isLightTheme ? cWhite : cOxfordOffBlue
+    readonly property color bodyColor: isLightTheme ? cWhite : cMirage
     readonly property color separatorColor: isLightTheme ? cLilyWhite : translucent(cLightSlateGray, 0.4)
     //Theme enumeration
     readonly property int lightTheme: 0
