@@ -182,7 +182,6 @@
         <file>resources/icons/transactionlevels/ic_tran_lv5.svg</file>
         <file>resources/icons/transactionlevels/ic_tran_lv6.svg</file>
         <file>MMPControls/Button.qml</file>
-        <file>MMPControls/SendView.qml</file>
         <file>SendView.qml</file>
         <file>resources/icons/statusbar/beacon/ic_beacon_offline_dark.svg</file>
         <file>resources/icons/statusbar/beacon/ic_beacon_offline_light.svg</file>
@@ -224,5 +223,7 @@
         <file>MMPControls/ScrollIndicator.qml</file>
         <file>MMPControls/ScrollBar.qml</file>
         <file>ReceiveView.qml</file>
+        <file>SearchBox.qml</file>
+        <file>translations/GridcoinWalletGUI_en_AU.qm</file>
     </qresource>
 </RCC>

@@ -15,7 +15,7 @@ RESOURCES += \
     qml.qrc
 
 TRANSLATIONS += \
-    GridcoinWalletGUI_en_AU.ts
+    translations/GridcoinWalletGUI_en_AU.ts
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH = $$PWD/plugins/
@@ -29,3 +29,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 #DISTFILES += \
+
