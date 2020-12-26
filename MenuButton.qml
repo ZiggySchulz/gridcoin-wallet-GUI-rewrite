@@ -1,7 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import QtGraphicalEffects 1.12
+import QtGraphicalEffects 1.15
 import MMPTheme 1.0
 Button {
     id: buttonMain
@@ -29,11 +29,12 @@ Button {
             //id: buttonIcon
             width: parent.width
             height: parent.height-label.height-col.topPad-col.midPad-col.botPad
-            Svg {
+            Image {
                 id: img
-                fillMode: Image.PreserveAspectFit
                 width: parent.width
                 height: parent.height
+                sourceSize: Qt.size(width,height)
+                fillMode: Image.PreserveAspectFit
             }
             ColorOverlay {
                 anchors.fill: img

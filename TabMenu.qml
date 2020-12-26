@@ -27,7 +27,7 @@ Rectangle {
             label: qsTr("Receive")
             lightImageSource: "resources/icons/menu/ic_menu_receive_white.svg"
             darkImageSource: "resources/icons/menu/ic_menu_receive_blue.svg"
-            path: ""
+            path: "ReceiveView.qml"
         }
         ListElement {
             label: qsTr("History")
@@ -84,12 +84,13 @@ Rectangle {
                 bottom: parent.bottom
             }
         }
-        Svg {
+        Image {
             //id: gridcoinLogo
             source: "resources/icons/logos/ic_logo_app_gradient_white.svg"
             anchors.centerIn: parent
             width: parent.width - 20
             height: parent.height - 20
+            sourceSize: Qt.size(width, height)
             fillMode: Image.PreserveAspectFit
         }
     }
@@ -151,11 +152,14 @@ Rectangle {
             }
         }
     }
-    Svg {
+    Image {
         id: boinc
         source: "resources/icons/logos/ic_logo_boinc_color.svg"
+        width: parent.width-30
+        height: 30
+        sourceSize: Qt.size(width, height)
         fillMode: Image.PreserveAspectFit
-        maxSize: 20
+
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom

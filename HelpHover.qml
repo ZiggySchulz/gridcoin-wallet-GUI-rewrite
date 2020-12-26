@@ -1,8 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import MMPTheme 1.0
 MouseArea {
     id: helpHoverMouseArea
-    property alias iconSize: helpIcon.maxSize
     property alias text: popup.infoText
     property alias imageSource: helpIcon.source
     property alias popupWidth: popup.width
@@ -10,14 +9,18 @@ MouseArea {
     property alias horiontalPadding: popup.horizontalPadding
     property alias topPadding: popup.topPadding
     property alias bottomPadding: popup.bottomPadding
+    property int iconSize: 15
+    width: iconSize
+    height: iconSize
     implicitWidth: helpIcon.implicitWidth
     implicitHeight: helpIcon.implicitHeight
     hoverEnabled: true
 
-    Svg {
+    Image {
         id: helpIcon
+        anchors.fill: parent
         source: "resources/icons/generic/ic_help.svg"
-        maxSize: 15
+        sourceSize: Qt.size(width, height)
     }
 
     InfoPopup {

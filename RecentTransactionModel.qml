@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQml 2.0
+import QtQuick 2.15
+import QtQml 2.15
 ListModel {
     ListElement {
         transactionType: "incomingTransaction"

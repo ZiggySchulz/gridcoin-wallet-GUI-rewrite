@@ -35,7 +35,7 @@ Rectangle {
         id: iconsRow
         layoutDirection: Qt.RightToLeft
         spacing: 8
-        property int iconSize: 10
+        property int iconSize: 15
         anchors {
             right: parent.right
             rightMargin: spacing

@@ -1,6 +1,6 @@
-import QtQuick 2.9
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import MMPTheme 1.0
-import QtQuick.Controls 2.5
 
 ScrollView {
     id: scrollView
@@ -40,6 +40,7 @@ ScrollView {
                 Button {
                     text: qsTr("Default")
                     icon.source: MMPTheme.themeSelect("qrc:/resources/icons/buttons/ic_btn_verify_light.svg", "qrc:/resources/icons/buttons/ic_btn_verify_dark.svg")
+                    onPressed: console.log(Qt.locale())
                 }
 
                 Button {
