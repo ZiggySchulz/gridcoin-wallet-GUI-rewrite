@@ -5,7 +5,7 @@
         <file>MenuButton.qml</file>
         <file>TabMenu.qml</file>
         <file>StatusFooter.qml</file>
-        <file>Svg.qml</file>
+        <file>ColorizableImage.qml</file>
         <file>OverviewResearcherView.qml</file>
         <file>HelpHover.qml</file>
         <file>PanelTitle.qml</file>

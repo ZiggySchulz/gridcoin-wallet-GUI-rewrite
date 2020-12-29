@@ -16,16 +16,17 @@ FocusScope {
                                            control.activeFocus ? MMPTheme.translucent(MMPTheme.cWhite, 0.7) : MMPTheme.translucent(MMPTheme.cOxfordBlue, control.enabled ? 1 : 0.3));
         anchors.fill: parent
 
-        Svg {
+        ColorizableImage {
             id: searchIcon
+            height: parent.height*0.625
+            width: height
             source: MMPTheme.themeSelect("resources/icons/generic/ic_search_light.svg","resources/icons/generic/ic_search_dark.svg")
-            maxSize: 15
             tintColor: MMPTheme.themeSelect(control.activeFocus ? "#757d8e" : "#b0b5be",
                                             control.activeFocus ? "#babcbe" : "#3a465e")
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
-                leftMargin: 5
+                leftMargin: 8
             }
         }
         TextField {

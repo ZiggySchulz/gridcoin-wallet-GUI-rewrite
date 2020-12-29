@@ -107,12 +107,12 @@ Item {
         }
     ]
 
-    Svg {
+    Image {
         id: transactionIcon
-        maxSize: 30
         height: 30
         width: 30
         source: "resources/icons/events/ic_event_purple.svg"
+        sourceSize: Qt.size(width, height)
         anchors {
             verticalCenter: parent.verticalCenter
             left: parent.left

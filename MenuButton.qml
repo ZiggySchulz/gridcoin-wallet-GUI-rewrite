@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.15
 import MMPTheme 1.0
 Button {
     id: buttonMain
-    property alias imagePath: img.source
+    property alias imagePath: buttonIcon.source
     property alias labelText: label.text
     property int svgScale: 50
     property bool current: false
@@ -25,28 +25,20 @@ Button {
             height: parent.topPad
             width: parent.width
         }
-        Item {
-            //id: buttonIcon
+
+        ColorizableImage {
+            id: buttonIcon
             width: parent.width
             height: parent.height-label.height-col.topPad-col.midPad-col.botPad
-            Image {
-                id: img
-                width: parent.width
-                height: parent.height
-                sourceSize: Qt.size(width,height)
-                fillMode: Image.PreserveAspectFit
-            }
-            ColorOverlay {
-                anchors.fill: img
-                source: img
-                color: {
-                    if (current) {
-                        return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
-                    } else {
-                        return MMPTheme.themeSelect("#c3b2d2", "#babec1")
-                    }
+            maxSize: Math.max(width,height)
+            tintColor: {
+                if (current) {
+                    return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
+                } else {
+                    return MMPTheme.themeSelect("#c3b2d2", "#babec1")
                 }
             }
+
         }
 
         Item {
