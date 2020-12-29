@@ -30,7 +30,6 @@ Button {
             id: buttonIcon
             width: parent.width
             height: parent.height-label.height-col.topPad-col.midPad-col.botPad
-            maxSize: Math.max(width,height)
             tintColor: {
                 if (current) {
                     return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)

@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtGraphicalEffects 1.15
 Item {
-    property int maxSize: 50
     property alias tintColor: img.overlayColor
     property alias source: img.source
     implicitHeight: img.implicitHeight
