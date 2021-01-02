@@ -4,7 +4,7 @@ import MMPTheme 1.0
 
 FocusScope {
     id: control
-    implicitHeight: 24
+    implicitHeight: 30
     implicitWidth: 200
     property alias placeholderText: searchTextField.placeholderText
     property alias text: searchTextField.text
@@ -18,7 +18,7 @@ FocusScope {
 
         ColorizableImage {
             id: searchIcon
-            height: parent.height*0.625
+            height: parent.height*0.5
             width: height
             source: MMPTheme.themeSelect("resources/icons/generic/ic_search_light.svg","resources/icons/generic/ic_search_dark.svg")
             tintColor: MMPTheme.themeSelect(control.activeFocus ? "#757d8e" : "#b0b5be",
