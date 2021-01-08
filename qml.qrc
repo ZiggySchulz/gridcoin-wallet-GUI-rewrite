@@ -225,5 +225,6 @@
         <file>ReceiveView.qml</file>
         <file>SearchBox.qml</file>
         <file>translations/GridcoinWalletGUI_en_AU.qm</file>
+        <file>TableColumnHeader.qml</file>
     </qresource>
 </RCC>

@@ -4,7 +4,7 @@ import MMPTheme 1.0
 
 FocusScope {
     id: control
-    implicitHeight: 30
+    implicitHeight: 26
     implicitWidth: 200
     property alias placeholderText: searchTextField.placeholderText
     property alias text: searchTextField.text
