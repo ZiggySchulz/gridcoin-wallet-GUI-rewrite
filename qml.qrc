@@ -10,10 +10,8 @@
         <file>HelpHover.qml</file>
         <file>PanelTitle.qml</file>
         <file>InfoPopup.qml</file>
-        <file>PollModel.qml</file>
         <file>Circle.qml</file>
         <file>RecentTransactionItem.qml</file>
-        <file>RecentTransactionModel.qml</file>
         <file>resources/fonts/SF Pro Text/SF-Pro-Text-Bold.otf</file>
         <file>resources/fonts/SF Pro Text/SF-Pro-Text-BoldItalic.otf</file>
         <file>resources/fonts/SF Pro Text/SF-Pro-Text-Heavy.otf</file>
@@ -226,5 +224,6 @@
         <file>SearchBox.qml</file>
         <file>translations/GridcoinWalletGUI_en_AU.qm</file>
         <file>TableColumnHeader.qml</file>
+        <file>TableHeaderBackground.qml</file>
     </qresource>
 </RCC>
