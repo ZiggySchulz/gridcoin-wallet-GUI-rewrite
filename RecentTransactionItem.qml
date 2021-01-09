@@ -162,7 +162,7 @@ Item {
         Text {
             id: addressLabel
             text: account
-            font.pointSize: 11
+            font.pixelSize: 11
             color: MMPTheme.lightTextColor
         }
     }
