@@ -390,6 +390,7 @@ Rectangle {
             }
 
             Button {
+                height: 26
                 text: qsTr("Show QR Code")
                 icon.source: MMPTheme.themeSelect("resources/icons/buttons/ic_btn_qr_code_light.svg","resources/icons/buttons/ic_btn_qr_code_dark.svg")
                 anchors {
@@ -399,6 +400,7 @@ Rectangle {
                 }
             }
             Button {
+                height: 26
                 text: qsTr("Sign Message")
                 icon.source: MMPTheme.themeSelect("resources/icons/buttons/ic_btn_sign_light.svg","resources/icons/buttons/ic_btn_sign_dark.svg")
                 anchors {
