@@ -139,7 +139,7 @@ Item {
                 id: amountLabel
                 text: amount.toLocaleString(Qt.locale(), 'f', 8)
                 clip: true
-                color: amount >= 0 ? "#2AC940" : "#ED5144"
+                color: amount >= 0 ? MMPTheme.cDullLime : MMPTheme.cCarminePink
                 anchors {
                     left: parent.left
                     right: dateLabel.left
