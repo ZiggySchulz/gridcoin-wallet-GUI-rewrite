@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
-import QtQml 2.15
 import MMPTheme 1.0
 
 Rectangle {
@@ -54,7 +53,6 @@ Rectangle {
             }
         }
 
-        //Num used temporarily
         property string recordString: qsTr("%n record(s)", "", addressListView.count)
         Text {
             id: recordNumText
@@ -81,6 +79,7 @@ Rectangle {
 
         SearchBox {
             placeholderText: qsTr("Search by label or address")
+            //onTextChanged: listview.sortModel(text)
             anchors {
                 verticalCenter: parent.verticalCenter
                 right: parent.right
@@ -121,7 +120,6 @@ Rectangle {
             property int labelColumnWidth: width-lastUsedColumnWidth-addressColumnWidth
             property int lastUsedColumnWidth: Math.max(90, width*0.15)
             property int addressColumnWidth: Math.max(300, width*0.5)
-            property var columnWidths: [labelColumnWidth, lastUsedColumnWidth, addressColumnWidth]
             color: MMPTheme.themeSelect(MMPTheme.cWhite, "#17222c")
             border.color: MMPTheme.themeSelect("#c3c7ce", "#3b475d")
             radius: 4
@@ -137,103 +135,67 @@ Rectangle {
             }
 
             //This was a lot of effort for such a inconspicuous element
-            Rectangle {
+            TableHeaderBackground {
                 id: tableHeaderRect
-                property int currentSortIndex: 0
                 height: 25
                 width: parent.width
-                color: "transparent"
                 border.color: parent.border.color
                 radius: parent.radius
-                Rectangle {
-                    id: tableHeaderInnerRect
+                TableColumnHeader {
+                    id: labelHeaderItem
                     height: parent.height
-                    width: parent.width
-                    border.color: parent.border.color
-                    gradient: Gradient {
-                        GradientStop { position: 0; color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cMirage)}
-                        GradientStop { position: 1; color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cMirage)}
+                    width: addressListRect.labelColumnWidth
+                    index: 0
+                    active: tableHeaderRect.currentSortIndex === index
+                    text: qsTr("Label")
+                    anchors {
+                        left: parent.left
+                        leftMargin: 1
                     }
-                    layer {
-                        enabled: true
-                        effect: OpacityMask {
-                            maskSource: Item {
-                                width: tableHeaderInnerRect.width
-                                height: tableHeaderInnerRect.height
-                                Rectangle {
-                                    id: radiusRect
-                                    y:1
-                                    width: parent.width
-                                    height: 8
-                                    radius: 4
-                                }
-                                Rectangle {
-                                    width: parent.width
-                                    anchors {
-                                        top: radiusRect.verticalCenter
-                                        bottom: parent.bottom
-                                    }
-                                }
-                            }
+                    onClicked: {
+                        if (active){
+                            if (accending) { accending=false }
+                            else { accending=true }
+                        } else {
+                            tableHeaderRect.currentSortIndex = index
                         }
+                        //c++Model.sort(index, accending)
                     }
-
-                    TableColumnHeader {
-                        id: labelHeaderItem
-                        height: parent.height
-                        width: addressListRect.labelColumnWidth
-                        index: 0
-                        active: tableHeaderRect.currentSortIndex === index
-                        text: qsTr("Label")
-                        anchors {
-                            left: parent.left
-                            leftMargin: 1
+                }
+                TableColumnHeader {
+                    id: lastUsedHeaderItem
+                    height: parent.height
+                    width: addressListRect.lastUsedColumnWidth
+                    index: 1
+                    active: tableHeaderRect.currentSortIndex === index
+                    text: qsTr("Last Used")
+                    anchors.left: labelHeaderItem.right
+                    onClicked: {
+                        if (active){
+                            if (accending) { accending=false }
+                            else { accending=true }
+                        } else {
+                            tableHeaderRect.currentSortIndex = index
                         }
-                        onClicked: {
-                            if (active){
-                                if (accending) { accending=false }
-                                else { accending=true }
-                            } else {
-                                tableHeaderRect.currentSortIndex = index
-                            }
-                            //c++Model.sort(index, accending)
-                        }
+                        //c++Model.sort(index, accending)
                     }
-                    TableColumnHeader {
-                        id: lastUsedHeaderItem
-                        height: parent.height
-                        width: addressListRect.lastUsedColumnWidth
-                        index: 1
-                        active: tableHeaderRect.currentSortIndex === index
-                        text: qsTr("Last Used")
-                        anchors.left: labelHeaderItem.right
-                        onClicked: {
-                            if (active){
-                                if (accending) { accending=false }
-                                else { accending=true }
-                            } else {
-                                tableHeaderRect.currentSortIndex = index
-                            }
-                            //c++Model.sort(index, accending)
+                }
+                TableColumnHeader {
+                    id: addressHeaderItem
+                    height: parent.height
+                    width: addressListRect.addressColumnWidth
+                    index: 2
+                    active: tableHeaderRect.currentSortIndex === index
+                    text: qsTr("Address")
+                    anchors.left: lastUsedHeaderItem.right
+                    onClicked: {
+                        if (active){
+                            if (accending) { accending=false }
+                            else { accending=true }
+                        } else {
+                            tableHeaderRect.currentSortIndex = index
                         }
-                    }
-                    TableColumnHeader {
-                        id: addressHeaderItem
-                        height: parent.height
-                        width: addressListRect.addressColumnWidth
-                        index: 2
-                        active: tableHeaderRect.currentSortIndex === index
-                        text: qsTr("Address")
-                        anchors.left: lastUsedHeaderItem.right
-                        onClicked: {
-                            if (active){
-                                if (accending) { accending=false }
-                                else { accending=true }
-                            } else {
-                                tableHeaderRect.currentSortIndex = index
-                            }
-                            //c++Model.sort(index, accending)
-                        }
+                        //c++Model.sort(index, accending)
                     }
                 }
             }
@@ -241,9 +203,6 @@ Rectangle {
                 id: addressListView
                 clip: true
                 currentIndex: 0
-                Keys.onDownPressed: {currentIndex = Math.min(count-1, currentIndex+1)
-                    console.log("Down pressed")}
-                Keys.onUpPressed: currentIndex = Math.max(0, currentIndex-1)
                 ScrollIndicator.vertical: ScrollIndicator {
                     parent: addressListView.parent
                     anchors {
@@ -365,8 +324,8 @@ Rectangle {
                         enabled: true
                         effect: OpacityMask {
                             maskSource: Item {
-                                width: tableHeaderInnerRect.width
-                                height: tableHeaderInnerRect.height
+                                width: tableFooterInnerRect.width
+                                height: tableFooterInnerRect.height
                                 Rectangle {
                                     width: parent.width
                                     anchors {
