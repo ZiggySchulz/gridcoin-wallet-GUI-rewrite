@@ -225,5 +225,6 @@
         <file>translations/GridcoinWalletGUI_en_AU.qm</file>
         <file>TableColumnHeader.qml</file>
         <file>TableHeaderBackground.qml</file>
+        <file>QRCodeWindow.qml</file>
     </qresource>
 </RCC>

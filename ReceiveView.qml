@@ -119,7 +119,7 @@ Rectangle {
             id: addressListRect
             property int labelColumnWidth: width-lastUsedColumnWidth-addressColumnWidth
             property int lastUsedColumnWidth: Math.max(90, width*0.15)
-            property int addressColumnWidth: Math.max(300, width*0.5)
+            property int addressColumnWidth: Math.max(300, width*0.45)
             color: MMPTheme.themeSelect(MMPTheme.cWhite, "#17222c")
             border.color: MMPTheme.themeSelect("#c3c7ce", "#3b475d")
             radius: 4
@@ -222,6 +222,7 @@ Rectangle {
                 }
 
                 model: ListModel {
+                    id: addressListModel
                     ListElement {
                         label: "Donation"
                         lastUsed: 1609723156
@@ -390,7 +391,6 @@ Rectangle {
             }
 
             Button {
-                height: 26
                 text: qsTr("Show QR Code")
                 icon.source: MMPTheme.themeSelect("resources/icons/buttons/ic_btn_qr_code_light.svg","resources/icons/buttons/ic_btn_qr_code_dark.svg")
                 anchors {
@@ -398,9 +398,14 @@ Rectangle {
                     left: parent.left
                     leftMargin: 10
                 }
+                onPressed: {
+                    var component = Qt.createComponent("QRCodeWindow.qml")
+                    var windowObj = component.createObject(window)
+                    windowObj.address = addressListView.model.get(addressListView.currentIndex).address
+                    windowObj.show()
+                }
             }
             Button {
-                height: 26
                 text: qsTr("Sign Message")
                 icon.source: MMPTheme.themeSelect("resources/icons/buttons/ic_btn_sign_light.svg","resources/icons/buttons/ic_btn_sign_dark.svg")
                 anchors {
