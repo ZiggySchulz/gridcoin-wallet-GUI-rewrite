@@ -6,13 +6,16 @@
 #include <QFontDatabase>
 #include <QLocale>
 #include <QTranslator>
-#include <stdio.h>
+#include <QIcon>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    app.setOrganizationName("Gridcoin");
+    app.setWindowIcon(QIcon(":/resources/icons/logos/ic_logo_app_gradient_white.svg"));
 
     QTranslator translator;
     if (translator.load(QLocale(), QLatin1String("GridcoinWalletGUI"), QLatin1String("_"), QLatin1String(":/translations"))) {
