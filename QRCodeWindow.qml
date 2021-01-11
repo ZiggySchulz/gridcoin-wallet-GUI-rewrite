@@ -5,12 +5,14 @@ import MMPTheme 1.0
 
 Window {
     id: window
+    property string address
+    title: qsTr("Address QR Code")
     width: 650
     height: 300
-    minimumWidth: 400
+    minimumWidth: 450
     minimumHeight: 250
-    title: qsTr("Address QR Code")
-    property string address
+    maximumHeight: 650
+    maximumWidth: 1200
     Rectangle {
         id: background
         color: MMPTheme.backgroundColor
@@ -26,10 +28,12 @@ Window {
                 right: parent.right
                 margins: 10
             }
-            Rectangle {
+            Image {
                 id: qrRect
-                width: height
-                color: "green"
+                width: Math.min(height, background.width*0.5)
+                source: "resources/icons/buttons/ic_btn_qr_code_light.svg" //TODO change to render qr code
+                sourceSize: Qt.size(600, 600) //Remove to render at native image res
+                fillMode: Image.PreserveAspectFit
                 anchors {
                     top: parent.top
                     bottom: parent.bottom
