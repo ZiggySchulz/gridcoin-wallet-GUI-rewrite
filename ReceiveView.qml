@@ -28,12 +28,10 @@ Rectangle {
 
         Text {
             id: titleText
-            //height: implicitHeight+2
             text: qsTr("Receive Funds")
             font.weight: Font.DemiBold
             font.pixelSize: 22
             color: MMPTheme.textColor
-            //verticalAlignment: Text.AlignTop
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
@@ -96,10 +94,7 @@ Rectangle {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            topMargin: 10
-            leftMargin: 10
-            rightMargin: 10
-            bottomMargin: 10
+            margins: 10
         }
         Text {
             id: listInfoText
@@ -373,7 +368,7 @@ Rectangle {
             //Background
             Rectangle {
                 id: bottomCurvedRect
-                color: MMPTheme.themeSelect(MMPTheme.cFrostWhite, MMPTheme.cMirage)
+                color: MMPTheme.secondaryBodyColor
                 width: parent.width
                 height: 2*radius
                 radius: receivePanel.radius
@@ -383,7 +378,7 @@ Rectangle {
                 id: bottomAccentRect
                 width: parent.width
                 height: 40
-                color: MMPTheme.themeSelect(MMPTheme.cFrostWhite, MMPTheme.cMirage)
+                color: MMPTheme.secondaryBodyColor
                 anchors {
                     top: parent.top
                     bottom: bottomCurvedRect.verticalCenter
