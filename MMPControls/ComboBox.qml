@@ -56,8 +56,8 @@ T.ComboBox {
 
     delegate: ItemDelegate {
         width: parent.width
-        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
         height: 24
+        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
         font.pixelSize: MMPTheme.font.pixelSize
         font.weight: control.currentIndex === index ? Font.Medium : Font.Normal
         highlighted: control.highlightedIndex === index
@@ -71,9 +71,11 @@ T.ComboBox {
         }
         background: Rectangle {
             x: 1
+            y: 1
             width: parent.width-2
+            height: parent.height-2
             radius: 4
-            color: highlighted ? MMPTheme.translucent(MMPTheme.cOxfordBlue, 0.3) : "transparent"
+            color: highlighted ? MMPTheme.themeSelect(MMPTheme.cFrostWhite, MMPTheme.translucent(MMPTheme.cOxfordBlue, 0.3)) : "transparent"
         }
     }
 
