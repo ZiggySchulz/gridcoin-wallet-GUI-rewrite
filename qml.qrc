@@ -226,5 +226,6 @@
         <file>TableColumnHeader.qml</file>
         <file>TableHeaderBackground.qml</file>
         <file>QRCodeWindow.qml</file>
+        <file>HistoryView.qml</file>
     </qresource>
 </RCC>

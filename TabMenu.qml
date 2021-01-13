@@ -33,6 +33,7 @@ Rectangle {
             label: qsTr("History")
             lightImageSource: "resources/icons/menu/ic_menu_history_white.svg"
             darkImageSource: "resources/icons/menu/ic_menu_history_blue.svg"
+            path: "HistoryView.qml"
         }
         ListElement {
             label: qsTr("Favourites")
