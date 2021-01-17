@@ -227,5 +227,14 @@
         <file>TableHeaderBackground.qml</file>
         <file>QRCodeWindow.qml</file>
         <file>HistoryView.qml</file>
+        <file>DatePicker.qml</file>
+        <file>resources/icons/calendar/ic_date_end_background_dark.svg</file>
+        <file>resources/icons/calendar/ic_date_end_background_light.svg</file>
+        <file>resources/icons/calendar/ic_date_start_background_dark.svg</file>
+        <file>resources/icons/calendar/ic_date_start_background_light.svg</file>
+        <file>resources/icons/generic/ic_chevron_left_dark.svg</file>
+        <file>resources/icons/generic/ic_chevron_left_light.svg</file>
+        <file>resources/icons/generic/ic_chevron_right_dark.svg</file>
+        <file>resources/icons/generic/ic_chevron_right_light.svg</file>
     </qresource>
 </RCC>
