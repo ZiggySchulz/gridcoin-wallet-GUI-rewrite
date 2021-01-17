@@ -54,11 +54,18 @@ Rectangle {
         ComboBox {
             id: timeComboBox
             width: 170
-            displayText: qsTr("All Time")
+            displayText: datePicker.currentSelectionType
+            onPressedChanged: datePicker.open()
             anchors {
                 left: parent.left
                 verticalCenter: parent.verticalCenter
                 leftMargin: 20
+            }
+            DatePicker {
+                id: datePicker
+                x: -width/2+timeComboBox.width*0.9
+                y: timeComboBox.height + 20
+                visible: false
             }
         }
         ComboBox {
@@ -71,10 +78,10 @@ Rectangle {
                 leftMargin: 10
             }
             model: ListModel {
-                ListElement { text: "Incoming" }
-                ListElement { text: "Outgoing" }
-                ListElement { text: "Block Reward" }
-                ListElement { text: "Research" }
+                ListElement { text: qsTr("Incoming") }
+                ListElement { text: qsTr("Outgoing") }
+                ListElement { text: qsTr("Block Reward") }
+                ListElement { text: qsTr("Research") }
             }
         }
         TextField {

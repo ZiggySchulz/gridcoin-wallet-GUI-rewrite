@@ -361,7 +361,7 @@ Popup {
                     anchors.fill: parent
                     Text {
                         id: pastWeekButtonText
-                        text: qsTr("Past Week")
+                        text: qsTr("Last 7 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
@@ -386,7 +386,7 @@ Popup {
                     anchors.fill: parent
                     Text {
                         id: pastFortnightButtonText
-                        text: qsTr("Past Fortnight")
+                        text: qsTr("Last 14 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
@@ -400,7 +400,7 @@ Popup {
                 opacity: dateRangeButtonColumn.currentIndex===index ? 1 : 0.4
                 onClicked: {
                     dateRangeButtonColumn.currentIndex = index
-                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-30))
+                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-29))
                     calendar.selectionEnd = new Date()
                     popup.currentSelectionType=pastMonthButtonText.text
                 }
@@ -411,7 +411,7 @@ Popup {
                     anchors.fill: parent
                     Text {
                         id: pastMonthButtonText
-                        text: qsTr("Past Month")
+                        text: qsTr("Last 30 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
@@ -425,7 +425,7 @@ Popup {
                 opacity: dateRangeButtonColumn.currentIndex===index ? 1 : 0.4
                 onClicked: {
                     dateRangeButtonColumn.currentIndex = index
-                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-60))
+                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-59))
                     calendar.selectionEnd = new Date()
                     popup.currentSelectionType=pastTwoMonthsButtonText.text
                 }
@@ -436,7 +436,7 @@ Popup {
                     anchors.fill: parent
                     Text {
                         id: pastTwoMonthsButtonText
-                        text: qsTr("Past 2 Months")
+                        text: qsTr("Last 60 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
@@ -450,7 +450,7 @@ Popup {
                 opacity: dateRangeButtonColumn.currentIndex===index ? 1 : 0.4
                 onClicked: {
                     dateRangeButtonColumn.currentIndex = index
-                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-365))
+                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-364))
                     calendar.selectionEnd = new Date()
                     popup.currentSelectionType=pastYearButtonText.text
                 }
@@ -461,7 +461,7 @@ Popup {
                     anchors.fill: parent
                     Text {
                         id: pastYearButtonText
-                        text: qsTr("Past Year")
+                        text: qsTr("Last 365 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
@@ -475,7 +475,7 @@ Popup {
                 opacity: dateRangeButtonColumn.currentIndex===index ? 1 : 0.4
                 onClicked:  {
                     dateRangeButtonColumn.currentIndex = index
-                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-730))
+                    calendar.selectionStart = new Date(new Date().setDate(new Date().getDate()-729))
                     calendar.selectionEnd = new Date()
                     popup.currentSelectionType=pastTwoYearsButtonText.text
                 }
@@ -486,7 +486,7 @@ Popup {
                     anchors.fill: parent
                     Text {
                         id: pastTwoYearsButtonText
-                        text: qsTr("Past 2 Years")
+                        text: qsTr("Last 730 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
