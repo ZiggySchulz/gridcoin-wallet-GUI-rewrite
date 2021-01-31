@@ -223,8 +223,7 @@
         <file>ReceiveView.qml</file>
         <file>SearchBox.qml</file>
         <file>translations/GridcoinWalletGUI_en_AU.qm</file>
-        <file>TableColumnHeader.qml</file>
-        <file>TableHeaderBackground.qml</file>
+        <file>TableHeader.qml</file>
         <file>QRCodeWindow.qml</file>
         <file>HistoryView.qml</file>
         <file>DatePicker.qml</file>

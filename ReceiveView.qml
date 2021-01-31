@@ -129,70 +129,17 @@ Rectangle {
                 bottomMargin: 10
             }
 
-            //This was a lot of effort for such a inconspicuous element
-            TableHeaderBackground {
+            TableHeader {
                 id: tableHeaderRect
                 height: 25
                 width: parent.width
                 border.color: parent.border.color
                 radius: parent.radius
-                TableColumnHeader {
-                    id: labelHeaderItem
-                    height: parent.height
-                    width: addressListRect.labelColumnWidth
-                    index: 0
-                    active: tableHeaderRect.currentSortIndex === index
-                    text: qsTr("Label")
-                    anchors {
-                        left: parent.left
-                        leftMargin: 1
-                    }
-                    onClicked: {
-                        if (active){
-                            if (accending) { accending=false }
-                            else { accending=true }
-                        } else {
-                            tableHeaderRect.currentSortIndex = index
-                        }
-                        //c++Model.sort(index, accending)
-                    }
-                }
-                TableColumnHeader {
-                    id: lastUsedHeaderItem
-                    height: parent.height
-                    width: addressListRect.lastUsedColumnWidth
-                    index: 1
-                    active: tableHeaderRect.currentSortIndex === index
-                    text: qsTr("Last Used")
-                    anchors.left: labelHeaderItem.right
-                    onClicked: {
-                        if (active){
-                            if (accending) { accending=false }
-                            else { accending=true }
-                        } else {
-                            tableHeaderRect.currentSortIndex = index
-                        }
-                        //c++Model.sort(index, accending)
-                    }
-                }
-                TableColumnHeader {
-                    id: addressHeaderItem
-                    height: parent.height
-                    width: addressListRect.addressColumnWidth
-                    index: 2
-                    active: tableHeaderRect.currentSortIndex === index
-                    text: qsTr("Address")
-                    anchors.left: lastUsedHeaderItem.right
-                    onClicked: {
-                        if (active){
-                            if (accending) { accending=false }
-                            else { accending=true }
-                        } else {
-                            tableHeaderRect.currentSortIndex = index
-                        }
-                        //c++Model.sort(index, accending)
-                    }
-                }
+                model: [
+                    { text: qsTr("Label"), width: addressListRect.labelColumnWidth },
+                    { text: qsTr("Last Used"), width: addressListRect.lastUsedColumnWidth },
+                    { text: qsTr("Address"), width: addressListRect.addressColumnWidth }
+                ]
             }
             ListView {
                 id: addressListView
