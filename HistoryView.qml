@@ -51,33 +51,101 @@ Rectangle {
         height: 40
         width: parent.width
         anchors.top: header.bottom
-        ComboBox {
-            id: timeComboBox
+//        ComboBox {
+//            id: timeComboBox
+//            width: 170
+//            displayText: datePicker.currentSelectionType
+//            onPressedChanged: datePicker.open()
+//            anchors {
+//                left: parent.left
+//                verticalCenter: parent.verticalCenter
+//                leftMargin: 20
+//            }
+//            DatePicker {
+//                id: datePicker
+//                x: -width/2+timeComboBox.width*0.9
+//                y: timeComboBox.height + 20
+//                visible: false
+//            }
+//        }
+        MouseArea {
+            id: timeSelectionBox
             width: 170
-            displayText: datePicker.currentSelectionType
-            onPressedChanged: datePicker.open()
+            height: 24
+            onPressed: {
+                datePicker.open()
+                forceActiveFocus()
+            }
             anchors {
                 left: parent.left
                 verticalCenter: parent.verticalCenter
                 leftMargin: 20
             }
+            Rectangle {
+                border.width: 1
+                radius: 4
+                color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cOxfordOffBlue)
+                border.color: MMPTheme.themeSelect(MMPTheme.translucent(MMPTheme.cOxfordBlue, timeSelectionBox.activeFocus ? 0.7 : 0.3),
+                                                   timeSelectionBox.activeFocus ? MMPTheme.translucent(MMPTheme.cWhite, 0.7) : MMPTheme.cOxfordBlue)
+                anchors.fill: parent
+                Image {
+                    id: calendarIcon
+                    source: MMPTheme.themeSelect("resources/icons/generic/ic_date_light.svg","resources/icons/generic/ic_date_dark.svg")
+                    sourceSize: Qt.size(10, 10)
+                    opacity: timeSelectionBox.activeFocus ? 1 : 0.7
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        left: parent.left
+                        leftMargin: 10
+                    }
+                }
+                Image {
+                    id: calenderDownChevron
+                    source: MMPTheme.themeSelect("qrc:/resources/icons/generic/ic_chevron_down_light.svg", "qrc:/resources/icons/generic/ic_chevron_down_dark.svg")
+                    opacity: timeSelectionBox.activeFocus ? 1 : 0.7
+                    sourceSize: Qt.size(15, 15)
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        right: parent.right
+                        rightMargin: 5
+                    }
+                }
+                Text {
+                    id: calendarDisplayText
+                    text: datePicker.currentSelectionType
+                    verticalAlignment: Text.AlignVCenter
+                    color: MMPTheme.textColor
+                    opacity: timeSelectionBox.activeFocus ? 1 : 0.7
+                    anchors {
+                        left: calendarIcon.right
+                        right: calenderDownChevron.left
+                        top: parent.top
+                        bottom: parent.bottom
+                        leftMargin: 6
+                        rightMargin: 5
+                    }
+                }
+            }
             DatePicker {
                 id: datePicker
-                x: -width/2+timeComboBox.width*0.9
-                y: timeComboBox.height + 20
+                x: -width/2 + timeSelectionBox.width*0.9
+                y: timeSelectionBox.height + 20
                 visible: false
             }
         }
         ComboBox {
             id: typeComboBox
             width: 170
-            displayText: qsTr("All Types")
+            height: 24
+            currentIndex: 0
+            focus: false
             anchors {
-                left: timeComboBox.right
+                left: timeSelectionBox.right
                 verticalCenter: parent.verticalCenter
                 leftMargin: 10
             }
             model: ListModel {
+                ListElement { text: qsTr("All Types") }
                 ListElement { text: qsTr("Incoming") }
                 ListElement { text: qsTr("Outgoing") }
                 ListElement { text: qsTr("Block Reward") }
