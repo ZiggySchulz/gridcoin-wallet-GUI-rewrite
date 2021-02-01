@@ -161,5 +161,185 @@ Rectangle {
             bottom: parent.bottom
             margins: 10
         }
+        Rectangle {
+            id: transactionBackgroundRect
+            property int dateColumnWidth: Math.max(140, width*0.2)
+            property int typeColumnWidth: Math.max(100, width*0.2)
+            property int addressColumnWidth: width-dateColumnWidth-typeColumnWidth-amountColumnWidth
+            property int amountColumnWidth: Math.max(140, width*0.2)
+            color: MMPTheme.themeSelect(MMPTheme.cWhite, "#17222c")
+            border.color: MMPTheme.themeSelect("#c3c7ce", "#3b475d")
+            radius: 4
+            anchors {
+                fill: parent
+                margins: 10
+            }
+            TableHeader {
+                id: tableHeaderRect
+                height: 25
+                width: parent.width
+                border.color: parent.border.color
+                radius: parent.radius
+                model: [
+                    { text: qsTr("Date"), width: transactionBackgroundRect.dateColumnWidth },
+                    { text: qsTr("Type"), width: transactionBackgroundRect.typeColumnWidth },
+                    { text: qsTr("Address"), width: transactionBackgroundRect.addressColumnWidth },
+                    { text: qsTr("Amount"), width: transactionBackgroundRect.amountColumnWidth }
+                ]
+            }
+            ListView {
+                id: transactionListView
+                clip: true
+                currentIndex: 0
+                ScrollIndicator.vertical: ScrollIndicator {
+                    parent: transactionListView.parent
+                    anchors {
+                        top: transactionListView.top
+                        bottom: transactionListView.bottom
+                        right: transactionListView.right
+                        rightMargin: 1
+                    }
+                }
+                anchors {
+                    top: tableHeaderRect.bottom
+                    left: parent.left
+                    right: parent.right
+                    bottom: parent.bottom
+                    leftMargin: 1
+                    rightMargin: 1
+                }
+                model: ListModel {
+                    ListElement {
+                        date: 1612151516
+                        type: "Incoming"
+                        address: "Primary Wallet"
+                        amount: 32432.3218
+                    }
+                    ListElement {
+                        date: 22039382
+                        type: "Outgoing"
+                        address: "Primary Wallet"
+                        amount: -323.29183
+                    }
+                }
+                delegate: MouseArea {
+                    width: parent.width
+                    height: 25
+                    onClicked: transactionListView.currentIndex=index
+                    Rectangle {
+                        anchors.fill: parent
+                        color: transactionListView.currentIndex===index ? MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#212c3b") : "transparent"
+                        Item {
+                            id: dateItem
+                            height: parent.height
+                            width: transactionBackgroundRect.dateColumnWidth
+                            Image {
+                                id: transactionStatusIcon
+                                sourceSize: Qt.size(15, 15)
+                                anchors {
+                                    verticalCenter: parent.verticalCenter
+                                    left: parent.left
+                                    leftMargin: 10
+                                }
+                                source: {
+                                    var dateDiff = (MMPTheme.currentTime.getTime() - new Date(date*1000).getTime())/1000   //Age of transaction in seconds
+                                    //Arbitrary time diffs
+                                    if (dateDiff< 90) {
+                                        return "resources/icons/transactionlevels/ic_tran_lv1.svg"
+                                    } else if (dateDiff < 180){
+                                        return "resources/icons/transactionlevels/ic_tran_lv2.svg"
+                                    } else if (dateDiff < 270){
+                                        return "resources/icons/transactionlevels/ic_tran_lv3.svg"
+                                    } else if (dateDiff < 360){
+                                        return "resources/icons/transactionlevels/ic_tran_lv4.svg"
+                                    } else if (dateDiff < 540){
+                                        return "resources/icons/transactionlevels/ic_tran_lv5.svg"
+                                    } else {
+                                       return "resources/icons/transactionlevels/ic_tran_lv6.svg"
+                                    }
+                                }
+                            }
+                            Text {
+                                id: dateText
+                                text: new Date(date*1000).toLocaleString(Qt.locale(), Locale.ShortFormat)
+                                elide: Text.ElideRight
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                                color: MMPTheme.translucent(MMPTheme.textColor, transactionListView.currentIndex===index ? 1 : 0.7)
+                                anchors {
+                                    left: transactionStatusIcon.right
+                                    leftMargin: 5
+                                    right: parent.right
+                                }
+                            }
+                        }
+                        Item {
+                            id: typeItem
+                            height: parent.height
+                            width: transactionBackgroundRect.typeColumnWidth
+                            anchors.left: dateItem.right
+                            Text {
+                                id: typeText
+                                text: type
+                                elide: Text.ElideRight
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                                color: MMPTheme.textColor
+                                anchors {
+                                    left: parent.left
+                                    leftMargin: 10
+                                    right: parent.right
+                                }
+                            }
+                        }
+                        Item {
+                            id: addressItem
+                            height: parent.height
+                            width: transactionBackgroundRect.addressColumnWidth
+                            anchors.left: typeItem.right
+                            Text {
+                                id: addressText
+                                text: address
+                                elide: Text.ElideRight
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                                color: MMPTheme.translucent(MMPTheme.textColor, transactionListView.currentIndex===index ? 1 : 0.7)
+                                anchors {
+                                    left: parent.left
+                                    leftMargin: 10
+                                    right: parent.right
+                                }
+                            }
+                        }
+                        Item {
+                            id: amountItem
+                            height: parent.height
+                            width: transactionBackgroundRect.amountColumnWidth
+                            anchors.left: addressItem.right
+                            Text {
+                                id: amountText
+                                text: {
+                                    var output = ""
+                                    if (amount>=0) {
+                                        output="+"
+                                    }
+                                    output += amount
+                                    return output
+                                }
+                                elide: Text.ElideRight
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                                color: MMPTheme.translucent(MMPTheme.textColor, transactionListView.currentIndex===index ? 1 : 0.7)
+                                anchors {
+                                    left: parent.left
+                                    leftMargin: 10
+                                    right: parent.right
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
