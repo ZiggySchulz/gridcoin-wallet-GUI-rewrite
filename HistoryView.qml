@@ -288,7 +288,24 @@ Rectangle {
                                 anchors {
                                     left: parent.left
                                     leftMargin: 10
+                                    right: typeIcon.left
+                                }
+                            }
+                            Image {
+                                id: typeIcon
+                                sourceSize: Qt.size(15,15)
+                                anchors {
                                     right: parent.right
+                                    verticalCenter: parent.verticalCenter
+                                }
+
+                                source: {
+                                    switch (type) {
+                                    case ("Incoming"):
+                                        return "resources/icons/events/ic_event_green.svg"
+                                    case ("Outgoing"):
+                                        return "resources/icons/events/ic_event_red.svg"
+                                    }
                                 }
                             }
                         }
