@@ -5,7 +5,7 @@ import MMPTheme 1.0
 Rectangle {
     id: tableHeaderRect
     property int currentSortIndex: 0
-    property alias model: columnHeadersRepeater.model
+    property alias model: columnHeadersRepeater.model   //A list with each item describing a column header eg. [{text:"", width:100}]
     implicitHeight: 25
     color: "transparent"
     Rectangle {
