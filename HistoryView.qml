@@ -305,6 +305,14 @@ Rectangle {
                                         return "resources/icons/events/ic_event_green.svg"
                                     case ("Outgoing"):
                                         return "resources/icons/events/ic_event_red.svg"
+                                    case ("Interest"):
+                                        return "resources/icons/events/ic_event_yellow.svg"
+                                    case ("Research"):
+                                        return "resources/icons/events/ic_event_purple.svg"
+                                    case ("ResearchSideStake"):
+                                        return "resources/icons/events/ic_event_green_purple.svg"
+                                    case ("InterestSideStake"):
+                                        return "resources/icons/events/ic_event_yellow_purple.svg"
                                     }
                                 }
                             }
