@@ -56,8 +56,8 @@ Rectangle {
             width: 170
             height: 24
             onPressed: {
-                datePicker.open()
-                forceActiveFocus()
+                datePicker.item.open()
+                forceActiveFocus(Qt.MouseFocusReason)
             }
             anchors {
                 left: parent.left
@@ -96,7 +96,7 @@ Rectangle {
                 }
                 Text {
                     id: dateBoxDisplayText
-                    text: datePicker.currentSelectionType
+                    text: datePicker.status===Loader.Ready ? datePicker.item.currentSelectionType : qsTr("All Time")
                     verticalAlignment: Text.AlignVCenter
                     color: MMPTheme.textColor
                     opacity: dateSelectionBox.activeFocus ? 1 : 0.7
@@ -111,11 +111,16 @@ Rectangle {
                     }
                 }
             }
-            DatePicker {
+            Loader {
+                //Load DatePicker asynchronously
                 id: datePicker
                 x: -width/2 + dateSelectionBox.width*0.9
                 y: dateSelectionBox.height + 20
+                width: 420
+                height: 330
                 visible: false
+                source: "/DatePicker.qml"
+                asynchronous: true
             }
         }
         ComboBox {
