@@ -235,5 +235,6 @@
         <file>resources/icons/generic/ic_chevron_left_light.svg</file>
         <file>resources/icons/generic/ic_chevron_right_dark.svg</file>
         <file>resources/icons/generic/ic_chevron_right_light.svg</file>
+        <file>FavoritesView.qml</file>
     </qresource>
 </RCC>

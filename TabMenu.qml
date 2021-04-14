@@ -39,6 +39,7 @@ Rectangle {
             label: qsTr("Favourites")
             lightImageSource: "resources/icons/menu/ic_menu_favorites_white.svg"
             darkImageSource: "resources/icons/menu/ic_menu_favorites_blue.svg"
+            path: "FavoritesView.qml"
         }
         ListElement {
             label: qsTr("Polls")
