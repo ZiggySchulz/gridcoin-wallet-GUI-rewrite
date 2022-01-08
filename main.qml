@@ -4,10 +4,9 @@ import QtQuick.Layouts 1.15
 
 ApplicationWindow {
     id: window
-    width: 750
     height: minimumHeight
     minimumHeight: 640
-    minimumWidth: 650
+    minimumWidth: 720
 
     visible: true
     title: qsTr("Gridcoin Wallet")
