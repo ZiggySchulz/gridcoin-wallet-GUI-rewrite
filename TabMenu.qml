@@ -45,6 +45,7 @@ Rectangle {
             label: qsTr("Polls")
             lightImageSource: "resources/icons/menu/ic_menu_polls_white.svg"
             darkImageSource: "resources/icons/menu/ic_menu_polls_blue.svg"
+            path: "PollView.qml"
         }
         ListElement {
             label: qsTr("News")

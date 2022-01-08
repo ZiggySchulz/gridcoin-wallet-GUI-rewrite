@@ -222,7 +222,6 @@
         <file>MMPControls/ScrollBar.qml</file>
         <file>ReceiveView.qml</file>
         <file>SearchBox.qml</file>
-        <file>translations/GridcoinWalletGUI_en_AU.qm</file>
         <file>TableHeader.qml</file>
         <file>QRCodeWindow.qml</file>
         <file>HistoryView.qml</file>
@@ -236,5 +235,9 @@
         <file>resources/icons/generic/ic_chevron_right_dark.svg</file>
         <file>resources/icons/generic/ic_chevron_right_light.svg</file>
         <file>FavoritesView.qml</file>
+        <file>translations/GridcoinWalletGUI_en_AU.qm</file>
+        <file>translations/GridcoinWalletGUI_en_AU.ts</file>
+        <file>PollView.qml</file>
+        <file>PollTabButton.qml</file>
     </qresource>
 </RCC>

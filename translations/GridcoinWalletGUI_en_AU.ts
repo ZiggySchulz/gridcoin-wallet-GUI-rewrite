@@ -2,6 +2,142 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_AU">
 <context>
+    <name>DatePicker</name>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last 7 Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last 14 Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last 30 Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last 60 Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last 365 Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last 730 Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FavoritesView</name>
+    <message>
+        <source>Favourites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n record(s)</source>
+        <translation>
+            <numerusform>%n record</numerusform>
+            <numerusform>%n records</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Search by label or address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show QR Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistoryView</name>
+    <message>
+        <source>Transaction History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search by address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Types</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Incoming</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outgoing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block Reward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Research</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min. Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OverviewResearcherView</name>
     <message>
         <source>Account Overview</source>
@@ -137,6 +273,25 @@
     </message>
 </context>
 <context>
+    <name>QRCodeWindow</name>
+    <message>
+        <source>Address QR Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save to File</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ReceiveView</name>
     <message>
         <source>Receive Funds</source>
@@ -155,6 +310,34 @@
             <numerusform>%Ln record</numerusform>
             <numerusform>%Ln records</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Search by label or address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These are your Gridcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last Used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show QR Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign Message</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
