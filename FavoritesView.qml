@@ -40,7 +40,7 @@ Rectangle {
         }
         Rectangle {
             id: recordSeparator
-            color: MMPTheme.separatorColor
+            color: MMPTheme.seperatorColor
             height: titleText.height*0.625
             width: 1
             anchors {
@@ -77,7 +77,7 @@ Rectangle {
 
         SearchBox {
             placeholderText: qsTr("Search by label or address")
-            //onTextChanged: listview.sortModel(text)
+//            onTextChanged: listview.sortModel(text)
             anchors {
                 verticalCenter: parent.verticalCenter
                 right: parent.right
