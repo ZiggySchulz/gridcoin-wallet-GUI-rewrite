@@ -239,5 +239,7 @@
         <file>translations/GridcoinWalletGUI_en_AU.ts</file>
         <file>PollView.qml</file>
         <file>PollTabButton.qml</file>
+        <file>plugins/Time/Time.qml</file>
+        <file>plugins/Time/qmldir</file>
     </qresource>
 </RCC>

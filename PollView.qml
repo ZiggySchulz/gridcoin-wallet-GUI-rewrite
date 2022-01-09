@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 import MMPTheme 1.0
+import Time 1.0
 
 Rectangle {
     id: main
@@ -486,7 +487,7 @@ Rectangle {
                     id: voteButton
                     text: qsTr("Vote")
                     icon.source: MMPTheme.isLightTheme ? "resources/icons/buttons/ic_btn_vote_light.svg" : "resources/icons/buttons/ic_btn_vote_dark.svg"
-                    visible: MMPTheme.currentTime < new Date(model.expires*1000)
+                    visible: Time.currentTime < new Date(model.expires*1000)
                     anchors {
                         right: detailsButton.left
                         rightMargin: 10

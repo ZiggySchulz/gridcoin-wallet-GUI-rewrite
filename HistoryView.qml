@@ -1,6 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import MMPTheme 1.0
+import Time 1.0
+
 Rectangle {
     id: main
     color: MMPTheme.backgroundColor
@@ -247,7 +249,7 @@ Rectangle {
                                     leftMargin: 10
                                 }
                                 source: {
-                                    var dateDiff = (MMPTheme.currentTime.getTime() - new Date(date*1000).getTime())/1000   //Age of transaction in seconds
+                                    var dateDiff = (Time.currentTime.getTime() - new Date(date*1000).getTime())/1000   //Age of transaction in seconds
                                     //Arbitrary time diffs
                                     if (dateDiff< 90) {
                                         return "resources/icons/transactionlevels/ic_tran_lv1.svg"
