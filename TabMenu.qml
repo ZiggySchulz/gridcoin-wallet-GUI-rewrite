@@ -47,11 +47,11 @@ Rectangle {
             darkImageSource: "resources/icons/menu/ic_menu_polls_blue.svg"
             path: "PollView.qml"
         }
-        ListElement {
-            label: qsTr("News")
-            lightImageSource: "resources/icons/menu/ic_menu_news_white.svg"
-            darkImageSource: "resources/icons/menu/ic_menu_news_blue.svg"
-        }
+//        ListElement {
+//            label: qsTr("News")
+//            lightImageSource: "resources/icons/menu/ic_menu_news_white.svg"
+//            darkImageSource: "resources/icons/menu/ic_menu_news_blue.svg"
+//        }
         ListElement {
             label: qsTr("Settings")
             lightImageSource: "resources/icons/menu/ic_menu_settings_white.svg"
