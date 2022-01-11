@@ -153,7 +153,7 @@ Rectangle {
             }
             Rectangle {
                 id: separator
-                color: MMPTheme.seperatorColor
+                color: MMPTheme.separatorColor
                 width: 1
                 height: parent.height-30
                 anchors.verticalCenter: parent.verticalCenter
@@ -335,7 +335,7 @@ Rectangle {
             id: walletDetailsSeparator
             height: 1
             width: parent.width-40
-            color: MMPTheme.seperatorColor
+            color: MMPTheme.separatorColor
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 top: dataTitlesColumn.bottom

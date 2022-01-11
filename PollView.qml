@@ -41,7 +41,7 @@ Rectangle {
         }
         Rectangle {
             id: activeSeparator
-            color: MMPTheme.seperatorColor
+            color: MMPTheme.separatorColor
             height: titleText.height*0.625
             width: 1
             anchors {
@@ -78,7 +78,7 @@ Rectangle {
 
         Rectangle {
             id: completedSeparator
-            color: MMPTheme.seperatorColor
+            color: MMPTheme.separatorColor
             height: titleText.height*0.625
             width: 1
             anchors {
@@ -126,7 +126,7 @@ Rectangle {
     Rectangle {
         id: tabBarSeperator
         height: 1
-        color: MMPTheme.bodySeperatorColor
+        color: MMPTheme.bodySeparatorColor
         anchors {
             left: parent.left
             right: parent.right

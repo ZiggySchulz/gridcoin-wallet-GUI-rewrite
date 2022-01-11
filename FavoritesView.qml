@@ -40,7 +40,7 @@ Rectangle {
         }
         Rectangle {
             id: recordSeparator
-            color: MMPTheme.seperatorColor
+            color: MMPTheme.separatorColor
             height: titleText.height*0.625
             width: 1
             anchors {

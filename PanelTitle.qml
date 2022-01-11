@@ -20,7 +20,7 @@ Item {
         id: separator
         height: 1
         width: parent.width
-        color: MMPTheme.seperatorColor
+        color: MMPTheme.separatorColor
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: titleRow.bottom
