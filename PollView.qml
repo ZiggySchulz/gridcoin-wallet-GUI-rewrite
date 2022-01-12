@@ -477,6 +477,15 @@ Rectangle {
                     id: detailsButton
                     text: qsTr("Details")
                     icon.source: MMPTheme.isLightTheme ? "resources/icons/buttons/ic_btn_details_light.svg" : "resources/icons/buttons/ic_btn_details_dark.svg"
+                    onPressed: {
+                        var component = Qt.createComponent("PollDetailsWindow.qml")
+                        var windowObj = component.createObject(window)
+                        windowObj.title = model.title
+                        windowObj.endDate = model.expires
+                        windowObj.topAnswer = model.bestAnswer
+                        windowObj.show()
+                    }
+
                     anchors {
                         right: parent.right
                         rightMargin: 10

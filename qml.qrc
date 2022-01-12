@@ -241,5 +241,6 @@
         <file>PollTabButton.qml</file>
         <file>plugins/Time/Time.qml</file>
         <file>plugins/Time/qmldir</file>
+        <file>PollDetailsWindow.qml</file>
     </qresource>
 </RCC>
