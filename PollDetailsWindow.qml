@@ -19,6 +19,12 @@ Window {
     property alias topAnswer: topAnswerDataLabel.text
     property int topAnswerWeight: 21837217
     property int totalWeight: 45837217
+
+    Shortcut {
+        sequence: StandardKey.Close
+        onActivated: window.close()
+    }
+
     Rectangle {
         id: background
         color: MMPTheme.backgroundColor
