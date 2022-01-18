@@ -149,57 +149,72 @@ Popup {
                     Rectangle {
                         id: dateBackgroundCircle
                         visible: false
+                        //anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         height: dayDelegateItem.circleRadius
                         width: height
                         radius: height/2
                         color: MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#2e353d")
-                        anchors.centerIn: parent
                     }
                     Rectangle {
                         id: dateBackgroundRightRectangle
-                        visible: false
+                        x: parent.width/2
+                        y: (parent.height-height)/2
+                        width: parent.width/2
                         height: dayDelegateItem.circleRadius
+                        visible: false
                         color: MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#2e353d")
-                        anchors {
-                            left: parent.horizontalCenter
-                            right: parent.right
-                            verticalCenter: parent.verticalCenter
-                        }
+//                        anchors {
+//                            left: parent.horizontalCenter
+//                            right: parent.right
+//                            verticalCenter: parent.verticalCenter
+//                        }
                     }
                     Rectangle {
                         id: dateBackgroundLeftRectangle
-                        visible: false
+                        x: 0
+                        y: (parent.height-height)/2
+                        width: parent.width/2
                         height: dayDelegateItem.circleRadius
+                        visible: false
                         color: MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#2e353d")
-                        anchors {
-                            right: parent.horizontalCenter
-                            left: parent.left
-                            verticalCenter: parent.verticalCenter
-                        }
+//                        anchors {
+//                            right: parent.horizontalCenter
+//                            left: parent.left
+//                            verticalCenter: parent.verticalCenter
+//                        }
                     }
 
                     Image {
+                        //Displays the colourful background when the date is selected
                         id: dateBackgroundImg
                         visible: false
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         height: dayDelegateItem.circleRadius
                         width: height
                         sourceSize: Qt.size(width, height)
-                        anchors.centerIn: parent
                     }
                     Text {
                         id: dateText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         opacity: styleData.visibleMonth ? 1 : 0.4
                         text: styleData.date.toLocaleDateString(Qt.locale(), "d")
                         color: MMPTheme.textColor
                         font.weight: Font.Medium
-                        anchors.centerIn: parent
                     }
                 }
                 dayOfWeekDelegate: Item {
                     implicitHeight: 40
                     Text {
                         id: dayOfWeekText
-                        anchors.centerIn: parent
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         color: {
                             if (styleData.dayOfWeek === Locale.Sunday ||styleData.dayOfWeek === Locale.Saturday) {
                                 return MMPTheme.cCarminePink
@@ -305,14 +320,18 @@ Popup {
                     popup.currentSelectionType=todayButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: todayButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("Today")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
@@ -330,14 +349,18 @@ Popup {
                     popup.currentSelectionType=yesterdayButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: yesterdayButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("Yesterday")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
@@ -355,14 +378,18 @@ Popup {
                     popup.currentSelectionType=pastWeekButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: pastWeekButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("Last 7 Days")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
@@ -380,14 +407,18 @@ Popup {
                     popup.currentSelectionType=pastFortnightButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: pastFortnightButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("Last 14 Days")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
@@ -405,10 +436,12 @@ Popup {
                     popup.currentSelectionType=pastMonthButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: pastMonthButtonText
                         text: qsTr("Last 30 Days")
@@ -430,14 +463,18 @@ Popup {
                     popup.currentSelectionType=pastTwoMonthsButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: pastTwoMonthsButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("Last 60 Days")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
@@ -455,14 +492,18 @@ Popup {
                     popup.currentSelectionType=pastYearButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: pastYearButtonText
-                        text: qsTr("Last 365 Days")
                         anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
+                        text: qsTr("Last 365 Days")
                         color: MMPTheme.textColor
                     }
                 }
@@ -480,14 +521,18 @@ Popup {
                     popup.currentSelectionType=pastTwoYearsButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: pastTwoYearsButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("Last 730 Days")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
@@ -505,14 +550,18 @@ Popup {
                     popup.currentSelectionType=allTimeButtonText.text
                 }
                 Rectangle {
+//                    anchors.fill: parent
+                    height: parent.height
+                    width: parent.width
                     radius: height/2
                     color: "transparent"
                     border.color: MMPTheme.textColor
-                    anchors.fill: parent
                     Text {
                         id: allTimeButtonText
+//                        anchors.centerIn: parent
+                        x: (parent.width-width)/2
+                        y: (parent.height-height)/2
                         text: qsTr("All Time")
-                        anchors.centerIn: parent
                         color: MMPTheme.textColor
                     }
                 }
