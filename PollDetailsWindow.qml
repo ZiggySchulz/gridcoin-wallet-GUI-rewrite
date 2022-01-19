@@ -79,43 +79,13 @@ Window {
                     rightMargin: 10
                 }
             }
-            MouseArea {
+            ClickableLink {
                 id: moreInfoItem
-                height: 15
-                width: moreInfoIcon.implicitWidth + moreInfoLabel.implicitWidth + moreInfoLabel.anchors.leftMargin
-                cursorShape: Qt.PointingHandCursor
-                onClicked: {
-                    Qt.openUrlExternally(moreInfoURL)
-                }
+                urlString: "https://gridcoin.us"
                 anchors {
                     top: pollDescriptionLabel.bottom
                     topMargin: 10
                     left: titleLabel.left
-                }
-
-                Image {
-                    id: moreInfoIcon
-                    height: parent.height
-                    width: height
-                    sourceSize.width: 15
-                    sourceSize.height: 15
-                    source: "resources/icons/generic/ic_open_link.svg"
-                    anchors {
-                        top: parent.top
-                        bottom: parent.bottom
-                        left: parent.left
-                    }
-                }
-                Text {
-                    id: moreInfoLabel
-                    color: MMPTheme.cHavelockBlue
-                    text: moreInfoURL
-                    verticalAlignment: Text.AlignVCenter
-                    anchors {
-                        left: moreInfoIcon.right
-                        leftMargin: 2
-                        verticalCenter: parent.verticalCentre
-                    }
                 }
             }
 
