@@ -242,5 +242,7 @@
         <file>plugins/Time/Time.qml</file>
         <file>plugins/Time/qmldir</file>
         <file>PollDetailsWindow.qml</file>
+        <file>PollCreationWindow.qml</file>
+        <file>ClickableLink.qml</file>
     </qresource>
 </RCC>

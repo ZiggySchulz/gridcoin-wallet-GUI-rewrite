@@ -214,6 +214,11 @@ Rectangle {
                 rightMargin: 10
                 verticalCenter: parent.verticalCenter
             }
+            onPressed: {
+                var component = Qt.createComponent("PollCreationWindow.qml")
+                var windowObj = component.createObject(window)
+                windowObj.show()
+            }
         }
     }
 
