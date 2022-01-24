@@ -32,7 +32,7 @@ MouseArea {
         verticalAlignment: Text.AlignVCenter
         anchors {
             left: linkIcon.right
-            leftMargin: 2
+            leftMargin: 3
             verticalCenter: parent.verticalCentre
         }
     }
