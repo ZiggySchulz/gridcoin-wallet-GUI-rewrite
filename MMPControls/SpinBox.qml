@@ -18,7 +18,7 @@ T.SpinBox {
 
     padding: 5
     leftPadding: padding + 5
-
+    rightPadding: 22
     validator: IntValidator {
         locale: control.locale.name
         bottom: Math.min(control.from, control.to)
@@ -59,24 +59,18 @@ T.SpinBox {
         }
     }
 
-    // Has to be wrapped in an item or else the width does not get properly applied
-    contentItem: Item {
-        TextInput {
-            text: control.displayText
-            font: MMPTheme.font
+    contentItem: TextInput {
+        text: control.textFromValue(control.value, control.locale)
+        font: MMPTheme.font
+        color: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cOxfordBlue, MMPTheme.cWhite), !control.enabled ? 0.3 : (control.activeFocus ? 1 : 0.7))
+        selectionColor: control.palette.highlight
+        selectedTextColor: control.palette.highlightedText
+        horizontalAlignment: Qt.AlignLeft
+        verticalAlignment: Qt.AlignVCenter
 
-            width: parent.width - Math.max(up.indicator.width, down.indicator.width) - 2
-
-            color: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cOxfordBlue, MMPTheme.cWhite), !control.enabled ? 0.3 : (control.activeFocus ? 1 : 0.7))
-            selectionColor: control.palette.highlight
-            selectedTextColor: control.palette.highlightedText
-            horizontalAlignment: Qt.AlignLeft
-            verticalAlignment: Qt.AlignVCenter
-
-            readOnly: !control.editable
-            validator: control.validator
-            inputMethodHints: control.inputMethodHints
-        }
+        readOnly: !control.editable
+        validator: control.validator
+        inputMethodHints: control.inputMethodHints
     }
 
     // Line separator
