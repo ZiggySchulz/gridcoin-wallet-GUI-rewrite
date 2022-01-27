@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import QtGraphicalEffects 1.15
 import MMPTheme 1.0
 
@@ -114,8 +115,6 @@ Rectangle {
             TableHeader {
                 id: tableHeaderRect
                 height: 25
-                width: parent.width
-                border.color: parent.border.color
                 radius: parent.radius
                 model: [
                     { text: qsTr("Label"), width: addressListRect.labelColumnWidth },
@@ -210,75 +209,52 @@ Rectangle {
             }
             Rectangle {
                 id: tableFooterRect
+                x:1
                 height: 25
-                width: parent.width
-                color: "transparent"
-                border.color: parent.border.color
+                width: parent.width-2
                 radius: parent.radius
                 anchors.bottom: parent.bottom
+                anchors.bottomMargin: 1
+                gradient: Gradient {
+                    GradientStop { position: 0; color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cMirage)}
+                    GradientStop { position: 1; color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cMirage)}
+                }
                 Rectangle {
-                    id: tableFooterInnerRect
-                    height: parent.height
+                    id: borderTopRect
                     width: parent.width
-                    border.color: parent.border.color
-                    gradient: Gradient {
-                        GradientStop { position: 0; color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cMirage)}
-                        GradientStop { position: 1; color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cMirage)}
-                    }
-                    layer {
-                        enabled: true
-                        effect: OpacityMask {
-                            maskSource: Item {
-                                width: tableFooterInnerRect.width
-                                height: tableFooterInnerRect.height
-                                Rectangle {
-                                    width: parent.width
-                                    anchors {
-                                        top: parent.top
-                                        bottom: radiusRect.verticalCenter
-                                    }
-                                }
-                                Rectangle {
-                                    id: radiusRect
-                                    width: parent.width
-                                    height: 2*radius
-                                    radius: tableFooterRect.radius
-                                    anchors {
-                                        bottom: parent.bottom
-                                        bottomMargin: 1
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    height: 1
+                    color: addressListRect.border.color
+                }
+                RowLayout {
+                    id: buttonRow
+                    y: 1
+                    height: parent.height-1
+                    spacing: 0
+
                     Button {
                         id: addAddressButton
-                        height: parent.height
-                        width: 30
-                        anchors.left: parent.left
+                        Layout.fillHeight: true
+                        implicitWidth: 30
                         icon.source: MMPTheme.themeSelect("resources/icons/generic/ic_add_light.svg","resources/icons/generic/ic_add_dark.svg")
                         background: Item{}
                     }
                     Rectangle {
                         id: buttonSeparator
-                        color: parent.border.color
+                        color: addressListRect.border.color
+                        Layout.fillHeight: true
                         width: 1
-                        height: parent.height
-                        anchors.left: addAddressButton.right
                     }
                     Button {
                         id: removeAddressButton
-                        height: parent.height
-                        width: 30
-                        anchors.left: buttonSeparator.right
+                        Layout.fillHeight: true
+                        implicitWidth: 30
                         icon.source: MMPTheme.themeSelect("resources/icons/generic/ic_remove_light.svg","resources/icons/generic/ic_remove_dark.svg")
                         background: Item{}
                     }
                     Rectangle {
-                        color: parent.border.color
+                        color: addressListRect.border.color
                         width: 1
-                        height: parent.height
-                        anchors.left: removeAddressButton.right
+                        Layout.fillHeight: true
                     }
                 }
             }

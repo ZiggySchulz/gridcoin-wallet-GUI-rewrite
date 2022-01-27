@@ -184,8 +184,6 @@ Rectangle {
             TableHeader {
                 id: tableHeaderRect
                 height: 25
-                width: parent.width
-                border.color: parent.border.color
                 radius: parent.radius
                 model: [
                     { text: qsTr("Date"), width: transactionBackgroundRect.dateColumnWidth },
