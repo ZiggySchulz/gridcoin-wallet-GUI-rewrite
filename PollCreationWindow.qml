@@ -446,7 +446,10 @@ Window {
                             currentIndex: responseType ? responseType : 0
                             enabled: !responseType
                             model: [qsTr("Yes/No/Abstain"), qsTr("Single Choice"), qsTr("Multiple Choice")]
-                            KeyNavigation.tab: backButton
+                            KeyNavigation.tab: {
+                                if (currentIndex === 0 || !choicesListView) return backButton
+                                return choicesListView.itemAtIndex(0).textEdit
+                            }
                         }
                         Text {
                             id: choicesLabel
@@ -458,9 +461,8 @@ Window {
                         Rectangle {
                             id: choicesListRect
                             Layout.fillWidth: true
-                            implicitHeight: Math.max(27+25*choicesListView.count, 102)
+                            implicitHeight: Math.max(27+30*choicesListView.count, 27+3*30)
                             color: MMPTheme.themeSelect(MMPTheme.cWhite, "#17222c")
-                            //                        border.color: MMPTheme.themeSelect("#c3c7ce", "#3b475d")
                             border.color: MMPTheme.lightBorderColor
                             radius: 4
                             visible: responseTypeComboBox.currentIndex != 0
@@ -494,8 +496,9 @@ Window {
                                 }
                                 delegate: MouseArea {
                                     width: choicesListView.width
-                                    height: 25
+                                    height: 30
                                     onClicked: choicesListView.currentIndex=index
+                                    property Item textEdit: choiceTextEdit
                                     Rectangle {
                                         anchors.fill: parent
                                         color: choicesListView.currentIndex===index ? MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#212c3b") : "transparent"
@@ -519,16 +522,24 @@ Window {
                                             }
                                             TextField {
                                                 id: choiceTextEdit
-                                                Layout.preferredHeight: parent.height - 3
+                                                Layout.preferredHeight: parent.height - 5
                                                 Layout.fillWidth: true
                                                 Layout.alignment: Qt.AlignVCenter
                                                 placeholderText: qsTr("Poll Answer")
                                                 color: MMPTheme.textColor
                                                 verticalAlignment: Text.AlignVCenter
                                                 selectByMouse: true
+                                                KeyNavigation.tab: {
+                                                    if (index === choicesListView.count-1) { //Last item
+                                                        return backButton
+                                                    } else {
+                                                        return choicesListView.itemAtIndex(index+1).textEdit
+                                                    }
+                                                }
+
                                                 onFocusChanged: {
                                                     if (focus){
-                                                        choicesListView.currentIndex=index
+//                                                        choicesListView.currentIndex=index
                                                     }
                                                 }
                                             }
