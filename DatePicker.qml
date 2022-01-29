@@ -206,6 +206,7 @@ Popup {
                         text: styleData.date.toLocaleDateString(Qt.locale(), "d")
                         color: MMPTheme.textColor
                         font.weight: Font.Medium
+                        textFormat: Text.PlainText
                     }
                 }
                 dayOfWeekDelegate: Item {
@@ -215,6 +216,7 @@ Popup {
 //                        anchors.centerIn: parent
                         x: (parent.width-width)/2
                         y: (parent.height-height)/2
+                        textFormat: Text.PlainText
                         color: {
                             if (styleData.dayOfWeek === Locale.Sunday ||styleData.dayOfWeek === Locale.Saturday) {
                                 return MMPTheme.cCarminePink
@@ -268,6 +270,7 @@ Popup {
                         id: titleText
                         text: styleData.title
                         color: MMPTheme.lightTextColor
+                        textFormat: Text.PlainText
                         //font.pixelSize: 13
                         anchors.centerIn: parent
                     }
@@ -333,6 +336,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Today")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -362,6 +366,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Yesterday")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -391,6 +396,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Last 7 Days")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -420,6 +426,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Last 14 Days")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -447,6 +454,7 @@ Popup {
                         text: qsTr("Last 30 Days")
                         anchors.centerIn: parent
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -476,6 +484,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Last 60 Days")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -505,6 +514,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Last 365 Days")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -534,6 +544,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("Last 730 Days")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -563,6 +574,7 @@ Popup {
                         y: (parent.height-height)/2
                         text: qsTr("All Time")
                         color: MMPTheme.textColor
+                        textFormat: Text.PlainText
                     }
                 }
             }
