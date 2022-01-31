@@ -474,6 +474,7 @@ Window {
                                 clip: true
                                 currentIndex: 0
                                 interactive: false
+                                onCurrentItemChanged: if (currentItem) currentItem.textEdit.forceActiveFocus()
                                 ScrollIndicator.vertical: ScrollIndicator {
                                     parent: choicesListView.parent
                                     anchors {
@@ -532,6 +533,7 @@ Window {
                                                 color: MMPTheme.textColor
                                                 verticalAlignment: Text.AlignVCenter
                                                 selectByMouse: true
+                                                onFocusChanged: if (focus) choicesListView.currentIndex = index
                                                 KeyNavigation.tab: {
                                                     if (index === choicesListView.count-1) { //Last item
                                                         return backButton
@@ -539,12 +541,7 @@ Window {
                                                         return choicesListView.itemAtIndex(index+1).textEdit
                                                     }
                                                 }
-                                                onTextEdited: {
-                                                    choicesListView.model.set(index, {choiceText: text})
-                                                    print(choicesListView.model.get(index).choiceText)
-                                                }
-
-
+                                                onTextEdited: choicesListView.model.set(index, {choiceText: text})
                                             }
                                         }
                                     }
