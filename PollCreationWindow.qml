@@ -1,4 +1,4 @@
-import QtQuick 2.15
+﻿import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
@@ -87,6 +87,7 @@ Window {
                     ClickableLink {
                         id: guidelinesLink
                         urlString: "https://gridcoin.us/wiki/voting.html"
+                        displayString: "gridcoin.us/wiki/voting.html"
                         anchors {
                             top: communityGuidelinesLabel.bottom
                             left: communityGuidelinesLabel.left
@@ -121,6 +122,8 @@ Window {
                         focus: true
                         Component.onCompleted: forceActiveFocus()
                         KeyNavigation.tab: nextButton
+                        Keys.onReturnPressed: nextButton.activate()
+                        Keys.onEnterPressed: nextButton.activate()
                         model: [qsTr("Project Listing"), qsTr("Protocol Development"), qsTr("Governance"), "Marketing", "Outreach", "Community", "Survey"]
                         anchors {
                             left: pollTypeLabel.right
@@ -228,7 +231,7 @@ Window {
                     var responseTypeVal //0: Y/N/Abs, 1: Single Choice, 2: Multiple Choice
                     switch (pollTypeComboBox.currentIndex){
                     case 0: //Project Listing
-                        //                        stackView.push(ProjectSelectionVIew)
+                        stackView.push(projectSelectionView)
                         return
                     case 1: //Protocol Development
                         minPollLength = 42
@@ -334,7 +337,7 @@ Window {
                         Text {
                             id: lockedFieldsLabel
                             color: MMPTheme.highlightColor
-                            visible: pollTitle || weightType || responseType
+                            visible: weightType || responseType
                             Layout.columnSpan: 2
                             text: qsTr("Some fields are locked for the selected poll type")
                             wrapMode: Text.WordWrap
@@ -536,12 +539,12 @@ Window {
                                                         return choicesListView.itemAtIndex(index+1).textEdit
                                                     }
                                                 }
-
-                                                onFocusChanged: {
-                                                    if (focus){
-//                                                        choicesListView.currentIndex=index
-                                                    }
+                                                onTextEdited: {
+                                                    choicesListView.model.set(index, {choiceText: text})
+                                                    print(choicesListView.model.get(index).choiceText)
                                                 }
+
+
                                             }
                                         }
                                     }
@@ -622,11 +625,255 @@ Window {
                 id: backButton
                 text: qsTr("Back")
                 onClicked: stackView.pop()
+                Keys.onReturnPressed: stackView.pop()
+                Keys.onEnterPressed: stackView.pop()
                 icon.source: MMPTheme.themeSelect("/resources/icons/generic/ic_chevron_left_light.svg", "/resources/icons/generic/ic_chevron_left_dark.svg")
                 KeyNavigation.tab: createPollButton
                 anchors {
                     bottom: parent.bottom
                     right: createPollButton.left
+                    margins: 10
+                }
+            }
+        }
+    }
+
+    Component {
+        id: projectSelectionView
+        Rectangle {
+            id: projectBackground
+            color: MMPTheme.backgroundColor
+            property Item defaultFocusItem: addProjectRadioButton
+
+            Rectangle {
+                id: projectBody
+                color: MMPTheme.bodyColor
+                radius: 4
+                clip: true
+                anchors {
+                    top: parent.top
+                    bottom: nextButton.top
+                    left: parent.left
+                    right: parent.right
+                    margins: 10
+                }
+                ScrollView {
+                    id: contentScrollView
+                    anchors.fill: parent
+                    clip: true
+                    contentWidth: availableWidth
+                    contentHeight: contentColumn.implicitHeight + 40
+                    ColumnLayout {
+                        id: contentColumn
+                        spacing: 20
+                        anchors {
+                            top: parent.top
+                            topMargin: 20
+                            left: parent.left
+                            right: parent.right
+                            leftMargin: 30
+                            rightMargin: 30
+                        }
+                        Text {
+                            id: createPollTitleLabel
+                            text: qsTr("Project Listing Proposal")
+                            color: MMPTheme.textColor
+                            font.weight: Font.DemiBold
+                            font.pixelSize: 15
+                            clip: true
+                        }
+                        Rectangle {
+                            id: separator
+                            height: 1
+                            color: MMPTheme.separatorColor
+                            Layout.fillWidth: true
+                        }
+
+                        RadioButton {
+                            id: addProjectRadioButton
+                            text: qsTr("Add an unlisted project")
+                            KeyNavigation.tab: removeProjectRadioButton
+                            Keys.onReturnPressed: checked = true
+                            Keys.onEnterPressed: checked = true
+                            focus: true
+                        }
+                        RadioButton {
+                            id: removeProjectRadioButton
+                            text: qsTr("Remove a listed project")
+                            KeyNavigation.tab: projectNameTextField
+                            Keys.onReturnPressed: checked = true
+                            Keys.onEnterPressed: checked = true
+                        }
+                        Rectangle {
+                            //                        id: separator
+                            height: 1
+                            color: MMPTheme.separatorColor
+                            Layout.fillWidth: true
+                        }
+                        ColumnLayout {
+                            id: addProjectColumnLayout
+                            visible: addProjectRadioButton.checked
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: visible ? implicitHeight : 0    //Fixes a binding loop error
+                            spacing: 20
+                            Text {
+                                id: proposalInfoText
+                                color: MMPTheme.textColor
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                                text: qsTr("Proposals must follow community guidelines for validation. Please review the wiki and verify that the prerequisites have been fulfilled:")
+                            }
+                            ClickableLink {
+                                id: whitelistGuidelinesLink
+                                urlString: "https://gridcoin.us/wiki/whitelist-process"
+                                displayString: "gridcoin.us/wiki/whitelist-process"
+                            }
+                            Rectangle {
+                                //id: separator
+                                height: 1
+                                color: MMPTheme.separatorColor
+                                Layout.fillWidth: true
+                            }
+                            RowLayout {
+                                id: projectNameRow
+                                spacing: 20
+                                implicitHeight: projectNameTextField.implicitHeight
+                                Text {
+                                    id: projectNameLabel
+                                    color: MMPTheme.textColor
+                                    text: qsTr("Project Name:")
+                                }
+                                TextField {
+                                    id: projectNameTextField
+                                    KeyNavigation.tab: requirementConfirmationCheckbox
+                                }
+                            }
+                            CheckBox {
+                                id: requirementConfirmationCheckbox
+                                text: qsTr("This project satisfies the Gridcoin listing criteria")
+                                KeyNavigation.tab: backButton
+                                Keys.onEnterPressed: toggle()
+                                Keys.onReturnPressed: toggle()
+                            }
+                        }
+                        ColumnLayout {
+                            id: removeProjectColumnLayout
+                            visible: removeProjectRadioButton.checked
+                            Layout.preferredHeight: visible ? implicitHeight : 0    //Fixes a binding loop error
+                            Layout.fillWidth: true
+                            spacing: 20
+                            Text {
+                                id: chooseProjectLabel
+                                text: qsTr("Choose a project to delist:")
+                                color: MMPTheme.textColor
+                            }
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: currentProjectsListView.implicitHeight + 2
+                                Layout.minimumHeight: currentProjectsListView.implicitHeight + 2
+                                Layout.maximumHeight: currentProjectsListView.implicitHeight + 2
+                                border.color: MMPTheme.lightBorderColor
+                                color: "transparent"
+                                radius: 4
+                                ListView {
+                                    id: currentProjectsListView
+                                    x:1
+                                    y:1
+                                    width: parent.width-2
+                                    implicitHeight: count*25
+                                    interactive: false
+                                    model: ListModel {
+                                        ListElement {projectName: "Universe@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                        ListElement {projectName: "Einstein@home"}
+                                    }
+                                    delegate: MouseArea {
+                                        width: parent.width
+                                        height: 25
+                                        onClicked: currentProjectsListView.currentIndex=index
+                                        property alias projectName: projectNameDataLabel.text
+                                        Rectangle {
+                                            anchors.fill: parent
+                                            color: currentProjectsListView.currentIndex===index ? MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#212c3b") : "transparent"
+                                            radius: 4
+                                            Text {
+                                                id: projectNameDataLabel
+                                                text: model.projectName
+                                                color: MMPTheme.textColor
+                                                verticalAlignment: Text.AlignVCenter
+                                                anchors {
+                                                    fill: parent
+                                                    leftMargin: 20
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Button {
+                id: nextButton
+                text: qsTr("Next")
+                icon.source: MMPTheme.themeSelect("/resources/icons/generic/ic_chevron_right_light.svg", "/resources/icons/generic/ic_chevron_right_dark.svg")
+                KeyNavigation.tab: addProjectRadioButton
+                onClicked: activate()
+                Keys.onEnterPressed: activate()
+                Keys.onReturnPressed: activate()
+                enabled: {
+                    if (addProjectRadioButton.checked) {
+                        return requirementConfirmationCheckbox.checked && projectNameTextField.text != ""
+                    }
+                    else if (removeProjectRadioButton.checked) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+
+                function activate() {
+                    var text = "[Project Listing] "
+                    if (addProjectRadioButton.checked) {
+                        text += "Add " + projectNameTextField.text
+                    }
+                    else {
+                        text += "Remove " + currentProjectsListView.currentItem.projectName
+                    }
+
+                    stackView.push(pollCreationDetailView, {pollTitle: text, pollTypeString: "Project Listing"})
+                }
+                anchors {
+                    bottom: parent.bottom
+                    right: parent.right
+                    margins: 10
+                }
+            }
+            Button {
+                id: backButton
+                text: qsTr("Back")
+                onClicked: stackView.pop()
+                Keys.onReturnPressed: stackView.pop()
+                Keys.onEnterPressed: stackView.pop()
+                icon.source: MMPTheme.themeSelect("/resources/icons/generic/ic_chevron_left_light.svg", "/resources/icons/generic/ic_chevron_left_dark.svg")
+                KeyNavigation.tab: nextButton
+                anchors {
+                    bottom: parent.bottom
+                    right: nextButton.left
                     margins: 10
                 }
             }
