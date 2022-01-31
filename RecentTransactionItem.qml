@@ -161,9 +161,11 @@ Item {
         }
         Text {
             id: addressLabel
+            width: parent.width
             text: account
             font.pixelSize: 11
             color: MMPTheme.lightTextColor
+            elide: Text.ElideRight
         }
     }
 
