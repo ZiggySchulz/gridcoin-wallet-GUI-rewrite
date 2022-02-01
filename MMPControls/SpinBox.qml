@@ -18,7 +18,7 @@ T.SpinBox {
 
     padding: 5
     leftPadding: padding + 5
-    rightPadding: 22
+    rightPadding: 25
     validator: IntValidator {
         locale: control.locale.name
         bottom: Math.min(control.from, control.to)
@@ -67,7 +67,7 @@ T.SpinBox {
         selectedTextColor: control.palette.highlightedText
         horizontalAlignment: Qt.AlignLeft
         verticalAlignment: Qt.AlignVCenter
-
+        clip: true
         readOnly: !control.editable
         validator: control.validator
         inputMethodHints: control.inputMethodHints
