@@ -254,11 +254,11 @@ Rectangle {
                         validator: DoubleValidator {
                             bottom: Math.min(transactionAmountSpinBox.from, transactionAmountSpinBox.to)
                             top:  Math.max(transactionAmountSpinBox.from, transactionAmountSpinBox.to)
+                            decimals: 8
                         }
                         textFromValue: function(value, locale) {
                             return Number(value / factor).toLocaleString(locale, 'f', transactionAmountSpinBox.decimals)
                         }
-                        //Doesn't work
                         valueFromText: function(text, locale) {
                             return Number.fromLocaleString(locale, text) * factor
                         }
