@@ -244,5 +244,7 @@
         <file>PollDetailsWindow.qml</file>
         <file>PollCreationWindow.qml</file>
         <file>ClickableLink.qml</file>
+        <file>SettingsView.qml</file>
+        <file>TableFooter.qml</file>
     </qresource>
 </RCC>

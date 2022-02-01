@@ -248,25 +248,9 @@ Rectangle {
                     }
                 }
             }
-            Rectangle {
+            TableFooter {
                 id: tableFooterRect
-                x:1
-                height: 25
-                width: parent.width-2
-                radius: parent.radius
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 1
-                gradient: Gradient {
-                    GradientStop { position: 0; color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cMirage)}
-                    GradientStop { position: 1; color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cMirage)}
-                }
-                Rectangle {
-                    id: borderTopRect
-                    width: parent.width
-                    height: 1
-                    color: addressListRect.border.color
-                }
-
+                borderColor: MMPTheme.lightBorderColor
                 RowLayout {
                     id: buttonRow
                     y: 1
