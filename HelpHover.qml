@@ -20,7 +20,8 @@ MouseArea {
         id: helpIcon
         anchors.fill: parent
         source: "resources/icons/generic/ic_help.svg"
-        sourceSize: Qt.size(width, height)
+        sourceSize: Qt.size(iconSize, iconSize)
+        fillMode: Image.Pad
     }
 
     InfoPopup {
