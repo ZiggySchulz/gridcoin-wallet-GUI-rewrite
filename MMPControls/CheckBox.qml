@@ -29,8 +29,8 @@ T.CheckBox {
 
         border.width: 1
         border.color: MMPTheme.translucent(
-                          control.checked ? MMPTheme.themeSelect(MMPTheme.cBluePurple, MMPTheme.cOxfordBlue): MMPTheme.cOxfordBlue,
-                          control.checked ? control.active ? 1.0 : 0.8 : control.active ? 0.7 : 0.3)
+                          control.checked ? MMPTheme.themeSelect(MMPTheme.cBluePurple, MMPTheme.cOxfordBlue): control.activeFocus ? MMPTheme.themeSelect(MMPTheme.cBluePurple, MMPTheme.cHavelockBlue) : MMPTheme.cOxfordBlue,
+                          control.checked ? control.active || control.activeFocus ? 1.0 : 0.8 : control.active || control.activeFocus ? 0.7 : 0.3)
         radius: 4
 
         Image {
