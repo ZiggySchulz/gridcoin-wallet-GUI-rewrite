@@ -450,7 +450,7 @@ Window {
                             enabled: !responseType
                             model: [qsTr("Yes/No/Abstain"), qsTr("Single Choice"), qsTr("Multiple Choice")]
                             KeyNavigation.tab: {
-                                if (currentIndex === 0 || !choicesListView) return backButton
+                                if (currentIndex === 0 || !choicesListView || choicesListView.count === 0) return backButton
                                 return choicesListView.itemAtIndex(0).textEdit
                             }
                         }
@@ -464,7 +464,7 @@ Window {
                         Rectangle {
                             id: choicesListRect
                             Layout.fillWidth: true
-                            implicitHeight: Math.max(27+30*choicesListView.count, 27+3*30)
+                            implicitHeight: Math.max(26+30*choicesListView.count, 26+3*30)
                             color: MMPTheme.themeSelect(MMPTheme.cWhite, "#17222c")
                             border.color: MMPTheme.lightBorderColor
                             radius: 4
@@ -475,15 +475,6 @@ Window {
                                 currentIndex: 0
                                 interactive: false
                                 onCurrentItemChanged: if (currentItem) currentItem.textEdit.forceActiveFocus()
-                                ScrollIndicator.vertical: ScrollIndicator {
-                                    parent: choicesListView.parent
-                                    anchors {
-                                        top: choicesListView.top
-                                        bottom: choicesListView.bottom
-                                        right: choicesListView.right
-                                        rightMargin: 1
-                                    }
-                                }
                                 anchors {
                                     top: parent.top
                                     left: parent.left
@@ -576,6 +567,7 @@ Window {
                                         icon.source: MMPTheme.themeSelect("/resources/icons/buttons/ic_btn_remove_light.svg","/resources/icons/buttons/ic_btn_remove_dark.svg")
                                         background: Item{}
                                         onClicked: choicesListModel.remove(choicesListView.currentIndex)
+                                        enabled: choicesListModel.count > 0
                                     }
                                     Rectangle {
                                         id: buttonSeparator2
