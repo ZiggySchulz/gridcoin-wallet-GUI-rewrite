@@ -11,6 +11,7 @@ Button {
     property bool current: false
     implicitWidth: col.implicitWidth
     implicitHeight: col.implicitHeight
+    hoverEnabled: true
     background: Column {
         id: col
         property int topPad: 10
@@ -31,7 +32,7 @@ Button {
             width: parent.width
             height: parent.height-label.height-col.topPad-col.midPad-col.botPad
             tintColor: {
-                if (current) {
+                if (current || buttonMain.hovered) {
                     return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
                 } else {
                     return MMPTheme.themeSelect("#c3b2d2", "#babec1")
@@ -54,7 +55,7 @@ Button {
             wrapMode: Text.Wrap
 
             color: {
-                if (current) {
+                if (current || buttonMain.hovered) {
                     return MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cHavelockBlue)
                 } else {
                     return MMPTheme.translucent(MMPTheme.cWhite, 0.7)
