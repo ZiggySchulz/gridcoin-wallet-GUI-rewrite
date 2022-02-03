@@ -4,7 +4,7 @@ import MMPTheme 1.0
 Rectangle {
     id: tableFooterRect
     x:1
-    height: 25
+    height: 24
     width: parent.width-2
     radius: parent.radius
     anchors.bottom: parent.bottom

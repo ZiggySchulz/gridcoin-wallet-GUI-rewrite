@@ -5,10 +5,13 @@ Rectangle {
     id: tableHeaderRect
     x:1
     y:1
-    implicitWidth: parent.width-2
-    implicitHeight: 25
+    height: 25
+    width: parent.width-2
+    radius: parent.radius
     property int currentSortIndex: 0
     property alias model: columnHeadersRepeater.model   //A list with each item describing a column header eg. [{text:"", width:100}]
+    property alias borderColor: borderBottomRect.color
+    signal columnSortOrderChanged(int columnIndex, bool ascending)
     gradient: Gradient {
         GradientStop { position: 0; color: MMPTheme.themeSelect(MMPTheme.cWhite, MMPTheme.cMirage) }
         GradientStop { position: 1; color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, MMPTheme.cMirage) }
@@ -41,19 +44,18 @@ Rectangle {
             id: columnHeadersRepeater
             MouseArea {
                 id: headerArea
-                property bool accending: false
+                property bool ascending: false
                 property bool active: tableHeaderRect.currentSortIndex === model.index
                 height: parent.height
                 width: modelData.width
                 implicitWidth: headerLabel.implicitWidth+headerArrow.implicitWidth+headerArea.anchors.leftMargin+headerLabel.anchors.leftMargin
                 onClicked: {
                     if (active){
-                        if (accending) { accending=false }
-                        else { accending=true }
+                        ascending = !ascending
                     } else {
                         tableHeaderRect.currentSortIndex = index
                     }
-                    //c++Model.sort(index, accending)
+                    columnSortOrderChanged(index, ascending)
                 }
                 Text {
                     id: headerLabel
@@ -63,13 +65,14 @@ Rectangle {
                     color: MMPTheme.textColor
                     anchors.left: parent.left
                     anchors.leftMargin: 10
+                    font.pixelSize: 11
                 }
                 Image {
                     id: headerArrow
                     visible: active
                     height: 10
                     width: 10
-                    source: headerArea.accending ?
+                    source: headerArea.ascending ?
                                 MMPTheme.themeSelect("resources/icons/generic/ic_arrow_up_light.svg","resources/icons/generic/ic_arrow_up_dark.svg") :
                                 MMPTheme.themeSelect("resources/icons/generic/ic_arrow_down_light.svg","resources/icons/generic/ic_arrow_down_dark.svg")
                     sourceSize: Qt.size(width, height)
