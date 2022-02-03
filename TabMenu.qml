@@ -7,7 +7,15 @@ Rectangle {
     id: backgroundRect
     property int buttonHeight: 50
     signal menuButtonClicked(string identification)
-    color:  MMPTheme.themeSelect("#360166", MMPTheme.cSpaceBlack)
+    color:  MMPTheme.themeSelect(MMPTheme.cViolentViolet, MMPTheme.cSpaceBlack)
+
+    Shortcut {
+        sequence: StandardKey.Preferences
+        onActivated: {
+            menuList.currentIndex = 6
+            backgroundRect.menuButtonClicked("SettingsView.qml")
+        }
+    }
 
     ListModel {
         id: menuModel
@@ -56,7 +64,7 @@ Rectangle {
             label: qsTr("Settings")
             lightImageSource: "resources/icons/menu/ic_menu_settings_white.svg"
             darkImageSource: "resources/icons/menu/ic_menu_settings_blue.svg"
-            path: "TestView.qml"
+            path: "SettingsView.qml"
         }
     }
 
