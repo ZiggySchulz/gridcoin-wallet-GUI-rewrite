@@ -243,7 +243,9 @@ Rectangle {
                         <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Unconfirmed") + ":</b></font> " +
                         qsTr("Coins that have been received but not yet confirmed") + "<br><br>
                         <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Total") + ":</b></font> " +
-                        qsTr("Your total coins") + "
+                        qsTr("Your total coins") + "<br><br>
+                        <font color='"+MMPTheme.textColor+"'><b>" + qsTr("Research Rewards") + ":</b></font> " +
+                        qsTr("Earnt research rewards. Stake or make a manual reward claim in the receive view to receive them") + "
                         </html>
                     "
 
@@ -608,6 +610,12 @@ Rectangle {
             }
 
             model: ListModel {
+                ListElement {
+                    transactionType: "manualRewardClaim"
+                    transactionAmount: 592.2
+                    transactionTimestamp: "2017-09-17 15:52:06"
+                    transactionAccount: "Main Wallet"
+                }
                 ListElement {
                     transactionType: "incomingTransaction"
                     transactionAmount: 17.0214

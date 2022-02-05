@@ -246,5 +246,9 @@
         <file>ClickableLink.qml</file>
         <file>SettingsView.qml</file>
         <file>TableFooter.qml</file>
+        <file>resources/icons/events/ic_event_mrc.svg</file>
+        <file>resources/icons/buttons/ic_btn_mrc_dark.svg</file>
+        <file>resources/icons/buttons/ic_btn_mrc_light.svg</file>
+        <file>DebugConsoleWindow.qml</file>
     </qresource>
 </RCC>

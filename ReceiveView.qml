@@ -87,16 +87,56 @@ Rectangle {
         }
     }
     Rectangle {
+        id: mrcPanel
+        color: MMPTheme.bodyColor
+        radius: 4
+        height: mrcRowLayout.implicitHeight + 20
+        anchors {
+            top: header.bottom
+            left: parent.left
+            right: parent.right
+            margins: 10
+        }
+        RowLayout {
+            id: mrcRowLayout
+            anchors {
+                top: parent.top
+                topMargin: 10
+                horizontalCenter: parent.horizontalCenter
+            }
+            Text {
+                id: mrcRewardsText
+                text: "583"
+                color: MMPTheme.highlightColor
+                font.weight: Font.DemiBold
+            }
+            Text {
+                id: mrcRewardsLabel
+                text: qsTr("research rewards to be claimed: ")
+                color: MMPTheme.textColor
+            }
+            Button {
+                id: mrcClaimButton
+                text: qsTr("Claim Research Rewards")
+                icon.source: MMPTheme.themeSelect("qrc:/resources/icons/buttons/ic_btn_mrc_light.svg", "qrc:/resources/icons/buttons/ic_btn_mrc_dark.svg")
+            }
+            HelpHover {
+                text: qsTr("Make a claim to receive your rewards. The fees are: ....")
+            }
+        }
+    }
+    Rectangle {
         id: receivePanel
         color: MMPTheme.bodyColor
         radius: 4
         anchors {
-            top: header.bottom
+            top: mrcPanel.bottom
             left: parent.left
             right: parent.right
             bottom: parent.bottom
             margins: 10
         }
+
         Text {
             id: listInfoText
             text: qsTr("These are your Gridcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.")

@@ -10,6 +10,14 @@ Item {
     width: parent.width
     states: [
         State {
+            name: "manualRewardClaim"
+            PropertyChanges {
+                target: transactionIcon
+                source: "resources/icons/events/ic_event_mrc.svg"
+            }
+        }
+
+        ,State {
             name: "incomingTransaction"
             PropertyChanges {
                 target: transactionIcon
