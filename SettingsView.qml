@@ -27,8 +27,51 @@ Rectangle{
         RowLayout {
             id: tabMenuRowLayout
             anchors.centerIn: parent
-            spacing: 20
+            spacing: 30
             property Item currentItem: generalSettingsTabButton
+            Shortcut {
+                sequence: StandardKey.MoveToNextPage
+                onActivated: {
+                    switch(tabMenuRowLayout.currentItem) {
+                    case generalSettingsTabButton:
+                        tabMenuRowLayout.currentItem = networkSettingsTabButton
+                        break
+                    case networkSettingsTabButton:
+                        tabMenuRowLayout.currentItem = windowSettingsTabButton
+                        break
+                    case windowSettingsTabButton:
+                        tabMenuRowLayout.currentItem = displaySettingsTabButton
+                        break
+                    case displaySettingsTabButton:
+                        tabMenuRowLayout.currentItem = nodesSettingsTabButton
+                        break
+                    case nodesSettingsTabButton:
+                        break
+                    }
+                }
+            }
+            Shortcut {
+                sequence: StandardKey.MoveToPreviousPage
+                onActivated: {
+                    switch(tabMenuRowLayout.currentItem) {
+                    case generalSettingsTabButton:
+                        break
+                    case networkSettingsTabButton:
+                        tabMenuRowLayout.currentItem = generalSettingsTabButton
+                        break
+                    case windowSettingsTabButton:
+                        tabMenuRowLayout.currentItem = networkSettingsTabButton
+                        break
+                    case displaySettingsTabButton:
+                        tabMenuRowLayout.currentItem = windowSettingsTabButton
+                        break
+                    case nodesSettingsTabButton:
+                        tabMenuRowLayout.currentItem = displaySettingsTabButton
+                        break
+                    }
+                }
+            }
+
             MouseArea {
                 id: generalSettingsTabButton
                 Layout.preferredHeight: 50
@@ -166,6 +209,29 @@ Rectangle{
                 }
             }
         }
+        MouseArea {
+            id: debugConsoleButton
+            height: 50
+            width: 50
+            opacity: pressed ? 1 : 0.4
+            onPressed: {
+                var component = Qt.createComponent("DebugConsoleWindow.qml")
+                var windowObj = component.createObject(window)
+                windowObj.show()
+            }
+
+            anchors {
+                right: parent.right
+                verticalCenter: parent.verticalCenter
+            }
+
+            Image {
+                id: debugIcon
+                sourceSize: Qt.size(25,25)
+                source: MMPTheme.themeSelect("qrc:/resources/icons/tabs/ic_tab_more_light.svg", "qrc:/resources/icons/tabs/ic_tab_more_dark.svg")
+                anchors.centerIn: parent
+            }
+        }
     }
     Rectangle {
         id: body
@@ -194,6 +260,7 @@ Rectangle{
                     return nodesSettingsView
                 }
             }
+            onSourceComponentChanged: if(item && item.defaultFocusItem) item.defaultFocusItem.forceActiveFocus()
             anchors {
                 top: parent.top
                 left: parent.left
@@ -246,6 +313,7 @@ Rectangle{
         id: generalSettingsView
         ScrollView {
             id: generalSettingsScrollView
+            property Item defaultFocusItem: transactionFeeSpinbox
             anchors.fill: parent
             clip: true
             contentWidth: availableWidth
@@ -276,6 +344,7 @@ Rectangle{
                     id: transactionFeeSpinbox
                     property int decimals: 8
                     property real factor: Math.pow(10, decimals)
+                    KeyNavigation.tab: reserveSpinbox
                     Layout.preferredWidth: 120
                     editable: true
                     from: 0
@@ -325,6 +394,11 @@ Rectangle{
                     to: 10000000 * factor
                     value: 0
                     stepSize: factor/1000 //0.01
+//                    KeyNavigation.tab: sideStakingCheckbox This doesn't work. Idk why, all the others do
+                    KeyNavigation.tab: {    //This also doesn't work
+                        if (sideStakingCheckbox.checked && sideStakeListView.count>0) return sideStakeListView.itemAtIndex(0).addressTextField
+                        return utxoOptimisationCheckbox
+                    }
                     validator: DoubleValidator{
                         bottom: Math.min(reserveSpinbox.from, reserveSpinbox.to)
                         top:  Math.max(reserveSpinbox.from, reserveSpinbox.to)
@@ -353,8 +427,13 @@ Rectangle{
                     Layout.columnSpan: 3
                 }
                 CheckBox {
-                    id: sideStackingCheckbox
+                    id: sideStakingCheckbox
                     text: qsTr("Enable Sidestaking")
+                    enabled: true
+                    KeyNavigation.tab: {
+                        if (checked && sideStakeListView.count>0) return sideStakeListView.itemAtIndex(0).addressTextField
+                        return utxoOptimisationCheckbox
+                    }
                 }
                 HelpHover {
                     id: sideStakingHelp
@@ -369,7 +448,6 @@ Rectangle{
                 id: sideStakeRect
                 color: "transparent"
                 border.color: MMPTheme.lightBorderColor
-//                opacity: sideStackingCheckbox.checked ? 1 : 0.4
                 radius: 4
                 implicitHeight: 25 + 25 + 6*25
                 anchors {
@@ -478,6 +556,10 @@ Rectangle{
                                         verticalCenter: parent.verticalCenter
                                     }
                                     background: Item{}
+                                    KeyNavigation.tab: {
+                                        if (index === sideStakeListView.count-1) return utxoOptimisationCheckbox
+                                        return sideStakeListView.itemAtIndex(index+1).addressTextField
+                                    }
                                 }
                             }
                         }
@@ -549,6 +631,7 @@ Rectangle{
                 CheckBox {
                     id: utxoOptimisationCheckbox
                     text: qsTr("Stake Splitting")
+                    KeyNavigation.tab: targetEfficiencyTextField
                 }
                 Item {
                     Layout.fillWidth: true
@@ -575,6 +658,7 @@ Rectangle{
                     inputMethodHints: Qt.ImhDigitsOnly
                     Layout.preferredWidth: 60
                     enabled: utxoOptimisationCheckbox.checked
+                    KeyNavigation.tab: minSizeTextField
                     validator: IntValidator{
                         bottom: 0
                         top: 99
@@ -591,6 +675,7 @@ Rectangle{
                     inputMethodHints: Qt.ImhDigitsOnly
                     Layout.preferredWidth: 60
                     enabled: utxoOptimisationCheckbox.checked
+                    KeyNavigation.tab: startAtLoginCheckbox
                     validator: IntValidator{
                         bottom: 0
                     }
@@ -605,10 +690,12 @@ Rectangle{
                     id: startAtLoginCheckbox
                     text: qsTr("Start at system login")
                     Layout.columnSpan: 2
+                    KeyNavigation.tab: disableUpdateCheckBox
                 }
                 CheckBox {
                     id: disableUpdateCheckBox
                     text: qsTr("Disable update checks")
+                    KeyNavigation.tab: transactionFeeSpinbox
                 }
                 HelpHover {
                     id: updateChecksHelpHover
@@ -623,6 +710,7 @@ Rectangle{
     Component {
         id: networkSettingsView
         Item {
+            property Item defaultFocusItem: upnpCheckbox
             GridLayout {
                 id: contentColumn
                 rowSpacing: 20
@@ -638,6 +726,7 @@ Rectangle{
                 CheckBox {
                     id: upnpCheckbox
                     text: qsTr("Map port using UPnP")
+                    KeyNavigation.tab: socksCheckbox
                 }
                 Item {
                     Layout.fillWidth: true
@@ -650,6 +739,7 @@ Rectangle{
                 CheckBox {
                     id: socksCheckbox
                     text: qsTr("Connect through SOCKS proxy")
+                    KeyNavigation.tab: checked ? proxyIPTextField : upnpCheckbox
                 }
                 HelpHover {
                     id: socksHelpHover
@@ -691,6 +781,7 @@ Rectangle{
                         Layout.preferredWidth: 40
                         model: [5, 4]
                         enabled: socksCheckbox.checked
+                        KeyNavigation.tab: upnpCheckbox
                     }
                 }
             }
@@ -699,6 +790,7 @@ Rectangle{
     Component {
         id: windowSettingsView
         Item {
+            property Item defaultFocusItem: minimiseToTrayCheckbox
             ColumnLayout {
                 spacing: 20
                 anchors {
@@ -712,14 +804,17 @@ Rectangle{
                 CheckBox {
                     id: minimiseToTrayCheckbox
                     text: qsTr("Minimise to tray instead of the taskbar")
+                    KeyNavigation.tab: minimiseOnCloseCheckbox
                 }
                 CheckBox {
                     id: minimiseOnCloseCheckbox
                     text: qsTr("Minimise on close")
+                    KeyNavigation.tab: confirmOnCloseCheckbox
                 }
                 CheckBox {
                     id: confirmOnCloseCheckbox
                     text: qsTr("Confirm on close")
+                    KeyNavigation.tab: disableTransactionNotificationCheckbox
                 }
                 Rectangle {
                     color: MMPTheme.separatorColor
@@ -729,10 +824,12 @@ Rectangle{
                 CheckBox {
                     id: disableTransactionNotificationCheckbox
                     text: qsTr("Disable transaction notifications")
+                    KeyNavigation.tab: disablePollNotificationCheckbox
                 }
                 CheckBox {
                     id: disablePollNotificationCheckbox
                     text: qsTr("Disable poll notifications")
+                    KeyNavigation.tab: minimiseToTrayCheckbox
                 }
             }
         }
@@ -740,6 +837,7 @@ Rectangle{
     Component {
         id: displaySettingsView
         Item {
+            property Item defaultFocusItem: languageCombobox
             GridLayout {
                 id: contentGridView
                 columns: 2
@@ -761,7 +859,8 @@ Rectangle{
                 }
                 ComboBox {
                     id: languageCombobox
-                    model: ["American English", "British English", "Australian English", "Francais"]
+                    model: [qsTr("System Default"),"American English", "British English", "Australian English", "Francais"]
+                    KeyNavigation.tab: themeCombobox
                 }
                 Text {
                     id: themeLabel
@@ -774,6 +873,7 @@ Rectangle{
                     currentIndex: MMPTheme.theme
                     model: [qsTr("Light"), qsTr("Dark")]
                     onCurrentIndexChanged: MMPTheme.theme = currentIndex
+                    KeyNavigation.tab: addressesInTransactionsCheckbox
                 }
                 Rectangle {
                     color: MMPTheme.separatorColor
@@ -795,11 +895,13 @@ Rectangle{
                     id: addressesInTransactionsCheckbox
                     text: qsTr("Display addresses in transactions list")
                     Layout.columnSpan: 2
+                    KeyNavigation.tab: coinControlCheckbox
                 }
                 CheckBox {
                     id: coinControlCheckbox
                     text: qsTr("Display advanced coin control features")
                     Layout.columnSpan: 2
+                    KeyNavigation.tab: languageCombobox
                 }
                 //Set the second column to fill the width
                 Item {
