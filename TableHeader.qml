@@ -49,6 +49,7 @@ Rectangle {
                 height: parent.height
                 width: modelData.width
                 implicitWidth: headerLabel.implicitWidth+headerArrow.implicitWidth+headerArea.anchors.leftMargin+headerLabel.anchors.leftMargin
+                clip: true
                 onClicked: {
                     if (active){
                         ascending = !ascending

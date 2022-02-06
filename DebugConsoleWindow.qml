@@ -9,7 +9,7 @@ Window {
     title: qsTr("Debug Console")
     width: 700
     height: 600
-    minimumWidth: 480
+    minimumWidth: 500
     minimumHeight: 450
     flags: Qt.Dialog
     Shortcut {
@@ -41,19 +41,19 @@ Window {
                 sequence: StandardKey.MoveToNextPage
                 onActivated: {
                     switch(tabMenuRowLayout.currentItem) {
-                    case generalSettingsTabButton:
-                        tabMenuRowLayout.currentItem = networkSettingsTabButton
+                    case informationTabButton:
+                        tabMenuRowLayout.currentItem = networkTrafficTabButton
                         break
-                    case networkSettingsTabButton:
-                        tabMenuRowLayout.currentItem = windowSettingsTabButton
+                    case networkTrafficTabButton:
+                        tabMenuRowLayout.currentItem = consoleTabButton
                         break
-                    case windowSettingsTabButton:
-                        tabMenuRowLayout.currentItem = displaySettingsTabButton
+                    case consoleTabButton:
+                        tabMenuRowLayout.currentItem = scraperTabButton
                         break
-                    case displaySettingsTabButton:
-                        tabMenuRowLayout.currentItem = nodesSettingsTabButton
+                    case scraperTabButton:
+                        tabMenuRowLayout.currentItem = peersTabButton
                         break
-                    case nodesSettingsTabButton:
+                    case peersTabButton:
                         break
                     }
                 }
@@ -62,19 +62,19 @@ Window {
                 sequence: StandardKey.MoveToPreviousPage
                 onActivated: {
                     switch(tabMenuRowLayout.currentItem) {
-                    case generalSettingsTabButton:
+                    case informationTabButton:
                         break
-                    case networkSettingsTabButton:
-                        tabMenuRowLayout.currentItem = generalSettingsTabButton
+                    case networkTrafficTabButton:
+                        tabMenuRowLayout.currentItem = informationTabButton
                         break
-                    case windowSettingsTabButton:
-                        tabMenuRowLayout.currentItem = networkSettingsTabButton
+                    case consoleTabButton:
+                        tabMenuRowLayout.currentItem = networkTrafficTabButton
                         break
-                    case displaySettingsTabButton:
-                        tabMenuRowLayout.currentItem = windowSettingsTabButton
+                    case scraperTabButton:
+                        tabMenuRowLayout.currentItem = consoleTabButton
                         break
-                    case nodesSettingsTabButton:
-                        tabMenuRowLayout.currentItem = displaySettingsTabButton
+                    case peersTabButton:
+                        tabMenuRowLayout.currentItem = scraperTabButton
                         break
                     }
                 }
@@ -138,8 +138,8 @@ Window {
                 id: consoleTabButton
                 Layout.preferredHeight: 50
                 Layout.preferredWidth: 80
-                opacity: tabMenuRowLayout.currentItem==windowSettingsTabButton ? 1 : 0.4
-                onClicked: tabMenuRowLayout.currentItem = windowSettingsTabButton
+                opacity: tabMenuRowLayout.currentItem==consoleTabButton ? 1 : 0.4
+                onClicked: tabMenuRowLayout.currentItem = consoleTabButton
                 Image {
                     id: consoleIcon
                     sourceSize: Qt.size(30,30)
@@ -153,7 +153,7 @@ Window {
                     id: consoleLabel
                     text: qsTr("Console")
                     color: MMPTheme.textColor
-                    font.weight:  tabMenuRowLayout.currentItem==windowSettingsTabButton ? Font.DemiBold : Font.Medium
+                    font.weight:  tabMenuRowLayout.currentItem==consoleTabButton ? Font.DemiBold : Font.Medium
                     anchors {
                         top: consoleIcon.bottom
                         topMargin: 5
@@ -230,7 +230,20 @@ Window {
         Loader {
             id: debugContentLoader
             anchors.fill: parent
-            sourceComponent: informationView
+            sourceComponent: {
+                switch (tabMenuRowLayout.currentItem) {
+                case informationTabButton:
+                    return informationView
+                case networkTrafficTabButton:
+                    return networkTrafficView
+                case consoleTabButton:
+                    return consoleView
+                case scraperTabButton:
+                    return scraperView
+                case peersTabButton:
+                    return peersView
+                }
+            }
         }
     }
     Component {
@@ -462,6 +475,228 @@ Window {
                     bottom: parent.bottom
                     right: parent.right
                     margins: 10
+                }
+            }
+        }
+    }
+    Component {
+        id: networkTrafficView
+        Rectangle {
+            id: networkTrafficItem
+            color: MMPTheme.cDullLime
+            radius: 4
+            anchors {
+                fill: parent
+                margins: 10
+            }
+        }
+    }
+    Component {
+        id: consoleView
+        Rectangle {
+            id: consoleItem
+            color: MMPTheme.cCarminePink
+            radius: 4
+            anchors {
+                fill: parent
+                margins: 10
+            }
+        }
+    }
+    Component {
+        id: scraperView
+        Rectangle {
+            id: scraperItem
+            color: MMPTheme.cBluePurple
+            radius: 4
+            anchors {
+                fill: parent
+                margins: 10
+            }
+        }
+    }
+    Component {
+        id: peersView
+        Rectangle {
+            id: body
+            color: MMPTheme.bodyColor
+            radius: 4
+            anchors {
+                fill: parent
+                margins: 10
+            }
+            Rectangle {
+                id: tableRect
+                color: "transparent"
+                border.color: MMPTheme.lightBorderColor
+                radius: 4
+                anchors {
+                    fill: parent
+                    margins: 10
+                }
+                TableHeader {
+                    id: tableHeader
+                    property real nodeIDwidth: 0.10
+                    property real nodeServiceWidth: 0.25
+                    property real pingWidth: 0.10
+                    property real sentWidth: 0.15
+                    property real receivedWidth: 0.15
+                    property real userAgentWidth: 0.25
+                    model: [{text: qsTr("Node ID"), width: tableHeader.width*nodeIDwidth},
+                        {text: qsTr("Node/Service"), width: tableHeader.width*nodeServiceWidth},
+                        {text: qsTr("Ping"), width: tableHeader.width*pingWidth},
+                        {text: qsTr("Sent"), width: tableHeader.width*sentWidth},
+                        {text: qsTr("Received"), width: tableHeader.width*receivedWidth},
+                        {text: qsTr("User Agent"), width: tableHeader.width*userAgentWidth}]
+                }
+                ListView {
+                    id: peersListView
+                    clip: true
+                    currentIndex: 0
+                    anchors {
+                        top: tableHeader.bottom
+                        left: parent.left
+                        right: parent.right
+                        bottom: parent.bottom
+                        leftMargin: 1
+                        rightMargin: 1
+                    }
+                    ScrollIndicator.vertical: ScrollIndicator {
+                        anchors {
+                            top: parent.top
+                            bottom: parent.bottom
+                            right: parent.right
+                            rightMargin: 1
+                        }
+                    }
+                    model: ListModel {
+                        id: peersListModel
+                        ListElement{
+                            nodeID: 123
+                            nodeService: "128.123.523.123:12365"
+                            ping: "123ms"
+                            sent: "123 MB"
+                            received: "123 MB"
+                            userAgent: "Halford:5.3.2"
+                        }
+                        ListElement{
+                            nodeID: 123
+                            nodeService: "128.123.523.123:12365"
+                            ping: "123ms"
+                            sent: "123 MB"
+                            received: "123 MB"
+                            userAgent: "Halford:5.3.2"
+                        }
+                        ListElement{
+                            nodeID: 123
+                            nodeService: "128.123.523.123:12365"
+                            ping: "123ms"
+                            sent: "123 MB"
+                            received: "123 MB"
+                            userAgent: "Halford:5.3.2"
+                        }
+                    }
+                    delegate: Rectangle {
+                        id: delegateRect
+                        width: peersListView.width
+                        height: 25
+                        color: index%2===1 ? MMPTheme.themeSelect(MMPTheme.cFrostWhite, "#212c3b") : "transparent"
+                        radius: 4
+                        Row {
+                            id: dataRow
+                            height: parent.height
+                            Item {
+                                id: nodeIDItem
+                                width: tableHeader.nodeIDwidth*delegateRect.width
+                                height: parent.height
+                                Text {
+                                    id: nodeIDText
+                                    text: model.nodeID
+                                    color: MMPTheme.lightTextColor
+                                    textFormat: Text.PlainText
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                }
+                            }
+                            Item {
+                                id: nodeServiceItem
+                                width: tableHeader.nodeServiceWidth*delegateRect.width
+                                height: parent.height
+                                Text {
+                                    id: nodeServiceText
+                                    text: model.nodeService
+                                    color: MMPTheme.lightTextColor
+                                    textFormat: Text.PlainText
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                }
+                            }
+                            Item {
+                                id: pingItem
+                                width: tableHeader.pingWidth*delegateRect.width
+                                height: parent.height
+                                Text {
+                                    id: pingText
+                                    text: model.ping
+                                    color: MMPTheme.lightTextColor
+                                    textFormat: Text.PlainText
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                }
+                            }
+                            Item {
+                                id: sentItem
+                                width: tableHeader.sentWidth*delegateRect.width
+                                height: parent.height
+                                Text {
+                                    id: sentText
+                                    text: model.sent
+                                    color: MMPTheme.lightTextColor
+                                    textFormat: Text.PlainText
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                }
+                            }
+                            Item {
+                                id: receivedItem
+                                width: tableHeader.receivedWidth*delegateRect.width
+                                height: parent.height
+                                Text {
+                                    id: receivedText
+                                    text: model.received
+                                    color: MMPTheme.lightTextColor
+                                    textFormat: Text.PlainText
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                }
+                            }
+                            Item {
+                                id: userAgentItem
+                                width: tableHeader.userAgentWidth*delegateRect.width
+                                height: parent.height
+                                Text {
+                                    id: userAgentText
+                                    text: model.userAgent
+                                    color: MMPTheme.lightTextColor
+                                    textFormat: Text.PlainText
+                                    verticalAlignment: Text.AlignVCenter
+                                    elide: Text.ElideRight
+                                    anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
