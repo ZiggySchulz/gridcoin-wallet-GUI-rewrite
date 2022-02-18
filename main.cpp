@@ -31,6 +31,12 @@ int main(int argc, char *argv[])
     {
         QFontDatabase::addApplicationFont(":/resources/fonts/SF Pro Text/" + file);
     }
+    //Load Montserrat font
+    dir = QDir(":/resources/fonts/Montserrat/");
+    for (auto file : dir.entryList(QDir::Files))
+    {
+        QFontDatabase::addApplicationFont(":/resources/fonts/Montserrat/" + file);
+    }
     QFont font = QFont("SF Pro Text");
     font.setPixelSize(12);
     app.setFont(font);
