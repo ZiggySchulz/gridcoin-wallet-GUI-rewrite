@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>MainWindow.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>MenuButton.qml</file>
         <file>TabMenu.qml</file>
@@ -250,5 +250,7 @@
         <file>resources/icons/buttons/ic_btn_mrc_dark.svg</file>
         <file>resources/icons/buttons/ic_btn_mrc_light.svg</file>
         <file>DebugConsoleWindow.qml</file>
+        <file>SplashScreen.qml</file>
+        <file>WindowManager.qml</file>
     </qresource>
 </RCC>

@@ -1,17 +1,20 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-
+import QtQuick.Window 2.15
+import MMPTheme 1.0
 ApplicationWindow {
     id: window
     height: minimumHeight
     minimumHeight: 640
     minimumWidth: 720
-
     visible: true
     title: qsTr("Gridcoin Wallet")
+    opacity: 1
 
-
+    Behavior on opacity {
+        NumberAnimation { duration: 1000 }
+    }
 
     TabMenu{
         id: menu
