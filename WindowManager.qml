@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQml 2.15
 Item {
-    //Acts as the parent item for windows
+    //Acts as the parent item for windows. This is to prevent unwanted garbage collection
     id: root
     Component.onCompleted: showSplashScreen()
 

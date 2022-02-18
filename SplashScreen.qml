@@ -11,6 +11,8 @@ Window {
     visible: true
     color: "transparent"
     signal loaded
+    property int currentBlocksLoaded: 0
+    property int totalBlocks: 2000000
     Rectangle {
         id: background
         anchors.fill: parent
@@ -22,27 +24,21 @@ Window {
             GradientStop { position: 1; color: MMPTheme.themeSelect(MMPTheme.cLilyWhite, "#2c3540") }
         }
     }
+
     Timer {
-        interval: 2000
-        running: false
-        onTriggered: opacityAnimation.start()
-    }
-    Timer {
+        id: blockLoadingTimer
         interval: 10
         running: true
         repeat: true
         onTriggered: {
-            blockProgressBar.value += 0.003
+            currentBlocksLoaded += 2000
             if (blockProgressBar.value>= 1) {
                 running=false
                 opacityAnimation.start()
             }
         }
     }
-    function openMainWindow() {
-//        var component = Qt.createComponent("MainWindow.qml")
-//        var windowObj = component.createObject(splashScreen.parent, {opacity: 0})
-//        windowObj.opacity = 1
+    function closeSplashScreen() {
         loaded()
         splashScreen.close()
     }
@@ -54,11 +50,11 @@ Window {
         from: 1
         to: 0
         running: false
-        onFinished: openMainWindow()
+        onFinished: closeSplashScreen()
     }
     ProgressBar {
         id: blockProgressBar
-        value: 0
+        value: currentBlocksLoaded/totalBlocks
         anchors {
             left: parent.left
             right: parent.right
@@ -96,7 +92,7 @@ Window {
         anchors {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
-            topMargin: 30
+            topMargin: 20
         }
     }
     Text {
@@ -105,10 +101,34 @@ Window {
         color: MMPTheme.themeSelect("#4e2fad", MMPTheme.cWhite)
         font.pixelSize: 34
         font.weight: Font.Bold
+        font.family: "Montserrat"
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: logo.bottom
             topMargin: 5
+        }
+    }
+    Text {
+        id: subTitleText
+        text: qsTr("Rewarding Volunteer Distributed Computing")
+        color: MMPTheme.themeSelect("#7787a3", MMPTheme.cWhite)
+        font.weight: Font.DemiBold
+        font.family: "Montserrat"
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            top: gridcoinText.bottom
+            topMargin: 5
+        }
+    }
+    Text {
+        id: blocksLoadedText
+        text: qsTr("%L1/%L2 Blocks Loaded").arg(currentBlocksLoaded).arg(totalBlocks)
+        color: MMPTheme.themeSelect(MMPTheme.cOxfordBlue, "#6a7994")
+        font.pixelSize: 10
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            bottom: blockProgressBar.top
+            bottomMargin: 5
         }
     }
 }
