@@ -270,5 +270,6 @@
         <file>resources/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf</file>
         <file>resources/fonts/Montserrat/Montserrat-Thin.ttf</file>
         <file>resources/fonts/Montserrat/Montserrat-ThinItalic.ttf</file>
+        <file>AboutWindow.qml</file>
     </qresource>
 </RCC>

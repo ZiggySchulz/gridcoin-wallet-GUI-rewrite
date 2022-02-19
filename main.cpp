@@ -16,6 +16,9 @@ int main(int argc, char *argv[])
 
     app.setOrganizationName("Gridcoin");
     app.setWindowIcon(QIcon(":/resources/icons/logos/ic_logo_app_gradient_white.svg"));
+    app.setQuitOnLastWindowClosed(false);
+    app.setApplicationDisplayName("Gridcoin");
+    app.setDesktopFileName("Gridcoin");
 
     //Load translations
     QTranslator translator;
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.addImportPath(":/plugins/");
-    const QUrl url(QStringLiteral("qrc:/WindowManager.qml"));
+    const QUrl url(QStringLiteral("qrc:/MainWindow.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
