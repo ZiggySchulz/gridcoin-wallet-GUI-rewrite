@@ -13,6 +13,10 @@ Window {
     width: minimumWidth
     maximumHeight: minimumHeight
     maximumWidth: minimumWidth
+    Shortcut {
+        sequence: StandardKey.Close
+        onActivated: window.close()
+    }
     Rectangle {
         id: background
         anchors.fill: parent
@@ -65,8 +69,7 @@ Window {
                 leftMargin: 20
                 right: parent.right
                 rightMargin: 20
-                top: parent.top
-                topMargin: 25
+                verticalCenter: parent.verticalCenter
             }
             Text {
                 color: MMPTheme.textColor
