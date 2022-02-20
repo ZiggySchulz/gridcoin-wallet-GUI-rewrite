@@ -271,5 +271,33 @@
         <file>resources/fonts/Montserrat/Montserrat-Thin.ttf</file>
         <file>resources/fonts/Montserrat/Montserrat-ThinItalic.ttf</file>
         <file>AboutWindow.qml</file>
+        <file>OnboardingWindow.qml</file>
+        <file>OnboardingButton.qml</file>
+        <file>OnboardingPageIndicator.qml</file>
+        <file>resources/icons/onboarding/bg_onboarding_stars.svg</file>
+        <file>resources/icons/onboarding/ic_investor_active.svg</file>
+        <file>resources/icons/onboarding/ic_investor_inactive.svg</file>
+        <file>resources/icons/onboarding/ic_onboarding_back.svg</file>
+        <file>resources/icons/onboarding/ic_onboarding_btn_more.svg</file>
+        <file>resources/icons/onboarding/ic_onboarding_help.svg</file>
+        <file>resources/icons/onboarding/ic_onboarding_table_no.svg</file>
+        <file>resources/icons/onboarding/ic_onboarding_table_yes.svg</file>
+        <file>resources/icons/onboarding/ic_onboarding_time.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_boinc.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_investor.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_investor_ln1.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_investor_ln2.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_investor_ln3.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_investor_shp1.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_investor_shp2.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_pool.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_congrats_solo.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_investor.svg</file>
+        <file>resources/icons/onboarding/img_onboarding_noboinc.svg</file>
+        <file>resources/icons/onboarding/iс_investor_inactive.svg</file>
+        <file>resources/icons/onboarding/iс_pool_active.svg</file>
+        <file>resources/icons/onboarding/iс_pool_inactive.svg</file>
+        <file>resources/icons/onboarding/iс_solo_active.svg</file>
+        <file>resources/icons/onboarding/iс_solo_inactive.svg</file>
     </qresource>
 </RCC>
