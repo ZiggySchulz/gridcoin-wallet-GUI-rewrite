@@ -48,14 +48,7 @@ QtObject {
     }
 
     //Sets the alpha of a color, where translucency is a decimal [0,1]
-    //Probably a better way to do this but it works
     function translucent (color, translucency) {
-        var a = Math.round(translucency*255)
-        var aString = ""
-        if (a < 16) {
-            aString = "0"
-        }
-        aString += a.toString(16)
-        return "#"+aString+color.toString().slice(-6)
+        return Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, translucency)
     }
 }
