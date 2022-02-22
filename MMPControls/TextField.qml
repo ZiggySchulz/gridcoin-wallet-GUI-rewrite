@@ -19,7 +19,8 @@ T.TextField {
     color: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cOxfordBlue, MMPTheme.cWhite), !control.enabled ? 0.3 : (control.activeFocus ? 1 : 0.7))
     selectionColor: control.palette.highlight
     selectedTextColor: control.palette.highlightedText
-    placeholderTextColor: Color.transparent(control.color, 0.5)
+//    placeholderTextColor: Color.transparent(control.color, 0.5)
+    placeholderTextColor: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cOxfordBlue, MMPTheme.cWhite), 0.3)
     verticalAlignment: TextInput.AlignVCenter
 
     font: MMPTheme.font
@@ -33,7 +34,7 @@ T.TextField {
 
         text: control.placeholderText
         font: control.font
-        color: MMPTheme.translucent(MMPTheme.themeSelect(MMPTheme.cOxfordBlue, MMPTheme.cWhite), 0.3)
+        color: control.placeholderTextColor
         verticalAlignment: control.verticalAlignment
         visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
         elide: Text.ElideRight
