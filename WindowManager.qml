@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQml 2.15
-import Qt.labs.platform 1.1
+import Qt.labs.platform 1.1 //Available in Qt 5/6
 Item {
     //Acts as the parent item for windows. This is to prevent unwanted garbage collection
     id: root
