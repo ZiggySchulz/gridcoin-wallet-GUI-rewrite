@@ -60,6 +60,7 @@ Item {
    function showOnboardingWindow() {
        var component = Qt.createComponent("OnboardingWindow.qml")
        var windowObj = component.createObject(root)
+       windowObj.onboardingFinished.connect(showMainWindow)
        windowObj.show()
    }
 

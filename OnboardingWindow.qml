@@ -8,11 +8,32 @@ import QtQml 2.15
 
 Window {
     id: window
+    signal onboardingFinished
+    property int chosenRole: soloRole
+    //Chosen Role Enumeration
+    readonly property int soloRole: 0
+    readonly property int poolRole: 1
+    readonly property int stakerRole: 2
+
     flags: Qt.FramelessWindowHint
     height: 640
     width: 720
     visible: true
     color: "transparent"
+    NumberAnimation {
+        id: opacityAnimation
+        target: window
+        properties: "opacity"
+        duration: 1000
+        from: 1
+        to: 0
+        running: false
+        onFinished: closeOnboardingWindow()
+    }
+    function closeOnboardingWindow() {
+        onboardingFinished()
+        window.close()
+    }
     Rectangle {
         id: background
         anchors.fill: parent
@@ -308,7 +329,20 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
                     anchors.right: parent.right
                     focus: true
                     enabled: soloRadioButton.checked || poolRadioButton.checked || stakerRadioButton.checked
-                    onPressed: stackView.push(noBoincView)
+                    onPressed: {
+                        if (soloRadioButton.checked) {
+                            chosenRole = soloRole
+                            stackView.push(noBoincView)
+                        }
+                        if (poolRadioButton.checked) {
+                            chosenRole = poolRole
+                            stackView.push(noBoincView)
+                        }
+                        if (stakerRadioButton.checked) {
+                            chosenRole = stakerRole
+                            stackView.push(stakerAlmostThereView)
+                        }
+                    }
                 }
             }
         }
@@ -489,7 +523,13 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
                     text: qsTr("Try Again")
                     anchors.right: parent.right
                     focus: true
-                    onPressed: stackView.replace(boincEmailView, StackView.Immediate)
+                    onPressed: {
+                        if (chosenRole === soloRole) {
+                            stackView.replace(boincEmailView, StackView.Immediate)
+                        } else {
+                            stackView.replace(boincPoolSuccessView, StackView.Immediate)
+                        }
+                    }
                 }
             }
         }
@@ -520,7 +560,7 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
                 }
             }
             Text {
-                id: enterEmailText
+                id: finishText
                 text: qsTr("Enter your BOINC email address:")
                 color: MMPTheme.cWhite
                 font.pixelSize: 14
@@ -538,7 +578,7 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
                 placeholderText: qsTr("Email")
                 placeholderTextColor: MMPTheme.translucent(MMPTheme.cWhite, 0.5)
                 anchors {
-                    top: enterEmailText.bottom
+                    top: finishText.bottom
                     horizontalCenter: parent.horizontalCenter
                     topMargin: 20
                 }
@@ -584,10 +624,163 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
         }
     }
     Component {
+        id: boincPoolSuccessView
+        Item {
+            Image {
+                id: boincImage
+                source: "qrc:/resources/icons/onboarding/img_onboarding_boinc.svg"
+                sourceSize: Qt.size(160, 160)
+                anchors {
+                    top: parent.top
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: 40
+                }
+            }
+            Text {
+                id: almostDoneText
+                text: qsTr("You are almost done.")
+                color: MMPTheme.cWhite
+                font.pixelSize: 28
+                font.weight: Font.Medium
+                anchors {
+                    top: boincImage.bottom
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: 30
+                }
+            }
+            Text {
+                id: finishText
+                text: qsTr("Click <b>Finish</b> to start syning your wallet")
+                color: MMPTheme.cWhite
+                font.pixelSize: 14
+                opacity: 0.7
+                anchors {
+                    top: almostDoneText.bottom
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: 20
+                }
+            }
+
+            Item {
+                id: buttonRow
+                height: backButton.implicitHeight
+                anchors {
+                    bottom: parent.bottom
+                    left: parent.left
+                    right: parent.right
+                    margins: 40
+                    bottomMargin: 30
+                }
+                OnboardingButton {
+                    id: backButton
+                    text: qsTr("Back")
+                    onPressed: stackView.pop()
+                    anchors.left: parent.left
+                }
+                OnboardingPageIndicator {
+                    currentPage: 3
+                    anchors.centerIn: parent
+                }
+
+                OnboardingButton {
+                    id: continueButton
+                    text: qsTr("Finish")
+                    anchors.right: parent.right
+                    focus: true
+                    onPressed: stackView.push(blockchainLoadingView)
+                }
+            }
+        }
+    }
+    Component {
+        id: stakerAlmostThereView
+        Item {
+            Image {
+                id: plotImage
+                source: "qrc:/resources/icons/onboarding/img_onboarding_investor.svg"
+                sourceSize: Qt.size(160, 160)
+                anchors {
+                    top: parent.top
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: 40
+                }
+            }
+            Text {
+                id: almostDoneText
+                text: qsTr("You are almost done.")
+                color: MMPTheme.cWhite
+                font.pixelSize: 28
+                font.weight: Font.Medium
+                anchors {
+                    top: plotImage.bottom
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: 30
+                }
+            }
+            Text {
+                id: finishText
+                text: qsTr("Click <b>Finish</b> to start syning your wallet")
+                color: MMPTheme.cWhite
+                font.pixelSize: 14
+                opacity: 0.7
+                anchors {
+                    top: almostDoneText.bottom
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: 20
+                }
+            }
+
+            Item {
+                id: buttonRow
+                height: backButton.implicitHeight
+                anchors {
+                    bottom: parent.bottom
+                    left: parent.left
+                    right: parent.right
+                    margins: 40
+                    bottomMargin: 30
+                }
+                OnboardingButton {
+                    id: backButton
+                    text: qsTr("Back")
+                    onPressed: stackView.pop()
+                    anchors.left: parent.left
+                }
+                OnboardingPageIndicator {
+                    currentPage: 3
+                    anchors.centerIn: parent
+                }
+
+                OnboardingButton {
+                    id: continueButton
+                    text: qsTr("Finish")
+                    anchors.right: parent.right
+                    focus: true
+                    onPressed: stackView.push(blockchainLoadingView)
+                }
+            }
+        }
+    }
+    Component {
         id: blockchainLoadingView
         Item {
-            property int currentBlocksLoaded: 2000000/2
+            property int currentBlocksLoaded: 0
             property int totalBlocks: 2000000
+            Timer {
+                interval: 5
+                repeat: true
+                running: true
+                onTriggered: {
+                    currentBlocksLoaded += 2000
+                    if (currentBlocksLoaded >= totalBlocks) {
+                        running=false
+                        if (chosenRole===soloRole) stackView.replace(null, soloMinerCompleteView)
+                        if (chosenRole===poolRole) stackView.replace(null, poolMinerCompleteView)
+                        if (chosenRole===stakerRole) stackView.replace(null, stakerCompleteView)
+                    }
+                }
+            }
+
             ScrollView {
                 id: scrollView
                 clip: true
@@ -602,7 +795,7 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
                     leftMargin: 20
                     rightMargin: 20
                 }
-//                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
                 ScrollBar.vertical: ScrollBar {
                     //TODO For some reason this generates two scroll bars, one default, small and unfunctioning. Bug has been difficult to track down
                     id: scrollBar
@@ -760,6 +953,226 @@ Etiam convallis lectus magna, quis scelerisque augue dapibus sit amet. Lorem ips
                     right: timeRemainingText.left
                     rightMargin: 5
                     verticalCenter: timeRemainingText.verticalCenter
+                }
+            }
+        }
+    }
+    Component {
+        id: soloMinerCompleteView
+        Item {
+            Image {
+                id: backgroundStarsImage
+                source: "qrc:/resources/icons/onboarding/bg_onboarding_stars.svg"
+                sourceSize: Qt.size(width, height)
+                anchors.fill: parent
+                Text {
+                    id: completeText
+                    text: qsTr("Congratulations, Solo Miner!")
+                    color: MMPTheme.cWhite
+                    font.pixelSize: 24
+                    font.weight: Font.Medium
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: parent.top
+                        topMargin: 80
+                    }
+                }
+                Text {
+                    id: subtitleText
+                    text: qsTr("You have successfully set up your wallet in solo mining mode")
+                    color: MMPTheme.cWhite
+                    font.pixelSize: 14
+                    font.weight: Font.Medium
+                    opacity: 0.7
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: completeText.bottom
+                        topMargin: 20
+                    }
+                }
+                Image {
+                    id: astronautImage
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_solo.svg"
+                    sourceSize: Qt.size(1.2 * 248, 1.2 * 202)   // (248, 202) is base aspect ratio
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: subtitleText.bottom
+                        topMargin: 100
+                    }
+                }
+                OnboardingButton {
+                    id: openWalletButton
+                    text: qsTr("Open Wallet")
+                    onPressed: opacityAnimation.start()
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        bottom: parent.bottom
+                        bottomMargin: 30
+                    }
+                }
+            }
+        }
+    }
+    Component {
+        id: poolMinerCompleteView
+        Item {
+            Image {
+                id: backgroundStarsImage
+                source: "qrc:/resources/icons/onboarding/bg_onboarding_stars.svg"
+                sourceSize: Qt.size(width, height)
+                anchors.fill: parent
+                Text {
+                    id: completeText
+                    text: qsTr("Congratulations, Pool Miner!")
+                    color: MMPTheme.cWhite
+                    font.pixelSize: 24
+                    font.weight: Font.Medium
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: parent.top
+                        topMargin: 80
+                    }
+                }
+                Text {
+                    id: subtitleText
+                    text: qsTr("You have successfully set up your wallet in pool mining mode")
+                    color: MMPTheme.cWhite
+                    font.pixelSize: 14
+                    font.weight: Font.Medium
+                    opacity: 0.7
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: completeText.bottom
+                        topMargin: 20
+                    }
+                }
+                Image {
+                    id: planetImage
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_pool.svg"
+                    sourceSize: Qt.size(320, 320)   // (320, 320) is base aspect ratio
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: subtitleText.bottom
+                        topMargin: 70
+                    }
+                }
+                OnboardingButton {
+                    id: openWalletButton
+                    text: qsTr("Open Wallet")
+                    onPressed: opacityAnimation.start()
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        bottom: parent.bottom
+                        bottomMargin: 30
+                    }
+                }
+            }
+        }
+    }
+    Component {
+        id: stakerCompleteView
+        Item {
+            Image {
+                id: backgroundStarsImage
+                source: "qrc:/resources/icons/onboarding/bg_onboarding_stars.svg"
+                sourceSize: Qt.size(width, height)
+                anchors.fill: parent
+                Text {
+                    id: completeText
+                    text: qsTr("Congratulations, Staker!")
+                    color: MMPTheme.cWhite
+                    font.pixelSize: 24
+                    font.weight: Font.Medium
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: parent.top
+                        topMargin: 80
+                    }
+                }
+                Text {
+                    id: subtitleText
+                    text: qsTr("You have successfully set up your wallet in staking mode")
+                    color: MMPTheme.cWhite
+                    font.pixelSize: 14
+                    font.weight: Font.Medium
+                    opacity: 0.7
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: completeText.bottom
+                        topMargin: 20
+                    }
+                }
+                Image {
+                    id: spaceshipImage
+                    z: 10
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_investor.svg"
+                    sourceSize: Qt.size(120, 156)   // (120, 156) is base aspect ratio
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: subtitleText.bottom
+                        topMargin: 100
+                    }
+                }
+                Image {
+                    id: trailImage1
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_investor_ln1.svg"
+                    sourceSize: Qt.size(parent.width, parent.height-y)
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: spaceshipImage.bottom
+                        topMargin: -20
+                    }
+                }
+                Image {
+                    id: trailImage2
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_investor_ln2.svg"
+                    sourceSize: Qt.size(parent.width, parent.height-y)
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: spaceshipImage.bottom
+                        topMargin: -20
+                    }
+                }
+                Image {
+                    id: trailImage3
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_investor_ln3.svg"
+                    sourceSize: Qt.size(parent.width, parent.height-y)
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        top: spaceshipImage.bottom
+                        topMargin: -20
+                    }
+                }
+                Image {
+                    id: cloudImage1
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_investor_shp1.svg"
+                    sourceSize: Qt.size(132, 57)   // (132, 57) is base aspect ratio
+                    anchors {
+                        right: spaceshipImage.left
+                        rightMargin: -5
+                        verticalCenter: spaceshipImage.verticalCenter
+                    }
+                }
+                Image {
+                    id: cloudImage2
+                    source: "qrc:/resources/icons/onboarding/img_onboarding_congrats_investor_shp2.svg"
+                    sourceSize: Qt.size(132, 57)   // (132, 57) is base aspect ratio
+                    anchors {
+                        bottom: spaceshipImage.top
+                        left: spaceshipImage.right
+                        leftMargin: -20
+                        bottomMargin: 0
+                    }
+                }
+                OnboardingButton {
+                    id: openWalletButton
+                    text: qsTr("Open Wallet")
+                    onPressed: opacityAnimation.start()
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        bottom: parent.bottom
+                        bottomMargin: 30
+                    }
                 }
             }
         }

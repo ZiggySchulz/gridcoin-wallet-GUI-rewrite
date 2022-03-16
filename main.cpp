@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.addImportPath(":/plugins/");
-    const QUrl url(QStringLiteral("qrc:/OnboardingWindow.qml"));
+    const QUrl url(QStringLiteral("qrc:/WindowManager.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
