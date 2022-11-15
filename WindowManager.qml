@@ -5,10 +5,16 @@ import Qt.labs.platform 1.1 //Available in Qt 5/6
 Item {
     //Acts as the parent item for windows. This is to prevent unwanted garbage collection
     id: root
-    Component.onCompleted: showOnboardingWindow()
+    Component.onCompleted: showMainWindow()
     SystemTrayIcon {
         visible: true
         icon.source: "qrc:/resources/icons/logos/ic_logo_app_gradient_white.svg"
+        menu: Menu {
+            MenuItem {
+                text: qsTr("Quit")
+                onTriggered: Qt.quit()
+            }
+        }
     }
     MenuBar {
         Menu {
