@@ -4,7 +4,7 @@ import MMPTheme 1.0
 MouseArea {
     id: mouseArea
     property string urlString: "https://gridcoin.us"
-    property string displayString
+    property string displayString   //Set to show text different from link
     width: linkIcon.implicitWidth + linkLabel.implicitWidth + linkLabel.anchors.leftMargin
     height: 15
     cursorShape: Qt.PointingHandCursor
