@@ -21,7 +21,7 @@ Window {
     property int totalWeight: 45837217
 
     Shortcut {
-        sequence: StandardKey.Close
+        sequences: [StandardKey.Close]
         onActivated: window.close()
     }
 

@@ -30,7 +30,7 @@ Rectangle{
             spacing: 30
             property Item currentItem: generalSettingsTabButton
             Shortcut {
-                sequence: StandardKey.MoveToNextPage
+                sequences: [StandardKey.MoveToNextPage]
                 onActivated: {
                     switch(tabMenuRowLayout.currentItem) {
                     case generalSettingsTabButton:
@@ -51,7 +51,7 @@ Rectangle{
                 }
             }
             Shortcut {
-                sequence: StandardKey.MoveToPreviousPage
+                sequences: [StandardKey.MoveToPreviousPage]
                 onActivated: {
                     switch(tabMenuRowLayout.currentItem) {
                     case generalSettingsTabButton:

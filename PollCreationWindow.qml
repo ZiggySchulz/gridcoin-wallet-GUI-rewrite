@@ -13,7 +13,7 @@ Window {
     minimumHeight: 450
     flags: Qt.Dialog
     Shortcut {
-        sequence: StandardKey.Close
+        sequences: [StandardKey.Close]
         onActivated: window.close()
     }
 
