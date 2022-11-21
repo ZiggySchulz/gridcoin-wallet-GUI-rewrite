@@ -11,7 +11,7 @@ Window {
     minimumWidth: 450
     minimumHeight: 250
     flags: Qt.Dialog
-    property alias title: titleLabel.text
+    property alias title: titleLabel.text //TODO refactor this to a new name
     property int startDate: 0
     property int endDate: 100000
     property string pollDescription: "Description"
