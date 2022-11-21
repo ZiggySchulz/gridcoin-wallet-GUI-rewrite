@@ -490,7 +490,6 @@ Rectangle {
                         windowObj.topAnswer = model.bestAnswer
                         windowObj.show()
                     }
-
                     anchors {
                         right: parent.right
                         rightMargin: 10
@@ -502,6 +501,12 @@ Rectangle {
                     text: qsTr("Vote")
                     icon.source: MMPTheme.isLightTheme ? "resources/icons/buttons/ic_btn_vote_light.svg" : "resources/icons/buttons/ic_btn_vote_dark.svg"
                     visible: Time.currentTime < new Date(model.expires*1000)
+                    onPressed: {
+                        var component = Qt.createComponent("PollVoteWindow.qml")
+                        var windowObj = component.createObject(window)
+                        windowObj.show()
+                    }
+
                     anchors {
                         right: detailsButton.left
                         rightMargin: 10

@@ -299,5 +299,6 @@
         <file>resources/icons/onboarding/iс_pool_inactive.svg</file>
         <file>resources/icons/onboarding/iс_solo_active.svg</file>
         <file>resources/icons/onboarding/iс_solo_inactive.svg</file>
+        <file>PollVoteWindow.qml</file>
     </qresource>
 </RCC>
