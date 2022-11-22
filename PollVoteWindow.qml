@@ -13,7 +13,7 @@ Window {
     flags: Qt.Dialog
 
     property string moreInfoURL: "https://gridcoin.us"
-    property bool multipleChoice: true
+    property bool multipleChoice: false
     property alias pollTitle: pollTitleLabel.text
     Shortcut {
         sequences: [StandardKey.Close]
@@ -31,7 +31,7 @@ Window {
             radius: 4
             anchors {
                 top: parent.top
-                bottom: parent.bottom
+                bottom: submitVoteButton.top
                 left: parent.left
                 right: parent.right
                 margins: 10
@@ -77,6 +77,7 @@ Window {
             ListView {
                 id: voteOptionsListView
                 clip: true
+                spacing: 10
                 anchors {
                     left: parent.left
                     right: parent.right
@@ -88,18 +89,66 @@ Window {
                     id: answerModel
                     ListElement {
                         answerTitle: "Yes"
+                        checked: false
                     }
                     ListElement {
                         answerTitle: "No"
+                        checked: false
                     }
                     ListElement {
                         answerTitle: "Abstain"
+                        checked: false
+                    }
+                }
+                ButtonGroup { //Provises mutually exclusive buttons
+                    id: optionButtonGroup
+                }
+
+                delegate: Item {
+                    id: optionDelegate
+                    height: votechoiceLoader.implicitHeight
+                    width: parent.width
+                    Loader {
+                        id: votechoiceLoader
+                        sourceComponent: multipleChoice ? votecheckboxComponent : voteradioComponent
+                        Component {
+                            id: votecheckboxComponent
+                            CheckBox {
+                                id: voteCheckBox
+                                width: voteOptionsListView.width
+                                text: model.answerTitle
+                                onCheckedChanged: model.checked = checked
+                            }
+                        }
+                        Component {
+                            id: voteradioComponent
+                            RadioButton {
+                                id: voteRadioButton
+                                text: model.answerTitle
+                                width: voteOptionsListView.width
+                                ButtonGroup.group: optionButtonGroup
+                                onCheckedChanged: model.checked = checked
+                            }
+                        }
                     }
                 }
             }
 
+        }
 
-
+        Button {
+            id: submitVoteButton
+            icon.source: MMPTheme.themeSelect("qrc:/resources/icons/buttons/ic_btn_vote_light.svg", "qrc:/resources/icons/buttons/ic_btn_vote_dark.svg")
+            text: qsTr("Vote")
+            onPressed: {
+                //TODO: Send vote and show confirmation
+                window.close()
+            }
+            anchors {
+                bottom: parent.bottom
+                right: parent.right
+                margins: 10
+            }
         }
     }
 }
