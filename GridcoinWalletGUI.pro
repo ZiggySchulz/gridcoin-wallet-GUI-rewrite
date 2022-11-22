@@ -1,5 +1,6 @@
 QT += quick
 QT += svg
+QT += widgets
 
 CONFIG += c++11
 CONFIG += sdk_no_version_check #Temporary for testing
