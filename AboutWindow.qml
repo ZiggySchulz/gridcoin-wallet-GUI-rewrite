@@ -14,7 +14,7 @@ Window {
     maximumHeight: minimumHeight
     maximumWidth: minimumWidth
     Shortcut {
-        sequence: StandardKey.Close
+        sequences: [StandardKey.Close]
         onActivated: window.close()
     }
     Rectangle {
@@ -61,8 +61,8 @@ Window {
                 topMargin: 5
             }
         }
-        ColumnLayout {
-            id: textColumnLayout
+        Column{
+            id: textColumn
             spacing: 20
             anchors {
                 left: gridcoinText.right
@@ -80,13 +80,13 @@ Window {
                 text: qsTr("This is experimental software.")
             }
             Text {
-                Layout.fillWidth: true
+                width: parent.width
                 color: MMPTheme.textColor
                 wrapMode: Text.WordWrap
                 text: qsTr("Distributed under the MIT/X11 software license, see the accompanying file COPYING or https://www.opensource.org/licenses/mit-license.php.")
             }
             Text {
-                Layout.fillWidth: true
+                width: parent.width
                 color: MMPTheme.textColor
                 wrapMode: Text.WordWrap
                 text: qsTr("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (https://openssl.org) and cryptographic software written by Eric Young (eay@cryptsoft) and UPnP software written by Thomas Bernard.")
