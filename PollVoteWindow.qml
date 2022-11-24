@@ -96,7 +96,11 @@ Window {
                         checked: false
                     }
                     ListElement {
-                        answerTitle: "Abstain"
+                        answerTitle: "AbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstain AbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstainAbstain"
+                        checked: false
+                    }
+                    ListElement {
+                        answerTitle: "Maybe"
                         checked: false
                     }
                 }
@@ -110,24 +114,52 @@ Window {
                     width: parent.width
                     Loader {
                         id: votechoiceLoader
+                        width: voteOptionsListView.width
                         sourceComponent: multipleChoice ? votecheckboxComponent : voteradioComponent
                         Component {
                             id: votecheckboxComponent
-                            CheckBox {
-                                id: voteCheckBox
+                            MouseArea {
+                                implicitHeight: Math.max(voteCheckBox.implicitHeight, voteCheckBoxLabel.implicitHeight)
                                 width: voteOptionsListView.width
-                                text: model.answerTitle
-                                onCheckedChanged: model.checked = checked
+                                onPressed: voteCheckBox.toggle()
+                                CheckBox {
+                                    id: voteCheckBox
+                                    onCheckedChanged: model.checked = checked
+                                    anchors.left: parent.left
+                                }
+                                Text {
+                                    id: voteCheckBoxLabel
+                                    text: model.answerTitle
+                                    wrapMode: Text.Wrap
+                                    anchors {
+                                        left: voteCheckBox.right
+                                        leftMargin: 5
+                                        right: parent.right
+                                    }
+                                }
                             }
                         }
                         Component {
                             id: voteradioComponent
-                            RadioButton {
-                                id: voteRadioButton
-                                text: model.answerTitle
+                            MouseArea {
+                                implicitHeight: Math.max(voteRadioButton.implicitHeight, voteRadioButtonLabel.implicitHeight)
                                 width: voteOptionsListView.width
-                                ButtonGroup.group: optionButtonGroup
-                                onCheckedChanged: model.checked = checked
+                                onPressed: voteRadioButton.toggle()
+                                RadioButton {
+                                    id: voteRadioButton
+                                    ButtonGroup.group: optionButtonGroup
+                                    onCheckedChanged: model.checked = checked
+                                }
+                                Text {
+                                    id: voteRadioButtonLabel
+                                    text: model.answerTitle
+                                    wrapMode: Text.Wrap
+                                    anchors {
+                                        left: voteRadioButton.right
+                                        leftMargin: 5
+                                        right: parent.right
+                                    }
+                                }
                             }
                         }
                     }
@@ -140,6 +172,16 @@ Window {
             id: submitVoteButton
             icon.source: MMPTheme.themeSelect("qrc:/resources/icons/buttons/ic_btn_vote_light.svg", "qrc:/resources/icons/buttons/ic_btn_vote_dark.svg")
             text: qsTr("Vote")
+            enabled: {
+                //Loop through model and check if any answers are selected
+                for( var i = 0; i < answerModel.rowCount(); i++ ) {
+                    if (answerModel.get(i).checked) {
+                        return true
+                    }
+                }
+                return false
+            }
+
             onPressed: {
                 //TODO: Send vote and show confirmation
                 window.close()
