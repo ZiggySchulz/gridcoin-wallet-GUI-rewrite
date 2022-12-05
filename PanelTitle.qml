@@ -1,3 +1,6 @@
+/*
+    A text header with an underline, typically used for a 'panel' of information
+*/
 import QtQuick 2.15
 import MMPTheme 1.0
 Item {

@@ -1,3 +1,7 @@
+/*
+    Item used in overview view to show recent transactions alongside an icon
+    Each state represents a different transaction type
+*/
 import QtQuick 2.15
 import QtQml 2.15
 import MMPTheme 1.0

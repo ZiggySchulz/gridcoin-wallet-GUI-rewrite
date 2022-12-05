@@ -1,3 +1,7 @@
+/*
+    Provides a blue clickable hyperlink with an icon identifying it as an external resource.
+    The displayed text can be set to different from the link by setting displayString
+*/
 import QtQuick 2.15
 import MMPTheme 1.0
 

@@ -1,3 +1,7 @@
+/*
+    Gradiented rectangle with headers used at the top of a table
+    Allows for the changing of sort order
+*/
 import QtQuick 2.15
 import MMPTheme 1.0
 

@@ -1,3 +1,6 @@
+/*
+    The primary window of the wallet containg the various views and a menu to select from them
+*/
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15

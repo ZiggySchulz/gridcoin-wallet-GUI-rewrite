@@ -1,3 +1,6 @@
+/*
+    Provides an image which can be given different colours programmatically with tintColor
+*/
 import QtQuick 2.15
 import QtGraphicalEffects 1.15
 Item {

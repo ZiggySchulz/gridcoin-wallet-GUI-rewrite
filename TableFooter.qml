@@ -1,3 +1,6 @@
+/*
+    Gradiented rectangle sometimes used at the bottom of a table
+*/
 import QtQuick 2.15
 import MMPTheme 1.0
 

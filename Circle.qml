@@ -1,3 +1,7 @@
+/*
+    A simple class to improve readability. Creates a circle with radius: radius
+*/
+
 import QtQuick 2.15
 
 Rectangle {

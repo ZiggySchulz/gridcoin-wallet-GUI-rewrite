@@ -1,3 +1,4 @@
+//A testing view used to check various controlls. Not for end users
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import MMPTheme 1.0

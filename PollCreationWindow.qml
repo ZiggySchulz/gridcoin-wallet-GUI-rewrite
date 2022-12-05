@@ -1,4 +1,7 @@
-﻿import QtQuick 2.15
+﻿/*
+    A window for the creation of polls
+*/
+import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15

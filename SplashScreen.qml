@@ -1,3 +1,6 @@
+/*
+    Splash Screem shown on startup allowing for the wallet to load
+*/
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15

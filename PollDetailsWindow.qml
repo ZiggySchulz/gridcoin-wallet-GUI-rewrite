@@ -1,3 +1,6 @@
+/*
+    A window showing detailed information about a poll such as the poll description and current votes
+*/
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15

@@ -1,3 +1,6 @@
+/*
+    A setup window presented to new users guiding them with the new user experience.
+*/
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
