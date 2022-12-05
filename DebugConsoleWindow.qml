@@ -13,7 +13,7 @@ Window {
     minimumHeight: 450
     flags: Qt.Dialog
     Shortcut {
-        sequence: StandardKey.Close
+        sequences: [StandardKey.Close]
         onActivated: window.close()
     }
     Rectangle {
@@ -38,7 +38,7 @@ Window {
             spacing: 30
             property Item currentItem: informationTabButton
             Shortcut {
-                sequence: StandardKey.MoveToNextPage
+                sequences: [StandardKey.MoveToNextPage]
                 onActivated: {
                     switch(tabMenuRowLayout.currentItem) {
                     case informationTabButton:
@@ -59,7 +59,7 @@ Window {
                 }
             }
             Shortcut {
-                sequence: StandardKey.MoveToPreviousPage
+                sequences: [StandardKey.MoveToPreviousPage]
                 onActivated: {
                     switch(tabMenuRowLayout.currentItem) {
                     case informationTabButton:
